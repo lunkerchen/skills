@@ -21,7 +21,7 @@ Pick the skills you want, and which agents to install them on.
 
 Most agent failure comes from missing context, missing feedback loops, and process that owns you instead of you owning it. These skills encode the fixes:
 
-- **Alignment before execution** — grilling sessions, QA scenario design, structured interviews
+- **Alignment before execution** — structured interviews, QA scenario design, domain models
 - **Feedback loops** — static checks, verification gates, audit-before-publish
 - **Discipline over ceremony** — small skills that compose, never process frameworks that take over
 
@@ -31,46 +31,71 @@ Most agent failure comes from missing context, missing feedback loops, and proce
 
 Enterprise AI adoption for real businesses — change management without resistance, FDE delivery frameworks.
 
-- `enterprise-ai-adoption` — 企業 AI 導入的組織採用戰役
-- `deep-interview` — 結構化目標澄清：模糊需求 → 一次一問 → 三個維度全 clear
-- `multi-agent-debate` — 多代理辯論：對抗式討論收斂到更好結論
-- `qa-scenario-design` — 品質證據設計：implement 前先設計 QA scenarios
+- `enterprise-ai-adoption` — frictionless enterprise AI adoption: prove value, reduce fear, let peers lead
+- `fde-framework` — FDE playbook: PSF, MVD, shadow work, outcome pricing, career path
+- `deep-interview` — one question at a time until goals, constraints, and success criteria are clear
+- `qa-scenario-design` — design QA scenarios and failure modes before implementing, with evidence grading
+- `subagent-efficiency` — know when direct execution beats spawning a subagent — and when it doesn't
 
-### engineering
+### automation
 
-Cloud and infrastructure workflows, hardened by production use.
+Forms, notifications, and integrations that run businesses.
 
-- `cloudflare-deploy` — 一鍵 commit + deploy Cloudflare Workers/Pages/D1
-- `mcp-worker-deploy` — 部署 MCP stateless servers 到 CF Workers
-- `hono-workers-testing` — Hono/Workers backend 測試
-- `static-html-biome-audit` — Biome lint for single HTML files
+- `gas-form-backend` — free Google Apps Script backend for static forms: Sheets, email, LINE push
+- `line-messaging-api` — push form submissions to LINE official accounts or support groups via Messaging API
+- `cloudflare-email-service` — send and route transactional email with Cloudflare Email Service and Workers
+- `turnstile-spin` — end-to-end Cloudflare Turnstile bot protection: widget, siteverify, validation, framework guides
+- `coupang-partners-api` — Coupang Partners Taiwan affiliate API: HMAC signing, search, deeplinks, reports
+- `gmail-inbox-organizer` — automated Gmail triage: label emails by sender and subject, archive promotions
+- `web-monitor` — cron-based web page change monitoring with fingerprinting and silent-when-unchanged alerts
+- `scan-automation` — automate system dependency scans, parse NDJSON, log trends, debug hangs
+- `obsidian-cli` — drive Obsidian from the CLI: notes, tasks, search, plugin and theme development
 
 ### content
 
 Writing and publishing workflows with an anti-AI-slop core.
 
-- `stop-slop` — 去除 AI 寫作味
-- `s2t-taiwan` — 簡體轉台灣繁體
-- `gzh-design` — 微信公眾號文章排版引擎
-- `vocus-article-writing-sop` — 方格子深度文章寫作風格固化
+- `stop-slop` — strip AI clichés and robotic cadence from your writing before publishing
+- `writing-humanizer` — audit and rewrite AI-sounding text into natural, human voice
+- `s2t-taiwan` — convert Simplified Chinese to Taiwan Traditional Chinese with proper terminology
+- `html-article-author` — convert markdown to standalone dark-themed HTML articles with CJK fonts
+- `vocus-article-writing-sop` — turn AI-tool briefings into polished long-form tech journalism for vocus
+- `markdown-to-podcast` — turn markdown articles into podcast WAVs with neural TTS and piano intro
+- `youtube-content` — fetch YouTube transcripts and convert them into summaries, threads, and blogs
+
+### design
+
+Distinctive single-file HTML design systems.
+
+- `night-sky-design` — dark night-sky single-file HTML theme with brand gradient accents for decks and pages
+- `rwd-mobile-rules` — mandatory mobile RWD rules for every HTML artifact: viewport, grids, touch targets, nav
+- `static-html-polish` — audit-harden-verify pipeline adding RWD, SEO/GEO, and a11y to static HTML pages
+- `popular-web-designs` — 54 real-world design systems (Stripe, Linear, Vercel…) with ready-to-use CSS tokens
+
+### engineering
+
+Cloud and infrastructure workflows, hardened by production use.
+
+- `mcp-worker-deploy` — deploy stateless MCP 2026-07-28 servers to Cloudflare Workers, auth-first
+- `hono-workers-testing` — test Hono/Workers backends: vitest, D1 mocks, fake executionCtx patterns
+- `github-code-review` — full code-review pipeline: pre-push review, PR comments, security scan
+- `linter-configuration` — emit Biome/Prettier configs matching existing project style, zero churn
+- `static-html-biome-audit` — lint standalone HTML with Biome; fix CSS, a11y, semantics
+- `typescript-project-verify` — five verification gates for TypeScript monorepos: tsc, vitest, build, format, smoke
+- `npm-global-upgrade` — upgrade global npm packages safely: allow-scripts, symlinks, OSV triage
+- `local-dev-server-startup` — start dev servers safely beside launchd/brew-managed services; fix port conflicts
 
 ### seo-geo
 
 Search + generative engine optimization for real websites.
 
-- `geolook-tw` — GeoLook GEO analysis for Taiwan market
-- `static-site-geo` — SEO/GEO implementation patterns for static HTML sites
-- `spa-geo-crawlability` — Fill SPA empty HTML via Edge Functions for AI crawlers
-- `geo-content-reformatting` — Reformat H2/H3 into GEO-friendly QA headings
-
-### automation
-
-Forms, notifications, and API integrations that run businesses.
-
-- `gas-form-backend` — 靜態表單接 Google Apps Script 後端
-- `line-messaging-api` — 表單資料自動送 LINE 官方帳號
-- `turnstile-spin` — Cloudflare Turnstile end-to-end
-- `cloudflare-email-service` — Transactional email with Cloudflare Email
+- `modern-seo-strategy` — integrated SEO+GEO strategy: semantic maps, EEAT, AI citation optimization, five-phase plan
+- `static-site-geo` — GEO/SEO patterns for static sites: JSON-LD, sitemaps, OG images, llms.txt, build verification
+- `spa-geo-crawlability` — fill SPA shells with prerendered content via Edge Functions so AI crawlers see text
+- `geo-content-reformatting` — rewrite H2/H3 headings into question form for AI-search visibility, zero design change
+- `geo-article-friendly` — refit existing articles for AI search: evidence, structure, semantics — preserving the author's voice
+- `site-seo-geo-audit` — whole-site SEO+GEO audit workflow: reconnaissance, schema checks, content gaps, priority matrix
+- `webapp-geo-optimization` — invisible GEO optimization for web apps: structured data, JSON-LD, sitemaps, OG images
 
 ## Example request
 
@@ -84,8 +109,7 @@ Forms, notifications, and API integrations that run businesses.
 
 ```
 skills/<category>/<skill-name>/SKILL.md   ← the skills
-scripts/                                  ← sync + scan tooling
-registry/skills.json                      ← machine-readable inventory
+scripts/                                  ← sync + scan + sanitize tooling
 docs/                                     ← contribution guide
 .out-of-scope/                            ← why some skills are NOT here
 ```

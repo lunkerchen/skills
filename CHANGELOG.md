@@ -2,8 +2,8 @@
 
 ## [0.1.0] — 2026-08-02
 
-- Initial scaffold: repo structure, bilingual README, MIT license, CI validator, sync tooling.
-- Skill curation in progress (v1 target: 20-30 skills across 5 categories).
+- Initial release candidate: 40 skills across 6 categories (ai-adoption, automation, content, design, engineering, seo-geo).
+- Repo structure, bilingual README, MIT license, CI validator, sync + sanitize tooling.
 
 ## Unreleased
 
