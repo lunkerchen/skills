@@ -67,6 +67,16 @@ SPECIFIC_RULES: dict[str, list[tuple[str, str]]] = {
     "enterprise-ai-adoption": [
         ("Laban 的專案", "使用者的專案"),
     ],
+    "coupang-partners-api": [
+        ("f0366df97500", "YOUR_CRON_JOB_ID"),
+        ("咖啡, 泡麵, 零食, 衛生紙, 洗衣精", "咖啡, 泡麵, 零食"),
+    ],
+    "scan-automation": [
+        ("bumblebee", "your-scanner"),
+    ],
+    "gmail-inbox-organizer": [
+        ("/opt/homebrew/bin/gws", "gws"),
+    ],
     "static-site-geo": [
         ("Cheng Jung Chen / Laban", "the site owner"),
         ("known as Laban and", "known as"),
@@ -100,6 +110,9 @@ GLOBAL_RULES: list[tuple[str, str]] = [
     ("report-with-photos", "your-demo"),
     ("github.com/lunker", "github.com/your-handle"),
     ("lunkertw", "your-handle"),
+    ("coupang-affiliate-bot", "your-affiliate-bot"),
+    ("nail-booking", "your-booking-app"),
+    ("yongzhi-course-landing", "your-course-landing"),
 ]
 
 # Files/dirs removed from the mirrored copy (never from canonical).
@@ -107,6 +120,7 @@ DELETE_PATHS: dict[str, list[str]] = {
     "youtube-content": ["scripts/__pycache__"],
     "mcp-worker-deploy": ["references/tavily-worker.md"],
     "local-dev-server-startup": ["references/omniroute-dev-conflict.md"],
+    "web-monitor": ["references/momo-gift-monitor.md"],
 }
 
 # Files renamed in the mirrored copy (content rules cannot touch filenames).

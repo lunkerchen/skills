@@ -36,3 +36,14 @@ engineering/fde-framework	ai-adoption
 autonomous-ai-agents/deep-interview	ai-adoption
 autonomous-ai-agents/qa-scenario-design	ai-adoption
 autonomous-ai-agents/subagent-efficiency	ai-adoption	sanitize
+
+# --- automation ---
+content-publishing/line-messaging-api	automation	sanitize
+cloudflare-email-service	automation
+turnstile-spin	automation
+productivity/gmail-inbox-organizer	automation	sanitize
+note-taking/obsidian-cli	automation
+productivity/gas-form-backend	automation	sanitize
+devops/web-monitor	automation	sanitize
+system/scan-automation	automation	sanitize
+content-publishing/coupang-partners-api	automation	sanitize
