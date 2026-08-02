@@ -105,7 +105,7 @@ C2C 上架「至少一張圖」類的業務規則，若 create 即公開、圖�
 5. 前端 submit 同步擋（sell 零圖 → error），編輯頁要計入既有圖（`item.images.length + 新圖數`）
 6. 搜尋/列表 SQL 通常只查 `status='active'` — draft 自動不可見，檢查確認即可
 
-測試案例清單（見 your-project `test/listings-image-required.test.ts`）：draft 建立 / 豁免類型（seek 無圖需求）/
+測試案例清單（見 brick-loop `backend-api/test/listings-image-required.test.ts`）：draft 建立 / 豁免類型（seek 無圖需求）/
 owner-only 可見 / 上圖轉 active / PATCH 阻擋 / 刪圖退回。
 
 **輕量守衛替代方案**（不想動 create/通知流程時）：不引入 draft 兩階段，直接

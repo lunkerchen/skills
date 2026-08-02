@@ -65,11 +65,11 @@ SPECIFIC_RULES: dict[str, list[tuple[str, str]]] = {
         ("labangram.kamera-ichi.com", "your-app.example.com"),
     ],
     "static-site-geo": [
-        ("['Laban', '@your-brand']", "['@your-brand']"),
-        ("['Laban', '@your-brand']", "['@your-brand']"),
+        ("Cheng Jung Chen / Laban", "the site owner"),
+        ("known as Laban and", "known as"),
+        ("['Laban', '@labangram']", "['@your-brand']"),
         (" / Laban:", ":"),
         (" / Laban", ""),
-        ("known as Laban and", "known as"),
     ],
 }
 

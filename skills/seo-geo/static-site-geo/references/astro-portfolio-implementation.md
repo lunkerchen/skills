@@ -39,7 +39,7 @@ const siteJsonLd = {
       '@type': 'Person',
       '@id': `${site}/#person`,
       name: 'the site owner',
-      alternateName: ['Laban', '@your-brand'],
+      alternateName: ['@your-brand'],
       url: site,
       jobTitle: ['Commercial Photographer', 'Independent Developer'],
       homeLocation: { '@type': 'Country', name: 'Taiwan' },
