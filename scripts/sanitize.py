@@ -64,6 +64,9 @@ SPECIFIC_RULES: dict[str, list[tuple[str, str]]] = {
     "site-seo-geo-audit": [
         ("labangram.kamera-ichi.com", "your-app.example.com"),
     ],
+    "enterprise-ai-adoption": [
+        ("Laban 的專案", "使用者的專案"),
+    ],
     "static-site-geo": [
         ("Cheng Jung Chen / Laban", "the site owner"),
         ("known as Laban and", "known as"),

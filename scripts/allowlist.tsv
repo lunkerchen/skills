@@ -29,3 +29,10 @@ seo/static-site-geo	seo-geo	sanitize
 seo/spa-geo-crawlability	seo-geo	sanitize
 geo-article-friendly	seo-geo	sanitize
 seo/webapp-geo-optimization	seo-geo	sanitize
+
+# --- ai-adoption ---
+engineering/enterprise-ai-adoption	ai-adoption	sanitize
+engineering/fde-framework	ai-adoption
+autonomous-ai-agents/deep-interview	ai-adoption
+autonomous-ai-agents/qa-scenario-design	ai-adoption
+autonomous-ai-agents/subagent-efficiency	ai-adoption	sanitize
