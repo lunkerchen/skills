@@ -1,0 +1,3 @@
+# Canonical source allowlist — one skill per line.
+# Format: <canonical-relative-path-in-~/.hermes/skills>\t<repo-category>
+# Populated by the curation pass; run scripts/sync.sh to mirror.
