@@ -41,6 +41,18 @@ PERSONAL_NAME_PATTERNS = (
     re.compile(r"\bCheng Jung Chen\b"),
 )
 FORBIDDEN_FILES = {".env", ".env.*", "*.pem", "*.key", "*.p12", "*.jks"}
+# Lines containing these markers are placeholder assignments (YOUR_..., EXAMPLE...),
+# not real secrets — skip them.
+PLACEHOLDER_HINTS = (
+    "YOUR_",
+    "YOUR-",
+    "EXAMPLE",
+    "example.com",
+    "<your",
+    "CHANGE_ME",
+    "placeholder",
+    "TODO",
+)
 FRONTMATTER_NAME = re.compile(r"(?m)^name:\s*[\"']?([^\"'\n]+)")
 FRONTMATTER_DESC = re.compile(r"(?m)^description:\s*(.*)$")
 
@@ -52,8 +64,9 @@ def scan_file(path: Path) -> list[str]:
     except Exception:
         return [f"{path}: unreadable"]
     for i, line in enumerate(text.splitlines(), 1):
+        placeholder = any(h in line for h in PLACEHOLDER_HINTS)
         for pat in SECRET_PATTERNS:
-            if pat.search(line):
+            if pat.search(line) and not placeholder:
                 findings.append(f"{path}:{i}: secret pattern {pat.pattern[:30]}...")
                 break
         for pat in PRIVATE_PATH_PATTERNS:

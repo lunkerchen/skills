@@ -77,6 +77,9 @@ SPECIFIC_RULES: dict[str, list[tuple[str, str]]] = {
     "gmail-inbox-organizer": [
         ("/opt/homebrew/bin/gws", "gws"),
     ],
+    "web-monitor": [
+        ("momo-gift", "monitored-site"),
+    ],
     "static-site-geo": [
         ("Cheng Jung Chen / Laban", "the site owner"),
         ("known as Laban and", "known as"),

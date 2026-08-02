@@ -141,7 +141,7 @@ Browser automation requires managing Chrome/Chromium lifecycle in a cron context
 - **Page redesign**: If the website changes its HTML structure, the selectors break silently. The user just stops getting alerts. Periodically verify the script still works manually.
 - **Network failures**: On timeout/5xx, exit with code 0 and empty stdout to avoid false alerts. The Cron Health Monitor (`agent-maintenance` skill) catches persistent failures across multiple runs.
 - **Symlinks not supported**: `$HERMES_HOME/scripts/` rejects symlinks pointing outside the directory. Use `cp` for standalone copies.
-- **State file naming**: Prefix with `.` so `ls` doesn't clutter the scripts directory — e.g. `.momo-gift-state.json`.
+- **State file naming**: Prefix with `.` so `ls` doesn't clutter the scripts directory — e.g. `.monitored-site-state.json`.
 - **Path to script**: `$HERMES_HOME/scripts/` is the default. The cron scheduler resolves relative script paths there.
 - **Dependency drift**: If you upgrade `requests` or `beautifulsoup4`, verify the script still works. Add a version check or a periodic manual test.
 - **Multiple monitors per product page**: If you monitor both price AND gifts, use two separate data keys in the state file or two separate state files — don't mix concerns.
