@@ -21,7 +21,7 @@ Single HTML (~64KB) with inline `<style>` and inline `<script>`. Hand-drawn wire
 - CTA meta badge lists are good candidates for `<ul>` semantic conversion
 - Always add `list-style: none; margin: 0; padding: 0` when converting `<div>` to `<ul>`
 
-## 2. course-landing-yongtai (批貨課程網站)
+## 2. your-course-landing (批貨課程網站)
 
 ### Context
 Landing page updated in 3 rounds (course months → Sep–Dec, featured badge move, 6 testimonial cards), then `biome check` run as a pre-deploy gate. Single `index.html` + GAS backend (`Code.gs`) + vitest tests.
@@ -43,7 +43,7 @@ $ ./node_modules/.bin/biome check --files-ignore-unknown=true .  # ✅ exit 0
 
 ### Non-biome findings during verification
 - **Card-count check:** 6th testimonial card used `reveal-delay-6`, but CSS only defined up to `reveal-delay-5` → added the missing class + tablet `repeat(2,1fr)` breakpoint.
-- **Worktree trap:** `.worktrees/v2` (branch `v2`) still had Jul/Aug dates; vitest ran BOTH main and v2 test suites (76 = 38×2, all pass). Checked `git worktree list` + `.vercel/project.json` (project `course-landing-yongtai`) to confirm main was the deploy source.
+- **Worktree trap:** `.worktrees/v2` (branch `v2`) still had Jul/Aug dates; vitest ran BOTH main and v2 test suites (76 = 38×2, all pass). Checked `git worktree list` + `.vercel/project.json` (project `your-course-landing`) to confirm main was the deploy source.
 - **No remote:** `git remote -v` empty → changes only on local disk; committed locally (`060608c`) before deploy decision.
 - **Backend placeholder:** `SHEET_URL` in `api/submit.js` still `YOUR_DEPLOYMENT_ID` — form fails safely with a "尚未完成設定" message; not a blocker but flag it.
 

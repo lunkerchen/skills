@@ -48,6 +48,29 @@ SPECIFIC_RULES: dict[str, list[tuple[str, str]]] = {
         ("omniroute", "your-tool"),
         ("OmniRoute", "your-tool"),
     ],
+    "geo-article-friendly": [
+        ("Laban 客製版", "customized"),
+        ("（Laban）", ""),
+        ("Laban 的語氣", "the user's voice"),
+        ("Laban 版", "custom"),
+        ("Laban 專屬", "user-specific"),
+        ("Laban", "the user"),
+    ],
+    "webapp-geo-optimization": [
+        ("author: Laban", "author: community"),
+        ("Laban 版", "custom"),
+        ("Laban", "the user"),
+    ],
+    "site-seo-geo-audit": [
+        ("labangram.kamera-ichi.com", "your-app.example.com"),
+    ],
+    "static-site-geo": [
+        ("['Laban', '@your-brand']", "['@your-brand']"),
+        ("['Laban', '@your-brand']", "['@your-brand']"),
+        (" / Laban:", ":"),
+        (" / Laban", ""),
+        ("known as Laban and", "known as"),
+    ],
 }
 
 # Applied to every sanitized skill after SPECIFIC_RULES.
@@ -57,6 +80,23 @@ GLOBAL_RULES: list[tuple[str, str]] = [
     ("$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/Laban/", "$OBSIDIAN_VAULT/"),
     ("~/Developer/Projects/", "$DEV_PROJECTS/"),
     ("~/.hermes/", "$HERMES_HOME/"),
+    ("Cheng Jung Chen", "the site owner"),
+    ("Labangram", "YourBrand"),
+    ("labangram.com", "your-brand.example.com"),
+    ("labangram", "your-brand"),
+    ("kamera-ichi.com", "your-app.example.com"),
+    ("kamera-ichi", "your-app"),
+    ("Kamera-ichi", "your-project"),
+    ("camera-market.tw", "your-marketplace.example.com"),
+    ("camera-market", "your-marketplace"),
+    ("器材市集", "your-marketplace"),
+    ("fde-proposal.pages.dev", "your-proposal.pages.dev"),
+    ("course-landing-yongtai.vercel.app", "your-landing.vercel.app"),
+    ("course-landing-yongtai", "your-course-landing"),
+    ("report-with-photos.vercel.app", "your-demo.vercel.app"),
+    ("report-with-photos", "your-demo"),
+    ("github.com/lunker", "github.com/your-handle"),
+    ("lunkertw", "your-handle"),
 ]
 
 # Files/dirs removed from the mirrored copy (never from canonical).
@@ -64,6 +104,16 @@ DELETE_PATHS: dict[str, list[str]] = {
     "youtube-content": ["scripts/__pycache__"],
     "mcp-worker-deploy": ["references/tavily-worker.md"],
     "local-dev-server-startup": ["references/omniroute-dev-conflict.md"],
+}
+
+# Files renamed in the mirrored copy (content rules cannot touch filenames).
+RENAME_PATHS: dict[str, list[tuple[str, str]]] = {
+    "spa-geo-crawlability": [
+        ("references/kamera-ichi-cloudflare-implementation.md", "references/your-app-cloudflare-implementation.md"),
+    ],
+    "geo-content-reformatting": [
+        ("references/report-with-photos-implementation.md", "references/your-demo-implementation.md"),
+    ],
 }
 
 BINARY_SUFFIXES = {".pyc", ".pyo", ".png", ".jpg", ".jpeg", ".gif", ".webp", ".ico", ".pdf", ".woff", ".woff2"}
@@ -115,6 +165,13 @@ def main() -> int:
             else:
                 p.unlink()
             print(f"sanitize: deleted {rel}")
+    for src_rel, dst_rel in RENAME_PATHS.get(name, []):
+        src = target / src_rel
+        dst = target / dst_rel
+        if src.exists() and not dst.exists():
+            dst.parent.mkdir(parents=True, exist_ok=True)
+            src.rename(dst)
+            print(f"sanitize: renamed {src_rel} -> {dst_rel}")
     print(f"sanitize: {name} — {changed} file(s) rewritten")
     return 0
 

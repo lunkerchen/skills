@@ -38,6 +38,7 @@ PERSONAL_NAME_PATTERNS = (
     re.compile(r"\bLaban\b"),
     re.compile(r"\blunker\b"),
     re.compile(r"\blabanchen\b"),
+    re.compile(r"\bCheng Jung Chen\b"),
 )
 FORBIDDEN_FILES = {".env", ".env.*", "*.pem", "*.key", "*.p12", "*.jks"}
 FRONTMATTER_NAME = re.compile(r"(?m)^name:\s*[\"']?([^\"'\n]+)")

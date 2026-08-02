@@ -12,7 +12,7 @@ content-production/markdown-to-podcast	content	sanitize
 media/youtube-content	content	sanitize
 
 # --- engineering ---
-linter-configuration	engineering
+linter-configuration	engineering	sanitize
 github/github-code-review	engineering
 frontend/static-html-biome-audit	engineering	sanitize
 devops/npm-global-upgrade	engineering	sanitize
@@ -20,3 +20,12 @@ engineering/local-dev-server-startup	engineering	sanitize
 engineering/hono-workers-testing	engineering	sanitize
 engineering/mcp-worker-deploy	engineering	sanitize
 engineering/typescript-project-verify	engineering	sanitize
+
+# --- seo-geo ---
+seo/modern-seo-strategy	seo-geo
+seo/site-seo-geo-audit	seo-geo	sanitize
+seo/geo-content-reformatting	seo-geo	sanitize
+seo/static-site-geo	seo-geo	sanitize
+seo/spa-geo-crawlability	seo-geo	sanitize
+geo-article-friendly	seo-geo	sanitize
+seo/webapp-geo-optimization	seo-geo	sanitize

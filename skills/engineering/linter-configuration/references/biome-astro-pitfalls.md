@@ -41,7 +41,7 @@ pnpm build
 - The 20–50 warnings that remain are all false positives. Accept them. Suppress with `// biome-ignore lint/correctness/noUnusedVariables` on individual declarations if the noise bothers you, but they're harmless.
 - If you must eliminate a warning, use `// biome-ignore` comments on the specific line — never blanket `--unsafe`.
 
-## Real-world example (labangram, Jul 2026)
+## Real-world example (your-brand, Jul 2026)
 
 - 9 files fixed by safe-only: import sorting, trailing commas, quote style
 - 53 unsafe suggestions: all would have broken the build
