@@ -38,6 +38,16 @@ SPECIFIC_RULES: dict[str, list[tuple[str, str]]] = {
         ("Kamera-ichi", "your-project"),
         ("camera-market", "your-marketplace"),
     ],
+    "local-dev-server-startup": [
+        ("omniroute-dev-conflict.md", "port-conflict-example"),
+        ("OmniRoute", "your dev tool"),
+    ],
+    "npm-global-upgrade": [
+        ("see `omniroute-maintenance` skill", "see its maintenance skill"),
+        ("see `omniroute-maintenance`", "see its maintenance"),
+        ("omniroute", "your-tool"),
+        ("OmniRoute", "your-tool"),
+    ],
 }
 
 # Applied to every sanitized skill after SPECIFIC_RULES.

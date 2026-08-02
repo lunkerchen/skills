@@ -76,4 +76,4 @@ Desktop apps (e.g., Hermes client / Comet.app) often run a network helper that o
 ## Related
 
 - `engineering-local-maintenance` (manually authored) — broader project maintenance, removal, system diagnostics.
-- Reference: `omniroute-dev-conflict.md` (in references/) — OmniRoute port/launchd conflict, no-auth localhost testing, model verification, and antigravity OAuth troubleshooting.
+- Reference: `port-conflict-example` (in references/) — your dev tool port/launchd conflict, no-auth localhost testing, model verification, and antigravity OAuth troubleshooting.
