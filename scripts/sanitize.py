@@ -30,6 +30,14 @@ SPECIFIC_RULES: dict[str, list[tuple[str, str]]] = {
     "youtube-content": [
         ("this user (Laban)", "this user"),
     ],
+    "hono-workers-testing": [
+        ("Kamera-ichi", "your-project"),
+        ("kamera-ichi.com", "your-app.example.com"),
+    ],
+    "typescript-project-verify": [
+        ("Kamera-ichi", "your-project"),
+        ("camera-market", "your-marketplace"),
+    ],
 }
 
 # Applied to every sanitized skill after SPECIFIC_RULES.
@@ -44,6 +52,8 @@ GLOBAL_RULES: list[tuple[str, str]] = [
 # Files/dirs removed from the mirrored copy (never from canonical).
 DELETE_PATHS: dict[str, list[str]] = {
     "youtube-content": ["scripts/__pycache__"],
+    "mcp-worker-deploy": ["references/tavily-worker.md"],
+    "local-dev-server-startup": ["references/omniroute-dev-conflict.md"],
 }
 
 BINARY_SUFFIXES = {".pyc", ".pyo", ".png", ".jpg", ".jpeg", ".gif", ".webp", ".ico", ".pdf", ".woff", ".woff2"}
