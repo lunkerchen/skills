@@ -47,3 +47,9 @@ productivity/gas-form-backend	automation	sanitize
 devops/web-monitor	automation	sanitize
 system/scan-automation	automation	sanitize
 content-publishing/coupang-partners-api	automation	sanitize
+
+# --- design ---
+design/night-sky-design	design	sanitize
+design/rwd-mobile-rules	design
+content-generation/static-html-polish	design
+creative/popular-web-designs	design
