@@ -5,7 +5,7 @@
 
 Agent skills I use every day as a forward-deployed engineer (FDE) — born from real client projects and production workflows, not vibe coding.
 
-I help businesses adopt AI (星創網絡 / Star Chase). Every skill in this repo started as a workflow I ran for a client, a customer, or my own production system — then got distilled into something small, composable, and installable by any agent.
+I help businesses adopt AI as a forward-deployed engineer. Every skill in this repo started as a workflow I ran for a client, a customer, or my own production system — then got distilled into something small, composable, and installable by any agent.
 
 These skills work with any model and any agent. They are designed to be hacked on and made your own.
 

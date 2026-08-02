@@ -5,7 +5,7 @@
 
 我每天在用的 Agent skills — 作為 forward-deployed engineer（FDE），全部從真實客戶專案與生產環境淬煉而來，不是 vibe coding。
 
-我幫企業導入 AI（星創網絡 / Star Chase）。這個 repo 裡的每個 skill，原本都是我在客戶、或自己的生產系統上跑過的工作流 — 然後被濃縮成小、可組合、任何 agent 都能安裝的 skill。
+我以 forward-deployed engineer（FDE）身分幫企業導入 AI。這個 repo 裡的每個 skill，原本都是我在客戶、或自己的生產系統上跑過的工作流 — 然後被濃縮成小、可組合、任何 agent 都能安裝的 skill。
 
 這些 skills 相容任何模型、任何 agent，設計上就是拿來改造成你自己的。
 

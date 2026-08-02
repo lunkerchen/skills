@@ -40,6 +40,11 @@ PERSONAL_NAME_PATTERNS = (
     re.compile(r"\blabanchen\b"),
     re.compile(r"\bCheng Jung Chen\b"),
 )
+CLIENT_NAME_PATTERNS = (
+    re.compile(r"星創網絡"),
+    re.compile(r"star-chase"),
+    re.compile(r"Star Chase"),
+)
 FORBIDDEN_FILES = {".env", ".env.*", "*.pem", "*.key", "*.p12", "*.jks"}
 # Lines containing these markers are placeholder assignments (YOUR_..., EXAMPLE...),
 # not real secrets — skip them.
@@ -76,6 +81,10 @@ def scan_file(path: Path) -> list[str]:
         for pat in PERSONAL_NAME_PATTERNS:
             if pat.search(line):
                 findings.append(f"{path}:{i}: personal name")
+                break
+        for pat in CLIENT_NAME_PATTERNS:
+            if pat.search(line):
+                findings.append(f"{path}:{i}: client name")
                 break
     return findings
 

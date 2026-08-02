@@ -80,9 +80,6 @@ SPECIFIC_RULES: dict[str, list[tuple[str, str]]] = {
     "web-monitor": [
         ("momo-gift", "monitored-site"),
     ],
-    "night-sky-design": [
-        ("源自星創網絡（star-chase.com）簡報專案，2026-08-01。", "源自企業品牌簡報專案。"),
-    ],
     "static-site-geo": [
         ("Cheng Jung Chen / Laban", "the site owner"),
         ("known as Laban and", "known as"),
