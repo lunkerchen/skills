@@ -9,7 +9,8 @@ source (`~/.hermes/skills/`). Read this before editing anything.
 - This repo is a **mirror**. Never edit a skill's `SKILL.md` inside this repo as
   the primary change — edit the canonical source, then run `scripts/sync.sh`.
 - `scripts/sync.sh` copies only skills listed in `scripts/allowlist.tsv`
-  (`<canonical-relative-path>\t<category>` lines).
+  (`<canonical-relative-path>\t<category>` lines; optional third column
+  `sanitize` rewrites personal paths via `scripts/sanitize.py`).
 
 ## Hard rules
 

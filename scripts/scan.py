@@ -34,6 +34,11 @@ PRIVATE_PATH_PATTERNS = (
     re.compile(r"/Users/[A-Za-z0-9_]+/"),
     re.compile(r"/home/[A-Za-z0-9_]+/"),
 )
+PERSONAL_NAME_PATTERNS = (
+    re.compile(r"\bLaban\b"),
+    re.compile(r"\blunker\b"),
+    re.compile(r"\blabanchen\b"),
+)
 FORBIDDEN_FILES = {".env", ".env.*", "*.pem", "*.key", "*.p12", "*.jks"}
 FRONTMATTER_NAME = re.compile(r"(?m)^name:\s*[\"']?([^\"'\n]+)")
 FRONTMATTER_DESC = re.compile(r"(?m)^description:\s*(.*)$")
@@ -53,6 +58,10 @@ def scan_file(path: Path) -> list[str]:
         for pat in PRIVATE_PATH_PATTERNS:
             if pat.search(line):
                 findings.append(f"{path}:{i}: absolute personal path")
+                break
+        for pat in PERSONAL_NAME_PATTERNS:
+            if pat.search(line):
+                findings.append(f"{path}:{i}: personal name")
                 break
     return findings
 

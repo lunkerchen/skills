@@ -1,3 +1,12 @@
 # Canonical source allowlist — one skill per line.
-# Format: <canonical-relative-path-in-~/.hermes/skills>\t<repo-category>
-# Populated by the curation pass; run scripts/sync.sh to mirror.
+# Format: <canonical-relative-path-in-~/.hermes/skills>\t<repo-category>[\tsanitize]
+# `sanitize` rewrites personal paths via scripts/sanitize.py after the copy.
+
+# --- content ---
+writing/stop-slop	content
+writing-humanizer	content
+translation/s2t-taiwan	content
+content-generation/html-article-author	content
+vocus-article-writing-sop	content	sanitize
+content-production/markdown-to-podcast	content	sanitize
+media/youtube-content	content	sanitize
