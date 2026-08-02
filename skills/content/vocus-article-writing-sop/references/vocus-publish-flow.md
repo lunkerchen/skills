@@ -80,7 +80,7 @@ python3 $HERMES_HOME/scripts/clean-vocus.py < article.md > clean.txt
 The script performs:
 1. Strip YAML frontmatter
 2. Convert H2/H3 → 【bracket-style】 headings
-3. Strip remaining markdown symbols (bold `**`, italic `*`, inline code `` ` ``, links `[text](url)`, images, blockquotes, horizontal rules)
+3. Strip remaining markdown symbols (bold `**`, italic `*`, inline code `` ` ``, markdown links, images, blockquotes, horizontal rules)
 4. Strip list markers (`- `, `* `, `1. `) before headings (but NOT heading prefixes — those are converted, not removed)
 5. Preserve paragraph spacing (collapse 3+ blank lines to 1, but keep paragraph breaks)
 

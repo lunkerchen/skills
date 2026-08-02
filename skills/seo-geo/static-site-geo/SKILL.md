@@ -128,7 +128,7 @@ Sitemap: https://domain.tld/sitemap.xml          (Hugo/Eleventy default)
 
 Know which convention your SSG uses — check `dist/` after a build.
 
-**llms.txt:** Per [llmstxt.org](llmstxt.org) spec. List key pages, a one-line
+**llms.txt:** Per [llmstxt.org](https://llmstxt.org) spec. List key pages, a one-line
 description of each, and selected projects. AI crawlers (GPTBot, Google-Extended)
 look for this at the root.
 
