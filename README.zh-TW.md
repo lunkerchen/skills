@@ -38,6 +38,7 @@ Agent 失敗大多來自：缺少上下文、缺少回饋迴圈、流程反過�
 ### automation — 自動化
 
 - `gas-form-backend` — 免費 GAS 後端：靜態表單接 Sheets + Email + LINE push
+- `lark-bot-development` — 開發 Lark/飛書 BOT：應用生命週期、事件訂閱（WebSocket/webhook）、訊息、卡片、SDK
 - `line-messaging-api` — 表單資料自動送 LINE 官方帳號或客服群組（Messaging API push）
 - `cloudflare-email-service` — Cloudflare Email Service + Workers 發送與路由交易信
 - `turnstile-spin` — Cloudflare Turnstile 端到端防機器人：widget、siteverify、驗證、框架指南

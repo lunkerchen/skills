@@ -38,6 +38,7 @@ autonomous-ai-agents/qa-scenario-design	ai-adoption
 autonomous-ai-agents/subagent-efficiency	ai-adoption	sanitize
 
 # --- automation ---
+lark-bot-development	automation
 content-publishing/line-messaging-api	automation	sanitize
 cloudflare-email-service	automation
 turnstile-spin	automation

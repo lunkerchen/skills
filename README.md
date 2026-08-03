@@ -42,6 +42,7 @@ Enterprise AI adoption for real businesses — change management without resista
 Forms, notifications, and integrations that run businesses.
 
 - `gas-form-backend` — free Google Apps Script backend for static forms: Sheets, email, LINE push
+- `lark-bot-development` — build Lark/Feishu bots: app lifecycle, event subscription (WebSocket/webhook), messaging, cards, SDKs
 - `line-messaging-api` — push form submissions to LINE official accounts or support groups via Messaging API
 - `cloudflare-email-service` — send and route transactional email with Cloudflare Email Service and Workers
 - `turnstile-spin` — end-to-end Cloudflare Turnstile bot protection: widget, siteverify, validation, framework guides
