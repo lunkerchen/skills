@@ -48,6 +48,12 @@ Agent 失敗大多來自：缺少上下文、缺少回饋迴圈、流程反過�
 - `scan-automation` — 自動化系統相依掃描、解析 NDJSON、記錄趨勢、debug 卡住
 - `obsidian-cli` — 用 CLI 驅動 Obsidian：筆記、任務、搜尋、plugin/theme 開發
 
+### note-taking — 筆記
+
+知識系統與筆記庫維護流程。
+
+- `obsidian-vault-organizer` — 安全盤點與重整 Obsidian vault：分類、連結、模板、批准閘門與驗證
+
 ### content — 內容
 
 - `stop-slop` — 去除 AI 寫作味：砍掉模板化廢話與機器節奏

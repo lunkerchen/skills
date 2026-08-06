@@ -52,6 +52,12 @@ Forms, notifications, and integrations that run businesses.
 - `scan-automation` — automate system dependency scans, parse NDJSON, log trends, debug hangs
 - `obsidian-cli` — drive Obsidian from the CLI: notes, tasks, search, plugin and theme development
 
+### note-taking
+
+Knowledge systems and note-vault maintenance.
+
+- `obsidian-vault-organizer` — audit and restructure an Obsidian vault safely: classification, linking, templates, approval gates, and verification
+
 ### content
 
 Writing and publishing workflows with an anti-AI-slop core.
