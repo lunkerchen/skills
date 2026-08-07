@@ -50,6 +50,7 @@ Forms, notifications, and integrations that run businesses.
 - `gmail-inbox-organizer` — automated Gmail triage: label emails by sender and subject, archive promotions
 - `web-monitor` — cron-based web page change monitoring with fingerprinting and silent-when-unchanged alerts
 - `scan-automation` — automate system dependency scans, parse NDJSON, log trends, debug hangs
+- `personal-red-team` — evidence-first audit of your whole setup: crons, skills, projects → safe fixes + decision briefs
 - `obsidian-cli` — drive Obsidian from the CLI: notes, tasks, search, plugin and theme development
 
 ### note-taking

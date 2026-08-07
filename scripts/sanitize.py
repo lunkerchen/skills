@@ -71,6 +71,10 @@ SPECIFIC_RULES: dict[str, list[tuple[str, str]]] = {
         ("f0366df97500", "YOUR_CRON_JOB_ID"),
         ("咖啡, 泡麵, 零食, 衛生紙, 洗衣精", "咖啡, 泡麵, 零食"),
     ],
+    "personal-red-team": [
+        ("usagi", "content-profile"),
+        ("Laban", "使用者"),
+    ],
     "scan-automation": [
         ("bumblebee", "your-scanner"),
     ],

@@ -46,6 +46,7 @@ Agent 失敗大多來自：缺少上下文、缺少回饋迴圈、流程反過�
 - `gmail-inbox-organizer` — Gmail 自動分類：依寄件人/主旨標籤、封存促銷信
 - `web-monitor` — cron 網頁變更監控：指紋比對、無變化時靜默
 - `scan-automation` — 自動化系統相依掃描、解析 NDJSON、記錄趨勢、debug 卡住
+- `personal-red-team` — 證據優先的全系統紅隊審計：cron、skills、專案盤點 → 安全修復 + 決策簡報
 - `obsidian-cli` — 用 CLI 驅動 Obsidian：筆記、任務、搜尋、plugin/theme 開發
 
 ### note-taking — 筆記
