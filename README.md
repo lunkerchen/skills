@@ -1,167 +1,170 @@
-[![English](https://img.shields.io/badge/lang-en-red.svg)](README.md)
-[![繁體中文](https://img.shields.io/badge/lang-zh--tw-blue.svg)](README.zh-TW.md)
+[![English](https://img.shields.io/badge/lang-en-red.svg)](README.en.md)
+[![繁體中文](https://img.shields.io/badge/lang-zh--tw-blue.svg)](README.md)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Skills](https://img.shields.io/badge/skills-43-blue)](https://github.com/lunkerchen/skills/tree/main/skills)
+[![AI Agent](https://img.shields.io/badge/AI-Agent%20Ready-brightgreen)](https://github.com/lunkerchen/skills)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Skills](https://img.shields.io/badge/skills-43-blue)](https://github.com/lunkerchen/skills/tree/main/skills)
 [![AI Agent](https://img.shields.io/badge/AI-Agent%20Ready-brightgreen)](https://github.com/lunkerchen/skills)
 
-# Skills for AI Adoption
+# AI 導入實戰 Skills
 
-> Agent skills I use every day as a forward-deployed engineer (FDE) — born from real client projects and production workflows, not vibe coding.
+> 一個 forward-deployed engineer（FDE）每天在用的 agent skills — 全部從真實客戶專案與生產工作流淬煉而來，不是 vibe coding。
 
-## What this is
+## 這是什麼
 
-I help businesses adopt AI as a forward-deployed engineer. Every skill in this repo started as a workflow I actually ran for a client, a customer, or my own production system — then got distilled into something **small, composable, and installable by any agent**.
+我以 FDE 身分幫企業導入 AI。這個 repo 裡的每個 skill，原本都是我在客戶、或自己的生產系統上實際跑過的工作流 — 然後被濃縮成**小、可組合、任何 agent 都能安裝**的 skill。
 
-These skills work with any model and any agent (Hermes, Claude Code, Codex…). They are designed to be hacked on and made your own.
+這些 skills 相容任何模型、任何 agent（Hermes、Claude Code、Codex…），設計上就是拿來改造成你自己的。
 
-## Why these skills exist
+## 為什麼有這些 skills
 
-Most agent failure comes from three causes. These skills encode the fixes:
+Agent 失敗大多來自三個原因，這些 skills 把解法直接編碼進去：
 
-| Failure mode | The fix encoded | Representative skills |
+| 失敗模式 | 對應修復 | 代表 skills |
 |---|---|---|
-| **Missing context** — the agent doesn't understand your goals, constraints, or success criteria | Align before executing: structured interviews, QA scenario design | `deep-interview`, `qa-scenario-design`, `fde-framework` |
-| **Missing feedback loops** — ship and stop, no verification gates | Static checks, verification gates, audit before publish | `typescript-project-verify`, `static-html-polish`, `scan-automation`, `personal-red-team` |
-| **Process that owns you** — frameworks eat your productivity | Discipline over ceremony: small composable skills, never process frameworks | The shared design principle of every skill here |
+| **缺少上下文** — agent 不了解你的目標、限制、成功標準 | 先對齊再執行：結構化訪談、QA 情境設計 | `deep-interview`、`qa-scenario-design`、`fde-framework` |
+| **缺少回饋迴圈** — 做完就交付，沒有驗證關卡 | 靜態檢查、驗證閘門、發布前審計 | `typescript-project-verify`、`static-html-polish`、`scan-automation`、`personal-red-team` |
+| **流程反客為主** — 框架吃掉你的生產力 | 紀律大於儀式：小而可組合，拒絕流程框架 | 所有 skills 的共同設計原則 |
 
-## Installation
+## 安裝
 
-| Method | Command / Path |
+| 方法 | 指令 / 路徑 |
 |---|---|
-| **npx skills CLI** (recommended) | `npx skills add lunkerchen/skills` |
-| **Hermes** | Copy `skills/<category>/<name>/` to `~/.hermes/skills/` (or symlink) |
-| **Claude Code** | Copy to `~/.claude/skills/` |
-| **Codex** | Copy to `~/.codex/skills/` |
-| **Manual** | Copy the skill directories you need into your agent's skills path |
+| **npx skills CLI**（推薦） | `npx skills add lunkerchen/skills` |
+| **Hermes** | 複製 `skills/<category>/<name>/` 到 `~/.hermes/skills/`（或 symlink） |
+| **Claude Code** | 複製到 `~/.claude/skills/` |
+| **Codex** | 複製到 `~/.codex/skills/` |
+| **手動** | 直接複製你需要的 skill 目錄到 agent 的 skills 路徑 |
 
-**You don't need to install everything.** Skills have zero dependencies on each other — pick the categories you need.
+**不需要全裝。** skill 之間零相依，挑你需要的分類複製即可。
 
-## Quick start
+## 快速開始
 
-1. **Pick a skill** — browse the categories below for the workflow you need
-2. **Install it** — any method in the table above
-3. **Describe the task in plain words** — your agent auto-loads the matching skill (e.g. say "connect this form to LINE notifications" and the agent loads `line-messaging-api`)
+1. **挑一個 skill** — 從下面的分類找你要的工作流
+2. **安裝** — 用上表任一方法
+3. **用平常的話描述需求** — agent 會自動載入對應 skill（例：說「幫我把這個表單接上 LINE 通知」，agent 就會載入 `line-messaging-api`）
 
-## What's inside (43 skills)
+## 內容一覽（43 個 skills）
 
-### ai-adoption
+### ai-adoption — 企業 AI 導入
 
-Enterprise AI adoption for real businesses — change management without resistance, FDE delivery frameworks.
+企業 AI 導入的實戰打法 — 無阻力變革管理、FDE 交付框架。
 
-- `enterprise-ai-adoption` — frictionless enterprise AI adoption: prove value, reduce fear, let peers lead
-- `fde-framework` — FDE playbook: PSF, MVD, shadow work, outcome pricing, career path
-- `deep-interview` — one question at a time until goals, constraints, and success criteria are clear
-- `qa-scenario-design` — design QA scenarios and failure modes before implementing, with evidence grading
-- `subagent-efficiency` — know when direct execution beats spawning a subagent — and when it doesn't
+- `enterprise-ai-adoption` — 企業 AI 導入的組織採用戰役：證明價值、降低恐懼、讓同儕帶頭
+- `fde-framework` — FDE playbook：PSF、MVD、影子工作法、成果計價、轉職路線
+- `deep-interview` — 一次一問直到目標、限制、成功標準全 clear
+- `qa-scenario-design` — implement 前先設計 QA scenarios 與 failure modes，附證據分級
+- `subagent-efficiency` — 知道何時直接執行勝過 spawn subagent — 以及何時相反
 
-### automation
+### automation — 自動化
 
-Forms, notifications, and integrations that run businesses.
+表單、通知、整合 — 幫你「跑生意」的自動化。
 
-- `gas-form-backend` — free Google Apps Script backend for static forms: Sheets, email, LINE push
-- `lark-bot-development` — build Lark/Feishu bots: app lifecycle, event subscription (WebSocket/webhook), messaging, cards, SDKs
-- `line-messaging-api` — push form submissions to LINE official accounts or support groups via Messaging API
-- `cloudflare-email-service` — send and route transactional email with Cloudflare Email Service and Workers
-- `turnstile-spin` — end-to-end Cloudflare Turnstile bot protection: widget, siteverify, validation, framework guides
-- `coupang-partners-api` — Coupang Partners Taiwan affiliate API: HMAC signing, search, deeplinks, reports
-- `gmail-inbox-organizer` — automated Gmail triage: label emails by sender and subject, archive promotions
-- `web-monitor` — cron-based web page change monitoring with fingerprinting and silent-when-unchanged alerts
-- `scan-automation` — automate system dependency scans, parse NDJSON, log trends, debug hangs
-- `personal-red-team` — evidence-first audit of your whole setup: crons, skills, projects → safe fixes + decision briefs
-- `obsidian-cli` — drive Obsidian from the CLI: notes, tasks, search, plugin and theme development
+- `gas-form-backend` — 免費 GAS 後端：靜態表單接 Sheets + Email + LINE push
+- `lark-bot-development` — 開發 Lark/飛書 BOT：應用生命週期、事件訂閱（WebSocket/webhook）、訊息、卡片、SDK
+- `line-messaging-api` — 表單資料自動送 LINE 官方帳號或客服群組（Messaging API push）
+- `cloudflare-email-service` — Cloudflare Email Service + Workers 發送與路由交易信
+- `turnstile-spin` — Cloudflare Turnstile 端到端防機器人：widget、siteverify、驗證、框架指南
+- `coupang-partners-api` — 酷澎台灣分潤 API：HMAC 簽章、搜尋、deeplinks、報表
+- `gmail-inbox-organizer` — Gmail 自動分類：依寄件人/主旨標籤、封存促銷信
+- `web-monitor` — cron 網頁變更監控：指紋比對、無變化時靜默
+- `scan-automation` — 自動化系統相依掃描、解析 NDJSON、記錄趨勢、debug 卡住
+- `personal-red-team` — 證據優先的全系統紅隊審計：cron、skills、專案盤點 → 安全修復 + 決策簡報
+- `obsidian-cli` — 用 CLI 驅動 Obsidian：筆記、任務、搜尋、plugin/theme 開發
 
-### note-taking
+### note-taking — 筆記
 
-Knowledge systems and note-vault maintenance.
+知識系統與筆記庫維護。
 
-- `obsidian-vault-organizer` — audit and restructure an Obsidian vault safely: classification, linking, templates, approval gates, and verification
+- `obsidian-vault-organizer` — 安全盤點與重整 Obsidian vault：分類、連結、模板、批准閘門與驗證
 
-### content
+### content — 內容
 
-Writing and publishing workflows with an anti-AI-slop core.
+寫作與發布工作流，核心是反 AI 味（anti-slop）。
 
-- `stop-slop` — strip AI clichés and robotic cadence from your writing before publishing
-- `writing-humanizer` — audit and rewrite AI-sounding text into natural, human voice
-- `s2t-taiwan` — convert Simplified Chinese to Taiwan Traditional Chinese with proper terminology
-- `html-article-author` — convert markdown to standalone dark-themed HTML articles with CJK fonts
-- `vocus-article-writing-sop` — turn AI-tool briefings into polished long-form tech journalism for vocus
-- `markdown-to-podcast` — turn markdown articles into podcast WAVs with neural TTS and piano intro
-- `youtube-content` — fetch YouTube transcripts and convert them into summaries, threads, and blogs
+- `stop-slop` — 去除 AI 寫作味：砍掉模板化廢話與機器節奏
+- `writing-humanizer` — 審計並改寫 AI 味文字，回到自然人聲
+- `s2t-taiwan` — 簡體轉台灣繁體，含正確術語表
+- `html-article-author` — markdown 轉深色主題 HTML 文章（CJK 字型）
+- `vocus-article-writing-sop` — AI 工具簡報改寫為方格子深度長文
+- `markdown-to-podcast` — markdown 文章轉 podcast WAV（神經 TTS + 鋼琴 intro）
+- `youtube-content` — YouTube 逐字稿轉摘要、Threads、部落格
 
-### design
+### design — 設計
 
-Distinctive single-file HTML design systems.
+有辨識度的單檔 HTML 設計系統。
 
-- `night-sky-design` — dark night-sky single-file HTML theme with brand gradient accents for decks and pages
-- `rwd-mobile-rules` — mandatory mobile RWD rules for every HTML artifact: viewport, grids, touch targets, nav
-- `static-html-polish` — audit-harden-verify pipeline adding RWD, SEO/GEO, and a11y to static HTML pages
-- `popular-web-designs` — 54 real-world design systems (Stripe, Linear, Vercel…) with ready-to-use CSS tokens
+- `night-sky-design` — 深色星空單檔 HTML 主題，品牌漸層點綴，簡報/網頁通用
+- `rwd-mobile-rules` — 每次產出 HTML 的強制行動版規則：viewport、grid、觸控目標、導覽
+- `static-html-polish` — audit→harden→verify 管線：靜態 HTML 補 RWD/SEO-GEO/a11y
+- `popular-web-designs` — 54 套真實設計系統（Stripe、Linear、Vercel…）現成 CSS tokens
 
-### engineering
+### engineering — 工程
 
-Cloud and infrastructure workflows, hardened by production use.
+雲端與基礎設施工作流，生產環境驗證過。
 
-- `mcp-worker-deploy` — deploy stateless MCP servers to Cloudflare Workers, auth-first
-- `hono-workers-testing` — test Hono/Workers backends: vitest, D1 mocks, fake executionCtx patterns
-- `github-code-review` — full code-review pipeline: pre-push review, PR comments, security scan
-- `linter-configuration` — emit Biome/Prettier configs matching existing project style, zero churn
-- `static-html-biome-audit` — lint standalone HTML with Biome; fix CSS, a11y, semantics
-- `typescript-project-verify` — five verification gates for TypeScript projects: tsc, vitest, build, format, smoke
-- `npm-global-upgrade` — upgrade global npm packages safely: allow-scripts, symlinks, OSV triage
-- `local-dev-server-startup` — start dev servers safely beside launchd/brew-managed services; fix port conflicts
+- `mcp-worker-deploy` — 部署無狀態 MCP server 到 Cloudflare Workers，auth-first
+- `hono-workers-testing` — Hono/Workers 後端測試：vitest、D1 mocks、fake executionCtx
+- `github-code-review` — 完整 code review 管線：push 前檢查、PR 評論、安全掃描
+- `linter-configuration` — 產出符合專案風格的 Biome/Prettier 設定，零 churn
+- `static-html-biome-audit` — Biome lint 單檔 HTML；修 CSS、a11y、語意
+- `typescript-project-verify` — TypeScript 五道驗證閘門：tsc、vitest、build、format、smoke
+- `npm-global-upgrade` — 安全升級全域 npm 套件：allow-scripts、symlinks、OSV 判讀
+- `local-dev-server-startup` — 在 launchd/brew 管理的服務旁安全啟動 dev server；修 port 衝突
 
-### seo-geo
+### seo-geo — SEO + GEO
 
-Search + generative engine optimization for real websites.
+搜尋引擎 + 生成式引擎優化（AI 搜尋可見度）。
 
-- `modern-seo-strategy` — integrated SEO+GEO strategy: semantic maps, EEAT, AI citation optimization, five-phase plan
-- `static-site-geo` — GEO/SEO patterns for static sites: JSON-LD, sitemaps, OG images, llms.txt, build verification
-- `spa-geo-crawlability` — fill SPA shells with prerendered content via Edge Functions so AI crawlers see text
-- `geo-content-reformatting` — rewrite H2/H3 headings into question form for AI-search visibility, zero design change
-- `geo-article-friendly` — refit existing articles for AI search: evidence, structure, semantics — preserving the author's voice
-- `site-seo-geo-audit` — whole-site SEO+GEO audit workflow: reconnaissance, schema checks, content gaps, priority matrix
-- `webapp-geo-optimization` — invisible GEO optimization for web apps: structured data, JSON-LD, sitemaps, OG images
+- `modern-seo-strategy` — SEO+GEO 整合策略：語意地圖、EEAT、AI 引用優化、五階段計畫
+- `static-site-geo` — 靜態網站 GEO/SEO 模式：JSON-LD、sitemap、OG 圖、llms.txt、建置驗證
+- `spa-geo-crawlability` — 用 Edge Functions 預渲染 SPA 空殼，讓 AI 爬蟲看得到內容
+- `geo-content-reformatting` — 把 H2/H3 改寫成問句形式提升 AI 搜尋可見度，零設計變更
+- `geo-article-friendly` — 既有文章改造為 AI 搜尋友好：證據強化、結構重構、語意優化，保留作者語氣
+- `site-seo-geo-audit` — 全站 SEO+GEO 審計工作流：偵察、Schema 診斷、內容缺口、優先序矩陣
+- `webapp-geo-optimization` — Web App 隱形 GEO 優化：結構化資料、JSON-LD、sitemap、OG 圖
 
-## Example requests
-
-```text
-幫我把這個靜態表單接上 LINE 通知 + Google Sheets 存檔
-```
-
-→ the agent loads `gas-form-backend` + `line-messaging-api` and ships the backend, then `turnstile-spin` for spam protection.
+## 實際用法（組合範例）
 
 ```text
-我的網站 AI 搜尋（ChatGPT/Gemini）都找不到內容
+「幫我把這個靜態表單接上 LINE 通知 + Google Sheets 存檔」
 ```
 
-→ run `site-seo-geo-audit` first to find the gaps, then `static-site-geo` (static sites) or `spa-geo-crawlability` (SPAs) to implement.
+→ agent 載入 `gas-form-backend` + `line-messaging-api` 建後端，再用 `turnstile-spin` 加防機器人。
 
 ```text
-我感覺整個系統哪裡在漏，幫我全面檢查一遍
+「我的網站 AI 搜尋（ChatGPT/Gemini）都找不到內容」
 ```
 
-→ `personal-red-team` runs an evidence-first audit of your whole setup (crons / skills / projects): safe fixes + decision briefs.
+→ 先跑 `site-seo-geo-audit` 找出缺口，再用 `static-site-geo`（靜態站）或 `spa-geo-crawlability`（SPA）落地。
 
 ```text
-把這篇文章的 AI 味去掉
+「我感覺整個系統哪裡在漏，幫我全面檢查一遍」
 ```
 
-→ `stop-slop` strips the template junk, `writing-humanizer` finishes the job to natural human voice.
+→ `personal-red-team` 會做證據優先的全系統盤點（cron / skills / 專案），安全修復 + 決策簡報。
 
-## Repository layout
-
-```
-skills/<category>/<skill-name>/SKILL.md   ← the skills (+ optional references/)
-scripts/                                  ← sync + scan + sanitize tooling
-docs/CONTRIBUTING.md                      ← contribution guide
-.out-of-scope/                            ← why some skills are NOT here (trust statement)
+```text
+「把這篇文章的 AI 味去掉」
 ```
 
-**Why are some skills not here?** See `.out-of-scope/` — every exclusion decision is documented: client project data, commercial toolkits, personal research collections, retired skills. This public repo only ships workflows that are valuable after generalization; anything with client names, real paths, or credentials is sanitized or excluded.
+→ `stop-slop` 砍模板化廢話，`writing-humanizer` 收尾到自然人聲。
 
-## Contributing
+## Repository 結構
 
-Want to share a workflow? See [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md). Everything passes a secret scan and sanitize gate before publish — no client data in the public repo.
+```
+skills/<category>/<skill-name>/SKILL.md   ← 技能本體（+ 選擇性 references/）
+scripts/                                  ← sync + scan + sanitize 工具
+docs/CONTRIBUTING.md                      ← 貢獻指南
+.out-of-scope/                            ← 為什麼某些 skills 不在這裡（信任聲明）
+```
+
+**為什麼有些 skills 不在這裡？** 見 `.out-of-scope/` — 每個排除決定都有紀錄：客戶專案資料、商業工具、個人研究收藏、過時技能。公開 repo 只收「通用化之後仍有價值」的工作流；涉及客戶名、真實路徑、金鑰的內容一律 sanitize 或排除。
+
+## 貢獻
+
+想分享自己的工作流？見 [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md)。發布前會通過秘密掃描與 sanitize 關卡 — 公開 repo 不留客戶資料。
 
 ## License
 

@@ -7,7 +7,7 @@
 2. Add a `<canonical-relative-path>\t<category>` line to `scripts/allowlist.tsv`.
 3. Run `scripts/sync.sh` — it copies the skill and runs the validator.
 4. Add a one-line entry to the category list in `README.md` **and**
-   `README.zh-TW.md`. Both files must stay structurally identical (same
+   `README.en.md`. Both files must stay structurally identical (same
    sections, same order, same table rows) — only the language changes.
 5. Commit with a conventional message (`feat:`, `fix:`, `docs:`, `chore:`).
 

@@ -39,7 +39,7 @@ Exit 0 = clean. The same check runs in CI on every push.
 1. Edit/improve the skill at its canonical path (`~/.hermes/skills/...`).
 2. Add its canonical-relative path to `scripts/allowlist.tsv`.
 3. Run `scripts/sync.sh` (copies + scans).
-4. Update the category list in `README.md` and `README.zh-TW.md` (both, same
+4. Update the category list in `README.md` (zh-TW primary) **and** `README.en.md` (both, same
    structure — see `docs/CONTRIBUTING.md` for the i18n rule).
 5. `git add -A && git commit` with a conventional message.
 
@@ -47,5 +47,5 @@ Exit 0 = clean. The same check runs in CI on every push.
 
 - Skills keep their original language (many are Traditional Chinese — that is a
   feature, not a defect).
-- README files are bilingual: `README.md` (EN) and `README.zh-TW.md`, always in
+- README files are bilingual: `README.md` (繁體中文 — primary landing page) and `README.en.md` (English), always in
   sync, same section structure, language badges on top.
