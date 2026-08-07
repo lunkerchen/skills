@@ -3,6 +3,7 @@
 ## [0.2.1] — 2026-08-08
 
 - Chinese-primary landing: `README.md` is now 繁體中文 (GitHub main page); English moved to `README.en.md`; `README.zh-TW.md` removed.
+- Skill catalog is now fully linked: every skill name links to its directory in-repo, with a "download a single skill" guide in both languages.
 
 ## [0.2.0] — 2026-08-08
 
