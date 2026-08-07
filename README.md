@@ -1,31 +1,48 @@
 [![English](https://img.shields.io/badge/lang-en-red.svg)](README.md)
 [![繁體中文](https://img.shields.io/badge/lang-zh--tw-blue.svg)](README.zh-TW.md)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Skills](https://img.shields.io/badge/skills-43-blue)](https://github.com/lunkerchen/skills/tree/main/skills)
+[![AI Agent](https://img.shields.io/badge/AI-Agent%20Ready-brightgreen)](https://github.com/lunkerchen/skills)
 
 # Skills for AI Adoption
 
-Agent skills I use every day as a forward-deployed engineer (FDE) — born from real client projects and production workflows, not vibe coding.
+> Agent skills I use every day as a forward-deployed engineer (FDE) — born from real client projects and production workflows, not vibe coding.
 
-I help businesses adopt AI as a forward-deployed engineer. Every skill in this repo started as a workflow I ran for a client, a customer, or my own production system — then got distilled into something small, composable, and installable by any agent.
+## What this is
 
-These skills work with any model and any agent. They are designed to be hacked on and made your own.
+I help businesses adopt AI as a forward-deployed engineer. Every skill in this repo started as a workflow I actually ran for a client, a customer, or my own production system — then got distilled into something **small, composable, and installable by any agent**.
 
-## Installation
-
-```bash
-npx skills add lunkerchen/skills
-```
-
-Pick the skills you want, and which agents to install them on.
+These skills work with any model and any agent (Hermes, Claude Code, Codex…). They are designed to be hacked on and made your own.
 
 ## Why these skills exist
 
-Most agent failure comes from missing context, missing feedback loops, and process that owns you instead of you owning it. These skills encode the fixes:
+Most agent failure comes from three causes. These skills encode the fixes:
 
-- **Alignment before execution** — structured interviews, QA scenario design, domain models
-- **Feedback loops** — static checks, verification gates, audit-before-publish
-- **Discipline over ceremony** — small skills that compose, never process frameworks that take over
+| Failure mode | The fix encoded | Representative skills |
+|---|---|---|
+| **Missing context** — the agent doesn't understand your goals, constraints, or success criteria | Align before executing: structured interviews, QA scenario design | `deep-interview`, `qa-scenario-design`, `fde-framework` |
+| **Missing feedback loops** — ship and stop, no verification gates | Static checks, verification gates, audit before publish | `typescript-project-verify`, `static-html-polish`, `scan-automation`, `personal-red-team` |
+| **Process that owns you** — frameworks eat your productivity | Discipline over ceremony: small composable skills, never process frameworks | The shared design principle of every skill here |
 
-## What's inside
+## Installation
+
+| Method | Command / Path |
+|---|---|
+| **npx skills CLI** (recommended) | `npx skills add lunkerchen/skills` |
+| **Hermes** | Copy `skills/<category>/<name>/` to `~/.hermes/skills/` (or symlink) |
+| **Claude Code** | Copy to `~/.claude/skills/` |
+| **Codex** | Copy to `~/.codex/skills/` |
+| **Manual** | Copy the skill directories you need into your agent's skills path |
+
+**You don't need to install everything.** Skills have zero dependencies on each other — pick the categories you need.
+
+## Quick start
+
+1. **Pick a skill** — browse the categories below for the workflow you need
+2. **Install it** — any method in the table above
+3. **Describe the task in plain words** — your agent auto-loads the matching skill (e.g. say "connect this form to LINE notifications" and the agent loads `line-messaging-api`)
+
+## What's inside (43 skills)
 
 ### ai-adoption
 
@@ -84,12 +101,12 @@ Distinctive single-file HTML design systems.
 
 Cloud and infrastructure workflows, hardened by production use.
 
-- `mcp-worker-deploy` — deploy stateless MCP 2026-07-28 servers to Cloudflare Workers, auth-first
+- `mcp-worker-deploy` — deploy stateless MCP servers to Cloudflare Workers, auth-first
 - `hono-workers-testing` — test Hono/Workers backends: vitest, D1 mocks, fake executionCtx patterns
 - `github-code-review` — full code-review pipeline: pre-push review, PR comments, security scan
 - `linter-configuration` — emit Biome/Prettier configs matching existing project style, zero churn
 - `static-html-biome-audit` — lint standalone HTML with Biome; fix CSS, a11y, semantics
-- `typescript-project-verify` — five verification gates for TypeScript monorepos: tsc, vitest, build, format, smoke
+- `typescript-project-verify` — five verification gates for TypeScript projects: tsc, vitest, build, format, smoke
 - `npm-global-upgrade` — upgrade global npm packages safely: allow-scripts, symlinks, OSV triage
 - `local-dev-server-startup` — start dev servers safely beside launchd/brew-managed services; fix port conflicts
 
@@ -105,7 +122,7 @@ Search + generative engine optimization for real websites.
 - `site-seo-geo-audit` — whole-site SEO+GEO audit workflow: reconnaissance, schema checks, content gaps, priority matrix
 - `webapp-geo-optimization` — invisible GEO optimization for web apps: structured data, JSON-LD, sitemaps, OG images
 
-## Example request
+## Example requests
 
 ```text
 幫我把這個靜態表單接上 LINE 通知 + Google Sheets 存檔
@@ -113,19 +130,38 @@ Search + generative engine optimization for real websites.
 
 → the agent loads `gas-form-backend` + `line-messaging-api` and ships the backend, then `turnstile-spin` for spam protection.
 
+```text
+我的網站 AI 搜尋（ChatGPT/Gemini）都找不到內容
+```
+
+→ run `site-seo-geo-audit` first to find the gaps, then `static-site-geo` (static sites) or `spa-geo-crawlability` (SPAs) to implement.
+
+```text
+我感覺整個系統哪裡在漏，幫我全面檢查一遍
+```
+
+→ `personal-red-team` runs an evidence-first audit of your whole setup (crons / skills / projects): safe fixes + decision briefs.
+
+```text
+把這篇文章的 AI 味去掉
+```
+
+→ `stop-slop` strips the template junk, `writing-humanizer` finishes the job to natural human voice.
+
 ## Repository layout
 
 ```
-skills/<category>/<skill-name>/SKILL.md   ← the skills
+skills/<category>/<skill-name>/SKILL.md   ← the skills (+ optional references/)
 scripts/                                  ← sync + scan + sanitize tooling
-docs/                                     ← contribution guide
-.out-of-scope/                            ← why some skills are NOT here
+docs/CONTRIBUTING.md                      ← contribution guide
+.out-of-scope/                            ← why some skills are NOT here (trust statement)
 ```
 
-## Requirements
+**Why are some skills not here?** See `.out-of-scope/` — every exclusion decision is documented: client project data, commercial toolkits, personal research collections, retired skills. This public repo only ships workflows that are valuable after generalization; anything with client names, real paths, or credentials is sanitized or excluded.
 
-- Any agent that supports skills (Hermes, Claude Code, Codex, etc.)
-- `npx` for the installer
+## Contributing
+
+Want to share a workflow? See [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md). Everything passes a secret scan and sanitize gate before publish — no client data in the public repo.
 
 ## License
 
