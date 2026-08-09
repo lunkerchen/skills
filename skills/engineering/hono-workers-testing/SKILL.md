@@ -13,7 +13,8 @@ Dev/test 指令：`cd backend-api && npm run dev`、`npx vitest run`、`npx tsc 
 - `test/mockDb.ts` — 輕量 D1 mock（async prepared statement API：`prepare().bind().run()/first()/all()`）。
   支援 `INSERT INTO t (cols) VALUES (?)`、`UPDATE t SET ... WHERE col = ?`、`SELECT ... WHERE col = ?`、
   `DELETE FROM t WHERE col = ?`。**不支援**聚合（COUNT 回 `{changes:0}`）、JOIN、複雜 WHERE。
-  `resetMockDb({ users, listings, listing_images, ... })` 每測試重設。
+  `resetMockDb({ users, listings, listing_images, favorites, notifications, subscriptions, site_contents, audit_logs, token_blacklist, analytics_events, brands })` 每測試重設。
+  `brands` seed 是品牌路由（`GET /api/listings/brands/:category`）測試用的 — 測品牌端點記得 seed，否則空表回空陣列。
 - `test/helpers.ts` — `makeToken(user)`（async，JWT）、`makeEnv(db)`（AppEnv，含 JWT_SECRET 等）、`ORIGIN_HEADER`。
 - 測 router 前先 mount：`app.route('/api/listings', listingsRouter)`；`app.onError((err, c) => c.json({detail, stack}, 500))` 讓 500 有 body 可查。
 
@@ -114,6 +115,31 @@ owner-only 可見 / 上圖轉 active / PATCH 阻擋 / 刪圖退回。
 （圖在 create 之後才上傳，upload endpoint 需要 listing_id），直接打 API 仍可建立無圖 active
 商品 — 守衛是事後不變式，不是發布門檻。要真正伺服器端封死，還是得走上面的 draft 兩階段。
 實作參考：brick-loop `src/routes/listings.ts`（PATCH guard）+ `src/routes/upload.ts`（DELETE guard）。
+
+## D1 migration 預檢 — 不上線先驗證資料形狀
+
+套用 migration 到正式 D1 前（尤其「跑完資料長怎樣」類的種子/品牌/約束變更），先在本機
+in-memory SQLite 依序執行 migration 檔，用斷言證明產出的資料符合預期 — 不用 wrangler、不碰正式庫：
+
+```bash
+python3 -c "
+import sqlite3
+from pathlib import Path
+db = sqlite3.connect(':memory:')
+for m in sorted(Path('backend-api/migrations').glob('00*.sql')):
+    db.executescript(m.read_text())
+# 斷言範例：accessory 品牌應涵蓋 camera 品牌集（不含『其他品牌』）
+camera = {r[0] for r in db.execute(\"select name from brands where category='camera' and name <> '其他品牌'\")}
+accessory = {r[0] for r in db.execute(\"select name from brands where category='accessory'\")}
+assert not (camera - accessory), camera - accessory
+print('ok')
+"
+```
+
+適用情境：新增/修改資料種子（brands、categories）、改變 CHECK 約束、或任何「migration 跑完
+資料長怎樣」的驗證。搭配模式：**跨類別補品牌**用 `INSERT OR IGNORE` 對照既有類別品牌集 —
+冪等、可安全重跑、已存在的不重複插入（實例：配件類補 Canon/Nikon 等相機廠商，Sony/DJI
+原已存在故跳過）。本機驗證通過 ≠ 已套用正式庫 — `npm run migrate` 是部署動作，需使用者審核後執行。
 
 ## 驗證流程
 

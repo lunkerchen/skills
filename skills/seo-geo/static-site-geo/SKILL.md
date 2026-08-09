@@ -181,6 +181,126 @@ grep -c 'https://domain.tld/projects/' public/llms.txt
 For structured files like `robots.txt` and `llms.txt`, `read_file` works fine — the
 minified-HTML issue only affects HTML build output.
 
+### Single-file event landing pages
+
+Handcrafted one-file marketing pages (event invite, seminar, workshop) deployed
+to CF Pages/Netlify/Vercel. All patterns apply directly; the one schema that
+matters is `Event`:
+
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "活動名稱",
+  "description": "一兩句，含日期地點與免費資訊",
+  "startDate": "2026-08-22T14:00:00+08:00",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "location": {
+    "@type": "Place",
+    "name": "場地名稱",
+    "address": { "@type": "PostalAddress", "addressRegion": "台北市", "addressLocality": "信義區", "streetAddress": "基隆路一段 200 號 B1" }
+  },
+  "organizer": { "@type": "Organization", "name": "主辦單位" },
+  "performer": { "@type": "Person", "name": "講者" },
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "TWD", "availability": "https://schema.org/LimitedAvailability" },
+  "isAccessibleForFree": true
+}
+</script>
+```
+
+**Pitfalls specific to this class:**
+- `"@context"` must be `https://schema.org` — a bare `schema.org` (or missing)
+  breaks the whole block for validators; verify with `json.loads` + assert, not
+  eyeballing.
+- Free events: `offers.price = "0"` string + `isAccessibleForFree: true`. Never
+  invent pricing.
+- Also add `<html lang="zh-Hant">`, `<time datetime="...">` around the event
+  date, `<address>` around the venue address, `meta name="robots"` with
+  `max-image-preview:large`, `og:locale`, `twitter:card`.
+- Domain-dependent assets (canonical, og:url, sitemap.xml, llms.txt) should be
+  left out when no public domain exists yet — do NOT invent a placeholder URL.
+  Note them as the remaining step instead.
+- EXCEPTION — user explicitly asks to add everything now ("都幫我加上這些，資料之後補"):
+  scaffold with ONE consistent placeholder domain across ALL files
+  (`https://example.com/<path>/`), mark each site with a `<!-- TODO: replace
+  example.com with the production domain before deployment. -->` comment,
+  verify URL consistency programmatically across index.html / robots.txt /
+  sitemap.xml / llms.txt, then end with the one remaining step: search
+  `example.com` in those four files and replace before deploy. Never invent
+  the placeholder silently — only on explicit "add it all now" requests.
+- Full validated example + verification script: `references/event-landing-page-geo.md`.
+
+### GEO: rewrite existing headings as questions (no fake FAQ)
+
+AI crawlers extract "question → answer" pairs best. Before adding FAQPage
+schema (which requires visible Q&A content), try rewriting EXISTING headings
+into natural questions while keeping the body text unchanged:
+
+- `工具沒有進入流程` → `為什麼 AI 工具沒有進入工作流程？`
+- `老闆的 AI 學習法` → `老闆應該怎麼學 AI？`
+
+Same layout, zero new content, better GEO extraction. Verification: count
+`<h3>` ending in `？`/`?` via regex. This respects the hard rule below (no
+visible UI sections added).
+
+### Visible FAQ + FAQPage JSON-LD (when thorough GEO is explicitly requested)
+
+The hard rule against visible sections yields when the user explicitly asks to
+"把 GEO/SEO 做好" / "do GEO thoroughly". FAQPage schema REQUIRES visible Q&A
+content — invisible or mismatched FAQ schema fails rich results and is a
+Google violation — so a visible FAQ is the only way to complete that request.
+It is also the strongest GEO move: AI crawlers get clean question→answer
+pairs (not just heading rewrites) while traditional SEO gets the FAQ baseline.
+
+Recipe:
+- Add `<section id="faq">` before `#register`: a `.faq-grid` of
+  `<article class="faq-item"><h3>問題？</h3><p>答案…</p></article>`, mirroring
+  the page's existing card-grid + section-head styles so it looks native.
+- Link it from the nav (`<a href="#faq">常見問題</a>`).
+- Mobile: append `.faq-grid` to the page's existing single-column rule
+  (`.pain-grid,.info-grid,.faq-grid{grid-template-columns:1fr}`).
+- FAQPage JSON-LD: `mainEntity` array, one `Question` per visible item,
+  `inLanguage: "zh-Hant"`. Answer text must match the visible paragraphs.
+
+Verification (run, don't eyeball):
+- `json.loads` every `application/ld+json` block — all must parse.
+- **Visible == schema**: extract visible questions via
+  `re.findall(r'<article class="faq-item"><h3>(.*?)</h3>', html)` and assert
+  list equality with `mainEntity[].name`. Mismatch = FAQ fails rich results.
+- In-browser: no horizontal overflow, no console errors, required form fields
+  still present after the section insert.
+- Only confirmed event facts (date/venue/fee) go in answers. The "how to
+  register" answer must stay honest when the form endpoint isn't wired
+  (demo mode → say so, don't invent a working signup path).
+- **Grid card count**: keep the card count a multiple of the desktop grid
+  columns. A 2-column `.faq-grid` with 5 cards leaves one empty slot the user
+  WILL flag as broken ("六張卡片不要有空的"). Fix by adding an honest 6th
+  Q&A that bridges to the event's core (e.g. 「這場活動只是教人操作 AI 工具嗎？」
+  → 不是，從公司如何運作出發…), never by inventing commitments. The
+  visible==schema assertion above catches schema drift automatically.
+
+### GA4 / analytics events on static landing pages (blank-ID no-op)
+
+Add conversion events to a single-file page without blocking the client on
+wiring GA4 up front — same deferral philosophy as FORM_ENDPOINT:
+
+- `const GA4_MEASUREMENT_ID = '';` — every event is guarded behind it. When
+  blank, NO `gtag.js` script loads and `dataLayer` stays empty. Verify this in
+  the console: clicking CTAs / focusing the form must push nothing
+  (`window.dataLayer.length` stays 0, `querySelector('script[src*="googletagmanager"]')` is null).
+- Inject gtag.js + `gtag('config', id, { anonymize_ip: true })` only when the
+  ID is non-empty (use `encodeURIComponent` on the id in the script src).
+- Event set proven on registration landing pages:
+  - `select_content` — any CTA link click (`content_type: 'registration_cta'`)
+  - `form_start` — first `focusin` inside the form (fire once)
+  - `faq_view` — per `.faq-item` IntersectionObserver, fire once per card
+  - `generate_lead` — successful submit (`method: FORM_ENDPOINT ? 'endpoint' : 'demo'`)
+- Never send PII: names, phones, emails, and form values stay out of GA4.
+- End by telling the client the one remaining step: paste the `G-…` ID, then
+  test in GA4 DebugView (Admin → Data display → DebugView).
+
 ## Verification Checklist
 
 - [ ] `pnpm run build` or equivalent passes
@@ -210,6 +330,10 @@ minified-HTML issue only affects HTML build output.
 - `references/og-image-svg-pipeline.md` — Alternative macOS-native OG image
   pipeline: SVG → qlmanage → Pillow → WebP. No browser dependency. Covers
   SVG composition, system-font usage, dimension handling, and one-shot script.
+- `references/event-landing-page-geo.md` — Single-file event page patterns:
+  validated Event JSON-LD, free-event Offer, question-heading GEO rewrite,
+  AI-crawler robots.txt, domain deferral + placeholder scaffold, minified-HTML
+  patch workaround.
 
 ## Hard Rules
 
@@ -223,3 +347,15 @@ minified-HTML issue only affects HTML build output.
 - **Build script overwrites `public/` files**: Vite copies `public/` to `dist/` during build, but a post-build script (e.g., `generate-guide-pages.mjs`) that writes to `dist/` can overwrite critical files like `llms.txt` with a stale or empty version. Fix: check if the target already exists and has content before overwriting, or rename the build script output to a different path and merge later.
 - **Verify the served HTML, not just dist**: CF Pages and other edge platforms may process (minify/strip) HTML during deployment. Use `curl | grep` on the live URL, not just `dist/`, to verify OG tags and JSON-LD are present. **`og:image:width`/`height` are commonly stripped** by CF Pages HTML processing — compare `grep og:image:width dist/index.html` vs `curl <url> 2>/dev/null | grep og:image:width` to detect. Social platforms (Facebook, X, LINE) usually execute JS and can read React-injected values, but non-JS crawlers won't see them. Fix: ① accept client-side fallback; ② disable CF HTML minification (Dashboard > Speed > Optimization or `_headers` rules); ③ skip (width/height are non-critical hints).
 - **SSG minified HTML**: Build output is single-line minified. Use grep/python3 with regex to verify head tags; `read_file` shows one truncated line and should not be relied on for head content verification.
+- **Patch tool refuses single-line minified HTML**: the V4A multi-file patch form
+  fails with `Binary file — cannot display as text` on single-line HTML. Workaround:
+  replace-mode `patch` with a short unique old_string works fine — batch several
+  replacements via a python loop over `hermes_tools.patch` pairs (one round-trip,
+  ~1s for 7 pairs). See `references/event-landing-page-geo.md`.
+- **Stale handoff ZIPs**: after any content edit, rebuild the archive from
+  scratch (`rm -f ../proj.zip && zip -r ../proj.zip index.html robots.txt fonts`)
+  and re-verify (`unzip -l` shows the file list, `shasum -a 256` + byte size to
+  confirm it changed). A rebuilt ZIP is the only way to guarantee the colleague
+  gets the new content. macOS: `rm .DS_Store` first — Finder-generated
+  `.DS_Store` junk leaks into archives otherwise; verify with `unzip -l` that
+  it's absent.

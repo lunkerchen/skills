@@ -1,7 +1,7 @@
 [![English](https://img.shields.io/badge/lang-en-red.svg)](README.en.md)
 [![繁體中文](https://img.shields.io/badge/lang-zh--tw-blue.svg)](README.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Skills](https://img.shields.io/badge/skills-43-blue)](https://github.com/lunkerchen/skills/tree/main/skills)
+[![Skills](https://img.shields.io/badge/skills-44-blue)](https://github.com/lunkerchen/skills/tree/main/skills)
 [![AI Agent](https://img.shields.io/badge/AI-Agent%20Ready-brightgreen)](https://github.com/lunkerchen/skills)
 
 # AI 導入實戰 Skills
@@ -57,7 +57,7 @@ cp -r skills/automation/personal-red-team ~/.hermes/skills/
 2. **安裝** — 用上表任一方法
 3. **用平常的話描述需求** — agent 會自動載入對應 skill（例：說「幫我把這個表單接上 LINE 通知」，agent 就會載入 `line-messaging-api`）
 
-## 內容一覽（43 個 skills）
+## 內容一覽（44 個 skills）
 
 ### ai-adoption — 企業 AI 導入
 
@@ -102,6 +102,7 @@ cp -r skills/automation/personal-red-team ~/.hermes/skills/
 - [vocus-article-writing-sop](skills/content/vocus-article-writing-sop/SKILL.md) — AI 工具簡報改寫為方格子深度長文
 - [markdown-to-podcast](skills/content/markdown-to-podcast/SKILL.md) — markdown 文章轉 podcast WAV（神經 TTS + 鋼琴 intro）
 - [youtube-content](skills/content/youtube-content/SKILL.md) — YouTube 逐字稿轉摘要、Threads、部落格
+- [ig-video-breakdown](skills/content/ig-video-breakdown/SKILL.md) — IG 影片拆解工作流：下載、逐字稿、內容分析
 
 ### design — 設計
 

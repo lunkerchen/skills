@@ -18,9 +18,17 @@ Binary at `$HOME/bin/your-scanner`. Scans installed packages across: npm, PyPI, 
 
 ### Basic scan with timing
 
+⚠️ Gateway-session gotcha (2026-08-05): invoking the binary by absolute path
+(`$HOME/bin/your-scanner scan ...`) trips the gateway lifecycle guard —
+it treats the path as a referenced script, and the guard's primary reader
+crashes with `ValueError: embedded null byte` (os.open only catches OSError;
+NUL paths slip through). Workaround: put the dir on PATH and call the bare name,
+or use `env $HOME/bin/your-scanner`. Both verified working.
+
 ```bash
 start=$(python3 -c "import time; print(int(time.time()*1000))")
-$HOME/bin/your-scanner scan --profile baseline --output stdout \
+export PATH="$HOME/bin:$PATH"
+your-scanner scan --profile baseline --output stdout \
   2>/dev/null > /tmp/your-scanner-scan-$(date +%Y%m%d).json
 end=$(python3 -c "import time; print(int(time.time()*1000))")
 duration_ms=$((end-start))

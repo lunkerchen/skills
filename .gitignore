@@ -19,6 +19,7 @@ node_modules/
 *.log
 .hermes-cache/
 .hermes/
+.codegraph/
 
 # Secrets — never commit
 *.pem

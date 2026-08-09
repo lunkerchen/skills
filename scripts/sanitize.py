@@ -81,6 +81,9 @@ SPECIFIC_RULES: dict[str, list[tuple[str, str]]] = {
     "gmail-inbox-organizer": [
         ("/opt/homebrew/bin/gws", "gws"),
     ],
+    "s2t-taiwan": [
+        ("/Users/lunker/Documents/FDE_IG自動貼文發布/素材/xiaohongshu-<id>/", "$IG_SOURCE_DIR/素材/xiaohongshu-<id>/"),
+    ],
     "web-monitor": [
         ("momo-gift", "monitored-site"),
     ],

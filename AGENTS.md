@@ -5,7 +5,9 @@ source (`~/.hermes/skills/`). Read this before editing anything.
 
 ## Ground truth
 
-- The canonical source of every skill is `~/.hermes/skills/<path>/`.
+- The canonical source of every skill is `~/.hermes/skills/<path>/`. When a skill
+  is missing there (moved to the cross-agent shared store), `sync.sh` falls back
+  to `~/.agents/skills/<path>/`.
 - This repo is a **mirror**. Never edit a skill's `SKILL.md` inside this repo as
   the primary change — edit the canonical source, then run `scripts/sync.sh`.
 - `scripts/sync.sh` copies only skills listed in `scripts/allowlist.tsv`

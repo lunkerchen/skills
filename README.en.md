@@ -1,10 +1,7 @@
 [![繁體中文](https://img.shields.io/badge/lang-zh--tw-blue.svg)](README.md)
 [![English](https://img.shields.io/badge/lang-en-red.svg)](README.en.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Skills](https://img.shields.io/badge/skills-43-blue)](https://github.com/lunkerchen/skills/tree/main/skills)
-[![AI Agent](https://img.shields.io/badge/AI-Agent%20Ready-brightgreen)](https://github.com/lunkerchen/skills)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Skills](https://img.shields.io/badge/skills-43-blue)](https://github.com/lunkerchen/skills/tree/main/skills)
+[![Skills](https://img.shields.io/badge/skills-44-blue)](https://github.com/lunkerchen/skills/tree/main/skills)
 [![AI Agent](https://img.shields.io/badge/AI-Agent%20Ready-brightgreen)](https://github.com/lunkerchen/skills)
 
 # Skills for AI Adoption
@@ -60,7 +57,7 @@ cp -r skills/automation/personal-red-team ~/.hermes/skills/
 2. **Install it** — any method in the table above
 3. **Describe the task in plain words** — your agent auto-loads the matching skill (e.g. say "connect this form to LINE notifications" and the agent loads `line-messaging-api`)
 
-## What's inside (43 skills)
+## What's inside (44 skills)
 
 ### ai-adoption
 
@@ -105,6 +102,7 @@ Writing and publishing workflows with an anti-AI-slop core.
 - [vocus-article-writing-sop](skills/content/vocus-article-writing-sop/SKILL.md) — turn AI-tool briefings into polished long-form tech journalism for vocus
 - [markdown-to-podcast](skills/content/markdown-to-podcast/SKILL.md) — turn markdown articles into podcast WAVs with neural TTS and piano intro
 - [youtube-content](skills/content/youtube-content/SKILL.md) — fetch YouTube transcripts and convert them into summaries, threads, and blogs
+- [ig-video-breakdown](skills/content/ig-video-breakdown/SKILL.md) — Instagram video breakdown workflow: download, transcribe, analyze content
 
 ### design
 

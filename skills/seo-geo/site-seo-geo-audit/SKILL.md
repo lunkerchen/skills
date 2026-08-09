@@ -160,6 +160,6 @@ For a real-world execution trace of this audit workflow on an Astro portfolio (e
 1. **不要只看一頁** — 全站 reconnaissance 永遠在單頁分析之前。用戶給一個 URL 不表示他只想知道那一頁。
 2. **不要跳過 sitemap** — 它是理解網站最快的方式。如果 sitemap 不存在，用 site:domain 搜尋。
 3. **WP 站點注意** — Rank Math / Yoast 預設 Schema 常設為 BlogPosting，這是全站性錯誤的最常見原因。
-4. **CF 用戶注意** — Cloudflare 預設已改為阻擋 AI 機器人，需手動放行 `GPTBot` / `ChatGPT-User` / `Google-Extended`。
+4. **CF 用戶注意** — Cloudflare 預設已改為阻擋 AI 機器人，需手動放行 `GPTBot` / `ChatGPT-User` / `Google-Extended`。即便未用 CF，也建議在 robots.txt 明確 `Allow` 這三個 AI crawler — 明示優於默認，成本為零。完整範例見 `static-site-geo` 的 `references/event-landing-page-geo.md`。
 5. **Schema 不是越多越好** — 每頁一個主要類型 + 必要的子類型（Offer/FAQ/Review）即可。不要堆疊不相關的 Schema。
 6. **不要診斷了不改** — 報告產出後應提供可直接操作的程式碼或設定文字。

@@ -53,6 +53,31 @@ When running a verification loop (loop-fix or similar):
 This avoids the ~30-90s overhead of spawning, warming up, and summarizing
 a subagent for what amounts to a one-liner.
 
+## Failed delegates still leave evidence
+
+A subagent that dies (model HTTP 500, max_iterations) is not a zero-output run.
+Its live transcript is append-only at
+`$HERMES_HOME/cache/delegation/live/<deleg_id>/task-<n>.log` — every tool call,
+result, and partial chain is preserved. Before re-dispatching, read the log and
+salvage partial findings: a blind-audit delegate that died after 5 vision passes
+still returned its checked frames and transcribed card text (caught a background
+Wi-Fi credential in a video frame, 2026-08-04). Re-run only the missing slice,
+not the whole task — and treat a salvaged-but-incomplete audit as unverified for
+the parts it never reached.
+
+## Stalled-but-alive subagents: the search-phase stall signature
+
+A subagent can also be **alive but not progressing** — different from dying. The
+signature: the live transcript grows to kickoff + 1-2 tool calls, then stops for
+minutes with no results, no errors, no further lines. This happens with
+research-heavy briefs (dozens of candidates × multiple fields) on flash/cheap
+aux models — the agent loops inside a search tool without producing output.
+Waiting does not help. Confirm via the transcript (`file_size` tiny, no tool
+result lines), then re-dispatch ONE consolidated synthesis agent with an exact
+count + compact output constraint, or collapse the work to the main session.
+(2026-08-07: three parallel 33-34-item research briefs all stalled this way;
+recovery = one consolidated synthesis agent + main-session source verification.)
+
 ## Related
 
 - `loop-fix` — the verification loop this pattern was discovered in

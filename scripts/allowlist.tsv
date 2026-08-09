@@ -5,7 +5,7 @@
 # --- content ---
 writing/stop-slop	content
 writing-humanizer	content
-translation/s2t-taiwan	content
+translation/s2t-taiwan	content	sanitize
 content-generation/html-article-author	content
 vocus-article-writing-sop	content	sanitize
 content-production/markdown-to-podcast	content	sanitize
