@@ -43,6 +43,8 @@ Google 核心演算法已是神經網路。它不再看關鍵字密度，而是�
 - 實體關聯：確保 Google 能理解你的內容在談論哪些實體（品牌、人物、產品、概念）
 - EEAT 非選項：Experience, Expertise, Authoritativeness, Trustworthiness 影響雙方
 
+**2025/12 core update 後的運作方式**：Google 從「大版本核心更新」轉向**連續 AI 品質評估** — 排名行為以較小波動持續調整（SEO pulse），監控趨勢比反應單日掉榜重要；「helpfulness」訊號（獨特、第一手、非商品化內容）是連續評估的核心，內容品質差的站點在每次波動中持續失血。2026 更進一步：AI Mode/AI Overviews 作為「品質過濾層」疊在排名之上 — 被 AI 反覆取用的內容在 core 更新後更容易存活。
+
 ### 1.2 技術 SEO 底線
 
 - 網站速度（Core Web Vitals）
@@ -55,6 +57,8 @@ Google 核心演算法已是神經網路。它不再看關鍵字密度，而是�
 連結依然重要。不僅因為 Google ranking，也因為：
 1. AI 使用即時網路搜尋，強 backlink profile 幫助子查詢排名
 2. 連結增加在 Common Crawl（LLM 訓練資料集）中的曝光率
+
+**但 AI 時代權重已稀釋**：Ahrefs 75K 品牌研究顯示 brand mentions 與 AI 可見度相關性**強 3 倍**（YouTube ~0.737 vs Domain Rating ~0.266）。連結仍是基礎工程（爬取、信任、Common Crawl 曝光），但資源配置應從「純買連結」轉向「連結 + 品牌提及並進」— 兩者服務不同引擎：連結養 Google 排名，mentions 養 AI 引用（詳見 2.2 支柱四與 `references/aeo-playbook-2026.md` 第三章）。
 
 ---
 
@@ -112,9 +116,12 @@ AI 有強烈**近期偏誤**。內容超過 **3 個月**，AI 引用次數急遽
 
 ### 2.3 站外 GEO 策略
 - **Unlinked brand mentions** 有效 — 即使無連結，單純提到品牌也有加分
+- **Earned media 是引用主力**：Muck Rack 分析 2,500 萬連結 — **84% 的 AI citations 來自 earned media**（第三方編輯報導），品牌自有頁面僅 5-10%、付費僅 0.3% → 公關/新聞報導不是品牌部門的事，是 GEO 核心戰術
 - **進入 AI 已引用的來源** — 找出哪些頁面已被 AI 引用，讓你的品牌出現在那裡（Reddit 回文、請部落客補充等）
-- Reddit / YouTube / 論壇 — 頻繁出現在 AI 回應中
-- **Wikipedia** 是 AI 訓練資料的重要來源
+- Reddit / YouTube / 論壇 — 頻繁出現在 AI 回應中（Perplexity 引用 Reddit 46.7%、ChatGPT 11.3%）
+- **Wikipedia** 是 AI 訓練資料的重要來源（ChatGPT 引用 47.9%）
+
+**操作優先序**：① 先確保自家內容的「被引用策略」（結構化 + 數據 + 作者資訊）→ ② 再投資 Reddit/YouTube 平台曝光（brand mentions，成本最低、關聯最強）→ ③ 最後才是傳統公關報導（earned media，成本最高但佔引用 84%）。三者都指向同一目標：**讓品牌出現在 AI 已信任的來源裡**。
 
 ### 2.4 各 AI 引擎特性速查（2026/8 更新）
 
