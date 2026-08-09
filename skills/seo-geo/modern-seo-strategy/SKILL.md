@@ -112,15 +112,51 @@ AI 有強烈**近期偏誤**。內容超過 **3 個月**，AI 引用次數急遽
 - Reddit / YouTube / 論壇 — 頻繁出現在 AI 回應中
 - **Wikipedia** 是 AI 訓練資料的重要來源
 
-### 2.4 各 AI 引擎特性速查
+### 2.4 各 AI 引擎特性速查（2026/8 更新）
 
-| 引擎 | 特性 |
-|------|------|
-| **ChatGPT** | 市佔 ~70%。混合即時搜+訓練資料。偏愛全面有來源的內容 |
-| **Google AI Overviews/AI Mode** | 整合傳統 ranking。已有 organic 排名者有利 |
-| **Perplexity** | 強 citation focus。偏愛近期內容。SaaS 轉換率高 |
-| **Gemini** | 成長最快。強 Google SEO 自動轉 Gemini 可見度 |
-| **Claude** | 整合 Safari。偏愛邏輯清晰的結構化內容 |
+| 引擎 | 規模（2026/8） | 特性 | 優化重點 |
+|------|------|------|----------|
+| **Google AI Overviews** | 25 億月用戶；出現率 25–60%（依 tracker） | SERP 內嵌摘要 + 行內連結（2026/5 起）；下方仍有傳統結果 | 被引用 > 排名；開頭段落；平台內容（Reddit 21%/YouTube/LinkedIn） |
+| **Google AI Mode** | **10 億月用戶**（推出一年內）；查詢每季翻倍 | 獨立對話介面、無傳統結果列、多模態輸入、query fan-out；Gemini 3.5 Flash 預設 | 子問題覆蓋、即時資料、結構化 QA；引用落在 top-10 僅 14% → 排名工具量不到 |
+| **ChatGPT** | 9 億週活躍（2026/2）；佔 AI referral 流量 87.4% | 混合即時搜+訓練資料；搜尋+agent 化 | 引用追蹤、可驗證數據、平台提及；引用頁 71% 含結構化資料 |
+| **Perplexity** | ~22M MAU、~780M 查詢/月 | 強 citation focus。偏愛近期內容。SaaS 轉換率高 | 引用格式、來源品質、權威域 |
+| **Gemini** | 950M 月活（Q2 財報 2026/7） | 成長最快。強 Google SEO 自動轉 Gemini 可見度；SynthID/C2PA 驗證先行 | 品牌提及、多模態內容 |
+| **Claude** | ~19M MAU、~190% YoY | 整合 Safari。偏愛邏輯清晰的結構化內容 | 結構、邏輯論證、引用語句精確 |
+| **Copilot** | 80–120M 週搜尋查詢；64% 企業情境 | Windows/Edge/Bing + **Microsoft 365 內嵌**（Word/Outlook/Teams） | 企業型內容、365/LinkedIn 生態、結構化資料 |
+| **Grok** | 117M MAU（SpaceX IPO 揭露）；78% 使用在 X 內 | X 即時社交資料原生優勢（41% 查詢涉即時新聞/體育/金融） | X 品牌內容、即時熱點、高速度新聞/財經 |
+
+### 2.5 內容出處驗證（C2PA/SynthID）與資訊代理
+
+**出處驗證成為新信任訊號**（I/O 2026）：SynthID 驗證擴到 Search 與 Chrome（全球已用 5,000 萬次），C2PA Content Credentials 可查「是否相機原始檔、是否被修改、用什麼工具改」；OpenAI 同日加入 C2PA 委員會並承諾嵌入 SynthID。這是**媒體出處驗證，不是對 AI 文字的懲罰**——但可驗證的出處將成為 agent 評估可信度的權威信號。
+
+→ 準備動作：原創照片/圖表掛 C2PA Content Credentials；發布流程加入出處標記；AI 生成內容明確揭露；authorship/schema 保持乾淨。
+
+**Search agents / Personal Intelligence**：agent 24/7 監控「變化」並主動推送；常青內容要「可被反覆重新檢索」（定期更新的事實、結構化 QA），即時/變動型資料（價格、庫存、changelog）價值上升，「寫完不動」的靜態長文與「一次訂閱換一次解答」模式被侵蝕。44.2% 的 LLM 引用來自內文前 30% → 最強主張、數據、結論放最前面。
+
+### 2.6 Agentic Commerce（代理式商務）
+
+> AI agent 取代「搜尋 → 點擊 → 逛站 → 結帳」人類路徑，直接在對話介面完成發現、比較、下單甚至售後。**產品資料的乾淨度、bot 可存取性與交易協定就緒度**，是 agent 選進「短名單」的門票。
+
+**三大協定地圖（2026/8）**：
+
+| 協定 | 擁有者 | 現況 | 商家要做的 |
+|---|---|---|---|
+| **UCP**（Universal Commerce Protocol） | Google | 2026/1 發表、2 月上線；Universal Cart 2026 夏美國上線；擴至加拿大/澳洲/英國 | Merchant Center feed + Schema.org Product；或透過 Shopify 等平台間接加入 |
+| **ACP**（Agentic Commerce Protocol） | OpenAI + Stripe（開源） | 2026/3 OpenAI 轉向「App 模式」（Instacart/Target/Expedia）；僅約 12 家 Shopify 商家上線 | 向 OpenAI 申請 structured feed |
+| **AP2**（Agent Payments Protocol） | Google（開放標準） | 三卡組織全數支援（Mastercard/Visa/Amex 含 Agent Purchase Protection） | 不需自建；確認金流夥伴支援 |
+
+**五個準備方向**：
+1. **Product feed 是新的「排名因子」** — rich title、多圖、運送/退貨政策；GTIN 可多獲最多 40% 點擊；I/O 2026 新增 Conversational Attributes
+2. **乾淨結構化資料 = 被引用門檻** — 結構化資料頁面被 AIO 引用率高 3.1 倍；ChatGPT 引用頁 71% 含結構化資料；每個 PDP 需 Product+Offer JSON-LD
+3. **Bot 存取策略翻轉** — 封鎖購物 agent ≈ 2010 年封鎖 Googlebot；放行 OAI-SearchBot/ChatGPT-User/PerplexityBot/Google-Extended/Claude-Web；/checkout、/account 仍全封；Cloudflare 已有 Trusted Agent Protocol managed ruleset
+4. **協定就緒度** — 不必自建 agent；透過 Shopify/Target/Walmart 承接；2026/7 Shopify Agentic Storefronts 讓數百萬商家一鍵上架 ChatGPT/Copilot/AI Mode/Gemini；先從最高營收類別做起
+5. **售後支援決定「回購推薦」** — agent 把過往支援品質（追蹤、退貨、退款速度）納入下次選商依據；AP2 不可篡改 Mandate 供退貨/爭議使用
+
+**內容站意涵**：出版商 Google 推薦流量年減 33%（全球）/38%（美國）是**結構性**的；但被 AI 引用時轉換率高出 4–9 倍。86% 消費者會再次驗證 AI 推薦（68% 回 Google、48% 回品牌官網）→ 品牌官網是「確認」落點而非「發現」；選購指南需「被引用策略」+ 自有管道（Email/社群）護城河。
+
+**Checkpoint（每季）**：robots.txt 放行購物 crawler → PDP JSON-LD 完整 → Merchant Center feed 屬性 → 至少一個交易協定路徑 → 金流支援 AP2 → AI Mode/ChatGPT 短名單測試 → 售後流程 agent 化 → Merchant Center AI share of voice。
+
+完整版（含協定細節、10 項 checkpoint 表、台灣市場提醒、數據速查）見 `references/agentic-commerce-2026.md`。
 
 ---
 
@@ -139,7 +175,7 @@ AI 有強烈**近期偏誤**。內容超過 **3 個月**，AI 引用次數急遽
   ├── Core Web Vitals 達標
   ├── Server-side rendering 確認
   ├── Schema markup 導入（FAQ、Review、Article）
-  └── llms.txt 建立（官方規格，Google Search Central 已支援）
+  └── llms.txt 建立（選配 — 僅 Anthropic/Perplexity 確認讀取；Google 明確不支援，非 citation signal）
 
 階段 2 — 內容生產
   ├── 主題地圖覆蓋（Intent Matrix + 長尾）
@@ -202,38 +238,76 @@ AI 有強烈**近期偏誤**。內容超過 **3 個月**，AI 引用次數急遽
 
 ---
 
-## 第五章：工具生態
+## 第五章：工具生態（2026/8 更新）
 
-### GEO 專用工具
-- **Profound** — 企業級，$35M Series B（Sequoia）。Share of voice + sentiment + prompt-level rankings
-- **Ahrefs Brand Radar** — 追蹤 5 個 AI 平台，1 億+ prompt 資料庫
-- **SEMrush AI Visibility Toolkit** — $99/月/domain
-- **Otterly.AI** — Google AI Overview + Perplexity 引用分析
-- **GEO/AEO Tracker** — 開源自架，BYOK，$0/月
+> 更新日期：2026/8/9（GitHub star 數為當日 API 實測）。GEO 已從新名詞變成月搜 22,000 次的成熟類別，工具分三種任務：引用追蹤、可見度稽核、內容優化。
 
-### 開源 GEO 生態（姚金剛）
-- **GEOFlow**（2.7k ⭐）— 開源 GEO 內容工程與多站點分發系統。PHP 8.2 + PostgreSQL(pgvector) + Docker。覆蓋知識庫/RAG、多模型生成、審核發布、WordPress/HTTP Agent 分發、llms.txt/Schema/sitemap。`github.com/yaojingang/GEOFlow`
-- **yao-geo-skills**（468 ⭐）— 20 個 GEO 專用 skill，含戰略診斷、頁面技術、內容生產、知識資產、歸因監測、GEOFlow 運營。`github.com/yaojingang/yao-geo-skills`
-- **yao-meta-skill**（1.6k ⭐）— Skill OS 框架：把 workflow 編譯為跨平台可復用的 agent skill 包，含 eval、審查門戶、證據帳本。`github.com/yaojingang/yao-meta-skill`
-- **測量框架論文**：《From Citation Selection to Citation Absorption: A Measurement Framework for Generative Engine Optimization Across AI Search Platforms》— 由姚金剛發表的跨平台 GEO 效果測量方法
+### 5.1 付費 GEO 工具
 
-### 手動速測（免費）
-每月做一次：針對行業相關問題問 ChatGPT + Perplexity + Gemini，看品牌是否出現、如何被描述、引用了哪些來源。
+| 工具 | 2026/8 現況 | 價格 | 適合誰 |
+|---|---|---|---|
+| **Profound**（tryprofound.com） | 已成為 GEO 首家獨角獸：2026/2 完成 $96M Series C（Lightspeed 領投），估值 $10 億。客戶含 Figma、Ramp、MongoDB、Plaid 等 | 免費入門方案 + 企業客製報價 | 品牌大廠；要 share of voice + sentiment + prompt 層級排名的企業 |
+| **Ahrefs Brand Radar**（ahrefs.com） | 追蹤 6 平台（Google AI Overviews/AI Mode、ChatGPT、Perplexity、Gemini、Copilot），prompt 資料庫 2.18–2.39 億筆；延伸 YouTube/TikTok/Reddit 追蹤（beta）。第三方評測指其 ChatGPT/Perplexity 追蹤有準確度落差 | 內含於 Ahrefs Lite $129/月起；部分方案加購模組約 $398–699/月（未確認） | 已是 Ahrefs 用戶、主戰場在 Google AI Overviews 者 |
+| **SEMrush AI Visibility Toolkit**（semrush.com） | 單獨加購 $99/月/domain；Semrush One（SEO+AI 一套）$199–549/月。prompt 庫 1.3 億+，覆蓋 7 引擎 | $99/月起 | 已是 Semrush 用戶，想 SEO 與 AI 可見度一個儀表板搞定 |
+| **Otterly.AI**（otterly.ai） | 仍是最低門檻付費工具：追蹤 7 引擎（含 AI Mode、Copilot），每日追蹤 + 引用分析 + GEO 稽核 | Lite $29/月（15 prompts）→ Standard $189 → Premium $489/月 | 個人/小團隊，想低成本開始每日追蹤 |
+| **OGTool**（ogtool.com） | 2026 竄紅新玩家（創辦人前 Stanford）：ChatGPT 關鍵字可見度 + Reddit 監控與 AI 回文、幻覺偵測。另有代管服務（Reddit $6,000/月、GEO $9,000/月） | Starter $99/月 → Growth $199 → Scale $399 | 想同時經營 Reddit 社群訊號 + AI 可見度的品牌 |
+| **其他新面孔** | Gauge（$99/月起）、ZipTie.Dev（$99/月）、AIclicks（$59–499/月）、SE Ranking Visible（$49/月起）、Peec AI（約 €75/月）、Writesonic GEO（$199/月） | 見各官網 | 依預算與引擎覆蓋選擇 |
+
+### 5.2 開源 GEO 生態（2026/8/9 GitHub API 驗證）
+
+| 專案 | Stars | 現況 | 用途 |
+|---|---|---|---|
+| **GEOFlow**（github.com/yaojingang/GEOFlow） | 3,156 ⭐（727 forks，持續更新） | 開源 GEO 內容工程 + 多站點分發：AI 任務、RAG/語意分塊、GEOFlow Agent、WordPress 發佈、Analytics。Apache-2.0、多語言文件 | 自架內容生產與多站分發流水線 |
+| **GEORank**（github.com/yaojingang/GEORank） | 364 ⭐（2026 新專案） | 開源 GEO 排名追蹤：Next.js + FastAPI，多模型 Provider 池、額度控管、GEO 診斷規則 | 自架排名/可見度追蹤（補「測量」環節） |
+| **yao-geo-skills**（github.com/yaojingang/yao-geo-skills） | 687 ⭐ | 20 個 GEO 專用 skill，持續更新 | Agent 驅動的 GEO 工作流 |
+| **yao-meta-skill**（github.com/yaojingang/yao-meta-skill） | 2,354 ⭐ | Skill OS 框架：workflow 編譯為跨平台 agent skill，含 eval、審查門戶、證據帳本 | 把 GEO 流程打包成可重用 skill |
+| **GEO/AEO Tracker**（github.com/danishashko/geo-aeo-tracker） | 活躍 | 開源、local-first 可見度儀表板：BYOK、6 模型並行、13 個功能頁、Vercel 一鍵部署。資料費僅 Bright Data PAYG（約 $1.5/1K 筆） | $0 月費的品牌追蹤 |
+| **awesome-generative-engine-optimization**（github.com/amplifying-ai/awesome-generative-engine-optimization） | 442 ⭐ | 2026 持續維護的 GEO 資源清單 | 找工具/研究入口 |
+
+測量方法論文《From Citation Selection to Citation Absorption》仍為跨平台 GEO 測量的學術基準。
+
+### 5.3 免費手動速測：仍是最務實的入門
+
+業界共識：**≤30–50 個 prompts、單一市場、每月一次**用手動即可（Google Sheet 追蹤，每週 1–2 小時）；超過 100 prompts、跨 4+ 引擎、要趨勢線與競爭者對比時必須自動化。免費官方數據源別漏：GA4 的 AI referral 流量、GSC 的 AI Overviews 曝光。
+
+### 5.4 2026/8 推薦組合
+
+- **免費（$0）**：GA4 + GSC + 手動速測（每季）→ 需自動化時自架 GEO/AEO Tracker（BYOK）或 GEORank + GEOFlow
+- **輕量付費（$29–99/月）**：Otterly Lite、OGTool Starter、ZipTie 三選一，搭配手動競品抽查
+- **中階（$99–299/月）**：Semrush One 或 Ahrefs Lite（含 Brand Radar 基本）+ Otterly Standard
+- **企業（客製）**：Profound 或 Ahrefs Brand Radar 全模組，配 OGTool 代管做 Reddit 訊號經營
+
+完整版見 `references/tool-ecosystem-2026-08.md`。
 
 ---
 
-## 關鍵數據參考
+## 關鍵數據參考（2026/8 更新）
 
-| 數據 | 來源 |
-|------|------|
-| GEO 提升 AI 可見度最高 40% | arXiv:2311.09735（KDD 2024） |
-| AI referral conversion 比傳統高 2× | Conductor 2026 Benchmarks |
-| ChatGPT 佔 AI referral 流量 87.4% | Conductor 2026 Benchmarks |
-| Google ranking vs AI citation overlap <20% | Brandlight 2026 |
-| Vercel 10% 新註冊來自 ChatGPT | Vercel 官方 |
-| 3 個月內容新鮮度 cliff | LLMrefs 資料 |
-| 結構化內容可見度 +30-40% | 多來源實測 |
-| ChatGPT 8 億週活躍用戶 | OpenAI 官方 |
+| 數據 | 值 | 來源 |
+|------|------|------|
+| ChatGPT 週活躍用戶 | 9 億+（2026/2） | OpenAI via Reuters |
+| Gemini app 月活躍 | 950M（DAU 一年 3 倍） | Google Q2 財報 2026/7 |
+| Google AI Mode 月活躍 | 10 億（推出一年內） | Google I/O 2026 |
+| AI Overviews 月活躍 | 25 億+ | Google I/O 2026 |
+| 消費者以 AI 開始搜尋 | 37% | Eight Oh Two（SEJ）2026/1 |
+| Google zero-click（US） | 68%（2024: 60%） | SparkToro 2026/5 |
+| AIO 出現 → #1 CTR | -58%；AIO 查詢 zero-click 83% | Ahrefs 2025/12；Digital Bloom |
+| Google top10 ↔ AI 引用 overlap | 70% → **<20%** | Brandlight via 5WPR 2026/5 |
+| AIO 引用來源在 organic top10 | 38%（原 76%） | Ahrefs Brand Radar 2026/3 |
+| LLM 引用在 Google top100 外 | 80%（僅 12% 在 top10） | Ahrefs 2025 末 |
+| Referring domains 效應 | 32K+ RD 被引用率為 <200 的 3.5 倍 | SE Ranking（2.3M 頁面）2026/6 |
+| AI citations 來自 earned media | 84%（付費僅 0.3%） | Muck Rack 2026/5 |
+| 新內容進 citation pool | 3–5 工作天；14 天未更新 -23% | tentenco 2026/3 |
+| 新鮮度效應 | 50% citations <13 週；ChatGPT 引用比 organic 新 25% | Amsive/Ahrefs |
+| GEO 效果時間線 | 3–6 個月建立穩定 citation authority | tentenco；5WPR |
+| Organic 掉 ↔ AI citation 掉 | 11/11 站全數同步（平均 -22.5%） | Lily Ray 2026/2 |
+| AI referral 流量 | 佔 1.08%、YoY +340%；轉換 3.49% vs 2.86% | Conductor/Digital Applied 2026 |
+| ChatGPT 佔 AI referral 流量 | 87.4% | Conductor 2026/1 |
+| Vercel 新註冊來自 ChatGPT | 10%（6 個月 10 倍） | Vercel LLM SEO playbook |
+| GEO 最高可見度提升 | +40%；結構化內容 +30–40% | arXiv:2311.09735（KDD 2024） |
+| Gartner 預測 | 2026 底傳統搜尋量 -25% | Gartner（預測） |
+
+完整 26 行數據表 + 32 條來源 URL + 變更摘要見 `references/seo-geo-key-data-2026-08.md`。
 
 ---
 
@@ -249,5 +323,9 @@ AI 有強烈**近期偏誤**。內容超過 **3 個月**，AI 引用次數急遽
 ## 參考文件
 
 本 skill 含以下參考文件：
-- `references/seo-geo-deep-research-2026.md` — 本研究的完整資料
+- `references/seo-geo-deep-research-2026.md` — 本研究的完整資料（2026/6 底稿，2026/8 更新）
+- `references/seo-geo-key-data-2026-08.md` — 26 行關鍵數據表 + 32 條來源 URL（2026/8 版）
+- `references/agentic-commerce-2026.md` — Agentic Commerce 完整研究（協定細節、10 項 checkpoint、台灣市場、數據速查）
+- `references/ai-search-ecosystem-2026.md` — AI Mode citation 行為、Search agents、C2PA/SynthID 完整研究
+- `references/tool-ecosystem-2026-08.md` — 工具生態完整版（含付費/開源/組合推薦）
 - `references/darkseoking-strategy.md` — Darkseoking 意圖矩陣策略原始說明
