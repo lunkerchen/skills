@@ -1,0 +1,4 @@
+interface:
+  display_name: "同步 Lark Wiki"
+  short_description: "安全同步本機 Markdown 到 Lark Wiki"
+  default_prompt: "使用 $sync-lark-wiki 檢查 per-user Lark OAuth scope，將本機 Markdown 安全同步到既有 Wiki，先預覽、確認後寫入並 read-back 驗證。"

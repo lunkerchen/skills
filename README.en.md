@@ -1,10 +1,10 @@
 [![繁體中文](https://img.shields.io/badge/lang-zh--tw-blue.svg)](README.md)
 [![English](https://img.shields.io/badge/lang-en-red.svg)](README.en.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Skills](https://img.shields.io/badge/skills-43-blue)](https://github.com/lunkerchen/skills/tree/main/skills)
+[![Skills](https://img.shields.io/badge/skills-44-blue)](https://github.com/lunkerchen/skills/tree/main/skills)
 [![AI Agent](https://img.shields.io/badge/AI-Agent%20Ready-brightgreen)](https://github.com/lunkerchen/skills)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Skills](https://img.shields.io/badge/skills-43-blue)](https://github.com/lunkerchen/skills/tree/main/skills)
+[![Skills](https://img.shields.io/badge/skills-44-blue)](https://github.com/lunkerchen/skills/tree/main/skills)
 [![AI Agent](https://img.shields.io/badge/AI-Agent%20Ready-brightgreen)](https://github.com/lunkerchen/skills)
 
 # Skills for AI Adoption
@@ -60,7 +60,7 @@ cp -r skills/automation/personal-red-team ~/.hermes/skills/
 2. **Install it** — any method in the table above
 3. **Describe the task in plain words** — your agent auto-loads the matching skill (e.g. say "connect this form to LINE notifications" and the agent loads `line-messaging-api`)
 
-## What's inside (43 skills)
+## What's inside (44 skills)
 
 ### ai-adoption
 
@@ -78,6 +78,7 @@ Forms, notifications, and integrations that run businesses.
 
 - [gas-form-backend](skills/automation/gas-form-backend/SKILL.md) — free Google Apps Script backend for static forms: Sheets, email, LINE push
 - [lark-bot-development](skills/automation/lark-bot-development/SKILL.md) — build Lark/Feishu bots: app lifecycle, event subscription (WebSocket/webhook), messaging, cards, SDKs
+- [sync-lark-wiki](skills/automation/sync-lark-wiki/SKILL.md) — safely sync local Markdown to an existing Lark Wiki with per-user OAuth, scoped preview, overwrite, read-back, and permission troubleshooting
 - [line-messaging-api](skills/automation/line-messaging-api/SKILL.md) — push form submissions to LINE official accounts or support groups via Messaging API
 - [cloudflare-email-service](skills/automation/cloudflare-email-service/SKILL.md) — send and route transactional email with Cloudflare Email Service and Workers
 - [turnstile-spin](skills/automation/turnstile-spin/SKILL.md) — end-to-end Cloudflare Turnstile bot protection: widget, siteverify, validation, framework guides
