@@ -1,7 +1,7 @@
 [![English](https://img.shields.io/badge/lang-en-red.svg)](README.en.md)
 [![繁體中文](https://img.shields.io/badge/lang-zh--tw-blue.svg)](README.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Skills](https://img.shields.io/badge/skills-43-blue)](https://github.com/lunkerchen/skills/tree/main/skills)
+[![Skills](https://img.shields.io/badge/skills-44-blue)](https://github.com/lunkerchen/skills/tree/main/skills)
 [![AI Agent](https://img.shields.io/badge/AI-Agent%20Ready-brightgreen)](https://github.com/lunkerchen/skills)
 
 # AI 導入實戰 Skills
@@ -57,7 +57,7 @@ cp -r skills/automation/personal-red-team ~/.hermes/skills/
 2. **安裝** — 用上表任一方法
 3. **用平常的話描述需求** — agent 會自動載入對應 skill（例：說「幫我把這個表單接上 LINE 通知」，agent 就會載入 `line-messaging-api`）
 
-## 內容一覽（43 個 skills）
+## 內容一覽（44 個 skills）
 
 ### ai-adoption — 企業 AI 導入
 
@@ -75,6 +75,7 @@ cp -r skills/automation/personal-red-team ~/.hermes/skills/
 
 - [gas-form-backend](skills/automation/gas-form-backend/SKILL.md) — 免費 GAS 後端：靜態表單接 Sheets + Email + LINE push
 - [lark-bot-development](skills/automation/lark-bot-development/SKILL.md) — 開發 Lark/飛書 BOT：應用生命週期、事件訂閱（WebSocket/webhook）、訊息、卡片、SDK
+- [sync-lark-wiki](skills/automation/sync-lark-wiki/SKILL.md) — 安全同步本機 Markdown 到既有 Lark Wiki：per-user OAuth、scope、preview、覆寫、read-back 與權限排錯
 - [line-messaging-api](skills/automation/line-messaging-api/SKILL.md) — 表單資料自動送 LINE 官方帳號或客服群組（Messaging API push）
 - [cloudflare-email-service](skills/automation/cloudflare-email-service/SKILL.md) — Cloudflare Email Service + Workers 發送與路由交易信
 - [turnstile-spin](skills/automation/turnstile-spin/SKILL.md) — Cloudflare Turnstile 端到端防機器人：widget、siteverify、驗證、框架指南
