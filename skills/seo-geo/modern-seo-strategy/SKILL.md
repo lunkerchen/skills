@@ -88,6 +88,8 @@ AI 不是把使用者問題直接拿來搜，而是執行 **query fan-out**（�
 - 子彈清單 + 編號列表 + 比較表（實測可見度 +30-40%）
 - **答案置前**：每段開頭直接給答案，不鋪墊
 - 段落 ≤ 3 句（長段落 AI 不易提取引用）
+- **Passage 最佳 134–167 字**（英文），要能單獨被引用；**~44% 的 AI 引用來自頁面前 30%**，段落**前 40–60 字直接給答案**（SE Ranking/claude-seo 數據）
+- **定義句型**：「X 是…」「X 指…」直接定義，別繞（見 `references/aeo-playbook-2026.md` 第二章）
 
 #### 支柱三：針對 fan-out queries
 內容策略同時覆蓋兩個層級：
@@ -98,10 +100,12 @@ AI 不是把使用者問題直接拿來搜，而是執行 **query fan-out**（�
 
 #### 支柱四：權威信號
 AI 評估引用可信度看：
-- **專家引語**：附姓名+頭銜+公司
-- **統計來源**：不寫「數據顯示」，寫「根據 Semrush clickstream 數據」
+- **專家引語**：附姓名+頭銜+公司（+30-40%）
+- **統計來源**：不寫「數據顯示」，寫「根據 Semrush clickstream 數據」（+40%）
 - **第一手經驗**：真實案例、具體範例。這是 EEAT 的 Experience 元素
 - **作者資訊**：明確的作者頁面與資歷
+- **Brand mentions > backlinks**（Ahrefs 75K 品牌研究）：品牌提及與 AI 可見度相關性比反向連結**強 3 倍** — YouTube 提及 ~0.737（最強）、Reddit/Wikipedia 高、LinkedIn 中、Domain Rating 僅 ~0.266
+- 平台引用來源差異：ChatGPT 靠 Wikipedia 47.9%/Reddit 11.3%；Perplexity 靠 Reddit 46.7%；Copilot 靠 Bing 索引（IndexNow 有用）；**僅 11% 網域同時被 ChatGPT 與 Google AIO 引用**（詳見 `references/aeo-playbook-2026.md` 第三、四章）
 
 #### 支柱五：內容新鮮度
 AI 有強烈**近期偏誤**。內容超過 **3 個月**，AI 引用次數急遽下降。關鍵頁面至少每季更新一次。
@@ -157,6 +161,26 @@ AI 有強烈**近期偏誤**。內容超過 **3 個月**，AI 引用次數急遽
 **Checkpoint（每季）**：robots.txt 放行購物 crawler → PDP JSON-LD 完整 → Merchant Center feed 屬性 → 至少一個交易協定路徑 → 金流支援 AP2 → AI Mode/ChatGPT 短名單測試 → 售後流程 agent 化 → Merchant Center AI share of voice。
 
 完整版（含協定細節、10 項 checkpoint 表、台灣市場提醒、數據速查）見 `references/agentic-commerce-2026.md`。
+
+### 2.7 AEO（Answer Engine Optimization）實作補充
+
+> **定位**：Google 官方立場 — AEO/GEO 是 **rebranded SEO**，不是獨立學科。技術上只有 RAG/grounding 與 query fan-out 兩層加成；頁面必須先被收錄且有資格顯示 snippet 才能進 AI 功能，**沒有獨立「AI 索引」**。Audit 時把 GEO/AEO 發現框為「套用到 AI 搜尋介面的 SEO 基本功」。
+
+**可引用性規則**（詳見 `references/aeo-playbook-2026.md`）：
+- Passage 134–167 字、可單獨被引用；~44% 引用來自前 30%；段落前 40–60 字給答案
+- 前 10 名頁面佔 AIO 引用 92%（其中 47% 來自第 5 名之後）→ 排名中段仍有機會
+- 多媒體內容被選率 +156%；內容停滯 6 個月以上失去被引用資格
+- AI crawler 不執行 JS → SSR 必須；ChatGPT-User 等 user-triggered 爬蟲 robots.txt 擋不住
+
+**技術實作：Markdown Twin + Agent-Readability**
+- **Markdown twin**：同 URL 依請求端回 HTML 或 markdown（AI bot UA / `Accept: text/markdown` / `.md` 路徑）；twin 要 `X-Robots-Tag: noindex` + `Vary: Accept`（防 CDN 快取錯格式）+ `Link rel="alternate"` 廣告
+- **@vercel/agent-readability**（`npx @vercel/agent-readability audit <url>`）：0-100 分，三層檢查 — 站級（llms.txt、robots、**sitemap.md 雙格式**、AGENTS.md、無孤兒頁）/ 頁級（3+ h1-h3、JSON-LD 含 dateModified/BreadcrumbList、text-to-HTML >15%）/ 伺服器（每頁 .md mirror、content negotiation）
+- **llms.txt 補充立場**：Google 忽略（0.1% AI 流量打到、被引用 top50 網域僅 1/50 有）→ 對 Google/AI 搜尋**不賦予引用權重**；但 **coding agents（Cursor/Claude Code）會讀**，開發者/技術站值得發布；內容站當零成本防禦選項。可加「What We Do Not Do」區塊消歧義
+- **優先實作順序**（非技術站）：robots.txt 放行檢查（10 分鐘）→ llms.txt+llms-full.txt → .md twin+Link header → JSON-LD/標題/text-to-HTML → sitemap.md → `agent-readability`/`agentic-seo` 驗證迴圈
+
+**方法論：Falsifiability** — 每條建議附 4 欄位：①第一性原理觀察 ②相依關係 ③「怎麼知道失敗？」檢查 ④領先指標。第三方工具分數是啟發式估計，不是 Google 內部訊號。
+
+完整版（Citability 規則表、Brand mentions 數據、平台引用差異、8 類別評分框架、47 methods 學術量測、AutoGEO/E-GEO 論文）見 `references/aeo-playbook-2026.md`。
 
 ---
 
@@ -305,6 +329,10 @@ AI 有強烈**近期偏誤**。內容超過 **3 個月**，AI 引用次數急遽
 | ChatGPT 佔 AI referral 流量 | 87.4% | Conductor 2026/1 |
 | Vercel 新註冊來自 ChatGPT | 10%（6 個月 10 倍） | Vercel LLM SEO playbook |
 | GEO 最高可見度提升 | +40%；結構化內容 +30–40% | arXiv:2311.09735（KDD 2024） |
+| Brand mentions vs backlinks | 相關性強 3 倍（YouTube ~0.737 vs DR ~0.266） | Ahrefs 75K 品牌研究 2025/12 |
+| Passage 最佳長度 | 134–167 字；~44% 引用來自頁面前 30% | SE Ranking/claude-seo |
+| 同時被 ChatGPT + Google AIO 引用 | 僅 11% 網域 | claude-seo（Ahrefs 數據） |
+| Cite Sources 策略 | +30–115%（47 methods 中最強） | AutoGEO/KDD 彙整 |
 | Gartner 預測 | 2026 底傳統搜尋量 -25% | Gartner（預測） |
 
 完整 26 行數據表 + 32 條來源 URL + 變更摘要見 `references/seo-geo-key-data-2026-08.md`。
@@ -328,4 +356,5 @@ AI 有強烈**近期偏誤**。內容超過 **3 個月**，AI 引用次數急遽
 - `references/agentic-commerce-2026.md` — Agentic Commerce 完整研究（協定細節、10 項 checkpoint、台灣市場、數據速查）
 - `references/ai-search-ecosystem-2026.md` — AI Mode citation 行為、Search agents、C2PA/SynthID 完整研究
 - `references/tool-ecosystem-2026-08.md` — 工具生態完整版（含付費/開源/組合推薦）
+- `references/aeo-playbook-2026.md` — AEO 實戰手冊：Citability 規則、Brand mentions 數據、Markdown Twin/content negotiation 實作、agent-readability 評分、8 類別評分框架、47 methods 學術量測、AutoGEO/E-GEO 論文
 - `references/darkseoking-strategy.md` — Darkseoking 意圖矩陣策略原始說明
