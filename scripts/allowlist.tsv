@@ -12,6 +12,9 @@ content-production/markdown-to-podcast	content	sanitize
 media/youtube-content	content	sanitize
 video-production/ig-video-breakdown	content
 
+# --- security ---
+security/website-security-owasp-cve	security
+
 # --- engineering ---
 linter-configuration	engineering	sanitize
 github/github-code-review	engineering

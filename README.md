@@ -1,7 +1,7 @@
 [![English](https://img.shields.io/badge/lang-en-red.svg)](README.en.md)
 [![繁體中文](https://img.shields.io/badge/lang-zh--tw-blue.svg)](README.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Skills](https://img.shields.io/badge/skills-44-blue)](https://github.com/lunkerchen/skills/tree/main/skills)
+[![Skills](https://img.shields.io/badge/skills-45-blue)](https://github.com/lunkerchen/skills/tree/main/skills)
 [![AI Agent](https://img.shields.io/badge/AI-Agent%20Ready-brightgreen)](https://github.com/lunkerchen/skills)
 
 # AI 導入實戰 Skills
@@ -137,6 +137,14 @@ cp -r skills/automation/personal-red-team ~/.hermes/skills/
 | [typescript-project-verify](skills/engineering/typescript-project-verify/SKILL.md) | TypeScript 五道驗證閘門：tsc、vitest、build、format、smoke |
 | [npm-global-upgrade](skills/engineering/npm-global-upgrade/SKILL.md) | 安全升級全域 npm 套件：allow-scripts、symlinks、OSV 判讀 |
 | [local-dev-server-startup](skills/engineering/local-dev-server-startup/SKILL.md) | 在 launchd/brew 管理的服務旁安全啟動 dev server；修 port 衝突 |
+
+### security — 資安
+
+網站與依賴弱掃，依 OWASP Top 10:2025 與 CVE 證據分級。
+
+| Skill | 說明 |
+|---|---|
+| [website-security-owasp-cve](skills/security/website-security-owasp-cve/SKILL.md) | 掃描已授權網站的 OWASP Top 10:2025、依賴 CVE、被動動態風險與 coverage gap |
 
 ### seo-geo — SEO + GEO
 

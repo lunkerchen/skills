@@ -1,7 +1,7 @@
 [![繁體中文](https://img.shields.io/badge/lang-zh--tw-blue.svg)](README.md)
 [![English](https://img.shields.io/badge/lang-en-red.svg)](README.en.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Skills](https://img.shields.io/badge/skills-44-blue)](https://github.com/lunkerchen/skills/tree/main/skills)
+[![Skills](https://img.shields.io/badge/skills-45-blue)](https://github.com/lunkerchen/skills/tree/main/skills)
 [![AI Agent](https://img.shields.io/badge/AI-Agent%20Ready-brightgreen)](https://github.com/lunkerchen/skills)
 
 # Skills for AI Adoption
@@ -137,6 +137,14 @@ Cloud and infrastructure workflows, hardened by production use.
 | [typescript-project-verify](skills/engineering/typescript-project-verify/SKILL.md) | five verification gates for TypeScript projects: tsc, vitest, build, format, smoke |
 | [npm-global-upgrade](skills/engineering/npm-global-upgrade/SKILL.md) | upgrade global npm packages safely: allow-scripts, symlinks, OSV triage |
 | [local-dev-server-startup](skills/engineering/local-dev-server-startup/SKILL.md) | start dev servers safely beside launchd/brew-managed services; fix port conflicts |
+
+### security
+
+Website and dependency scanning, classified with OWASP Top 10:2025 and CVE evidence.
+
+| Skill | Description |
+|---|---|
+| [website-security-owasp-cve](skills/security/website-security-owasp-cve/SKILL.md) | scan authorized websites for OWASP Top 10:2025, dependency CVEs, passive web risks, and coverage gaps |
 
 ### seo-geo
 
