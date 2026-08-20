@@ -161,6 +161,9 @@ Search, generative engine, and answer engine optimization (AI search & direct ci
 | [site-seo-geo-audit](skills/seo-geo/site-seo-geo-audit/SKILL.md) | whole-site SEO+GEO audit workflow: reconnaissance, schema checks, content gaps, priority matrix |
 | [webapp-geo-optimization](skills/seo-geo/webapp-geo-optimization/SKILL.md) | invisible GEO optimization for web apps: structured data, JSON-LD, sitemaps, OG images |
 | [llms-txt-generation](skills/seo-geo/llms-txt-generation/SKILL.md) | dynamically generate and maintain `/llms.txt` and `/llms-full.txt` semantic indexes |
+| [agentic-commerce-readiness](skills/seo-geo/agentic-commerce-readiness/SKILL.md) | audit e-commerce and PDPs for shopping agents: UCP/ACP/AP2 protocols, schema & bot access |
+| [video-transcript-aeo](skills/seo-geo/video-transcript-aeo/SKILL.md) | transform video/podcast transcripts into high-citability AEO assets and FAQ Schema |
+| [ai-gap-analysis](skills/seo-geo/ai-gap-analysis/SKILL.md) | diagnose competitor AI recommendations vs brand absence: Mention & Citation gaps |
 
 ## Example requests
 

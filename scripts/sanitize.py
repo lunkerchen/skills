@@ -103,6 +103,7 @@ SPECIFIC_RULES: dict[str, list[tuple[str, str]]] = {
 
 # Applied to every sanitized skill after SPECIFIC_RULES.
 GLOBAL_RULES: list[tuple[str, str]] = [
+    ("author: Laban", "author: community"),
     ("/Users/lunker/", "$HOME/"),
     ("~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Laban/", "$OBSIDIAN_VAULT/"),
     ("$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/Laban/", "$OBSIDIAN_VAULT/"),

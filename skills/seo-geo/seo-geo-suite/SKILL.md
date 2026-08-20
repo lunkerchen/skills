@@ -27,6 +27,9 @@ metadata:
       - static-site-seo-build-verification: 靜態站建置期 5 道 SEO/GEO 驗證門戶
       - brand-search-monitoring: 品牌詞搜尋與 AI Share of Voice 監控 Cron
       - geolook-tw: 台灣在地化 GEO 審計方法論
+      - agentic-commerce-readiness: 電商/產品頁優化給 AI 購物代理 — UCP/ACP/AP2 與 PDP Schema
+      - video-transcript-aeo: 影音/Podcast逐字稿轉 AEO 高引用問答與 FAQ Schema
+      - ai-gap-analysis: 診斷競品被 AI 推薦而自家缺席 — Mention 與 Citation 缺口
 ---
 
 # SEO × GEO × AEO 全能工作台（SEO-GEO-AEO Suite）

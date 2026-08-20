@@ -35,6 +35,9 @@ seo/spa-geo-crawlability	seo-geo	sanitize
 geo-article-friendly	seo-geo	sanitize
 seo/webapp-geo-optimization	seo-geo	sanitize
 seo/llms-txt-generation	seo-geo	sanitize
+seo/agentic-commerce-readiness	seo-geo	sanitize
+seo/video-transcript-aeo	seo-geo	sanitize
+seo/ai-gap-analysis	seo-geo	sanitize
 
 # --- ai-adoption ---
 engineering/enterprise-ai-adoption	ai-adoption	sanitize

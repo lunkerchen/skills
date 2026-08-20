@@ -161,6 +161,9 @@ cp -r skills/automation/personal-red-team ~/.hermes/skills/
 | [site-seo-geo-audit](skills/seo-geo/site-seo-geo-audit/SKILL.md) | 全站 SEO+GEO 審計工作流：偵察、Schema 診斷、內容缺口、優先序矩陣 |
 | [webapp-geo-optimization](skills/seo-geo/webapp-geo-optimization/SKILL.md) | Web App 隱形 GEO 優化：結構化資料、JSON-LD、sitemap、OG 圖 |
 | [llms-txt-generation](skills/seo-geo/llms-txt-generation/SKILL.md) | 動態生成與維護 `/llms.txt` 與 `/llms-full.txt` AI 專屬語意索引 |
+| [agentic-commerce-readiness](skills/seo-geo/agentic-commerce-readiness/SKILL.md) | 代理式商務與購物 Agent 審計：UCP/ACP/AP2 協定、PDP 結構化資料與 Bot 分流 |
+| [video-transcript-aeo](skills/seo-geo/video-transcript-aeo/SKILL.md) | 影音/Podcast 逐字稿轉 AEO 資產：結論置頂、高引用自洽問答與 FAQ Schema |
+| [ai-gap-analysis](skills/seo-geo/ai-gap-analysis/SKILL.md) | AI 搜尋缺口分析：診斷競品被 AI 推薦而自家缺席的 Mention 與 Citation 缺口 |
 
 ## 實際用法（組合範例）
 
