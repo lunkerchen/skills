@@ -119,6 +119,9 @@ Post-conversion, verify these Taiwan-standard forms:
 
 ## Pitfalls
 
+- **OpenCC s2twp 詞組誤轉（2026-08 Harness 課程實測）**：s2twp 是 phrase-level，會把 `持久性`→`永續性`（durability/persistence 變成 sustainability — ACID 語境必錯）、`導入`→`匯入`（adoption/introduction 變成 data-import — 檔名匯入情境的 `匯入` 反而是對的，需按語境修）、`资料库`→`資料庫`（resources/templates 情境應為 資源庫，database 語境 `資料庫` 才對）。解法：post-pass 針對語境 replace，別全域替換。
+- **術語詞典要在 OpenCC 之前跑**：先對簡體原文做 str.replace 詞典（如 测试用例→測試案例、仓库→儲存庫），再跑 s2twp — 順序反了詞典含簡體字的詞組全部 miss（s2twp 已先轉成繁體）。詞典 target 全用繁體字，s2twp 不會再動。
+- **`str.strip()` 不認 U+200B**：zero-width space 是 Cf 類別不是空白類別，`'\u200b'.strip()` 原樣返回。清錨點/尾綴要 `s.strip('\u200b\u200c\u200d\ufeff \t')`。
 - **Blanket replacements cause errors**: "數字→數位" only in "digital" contexts
 - **Variant character confusion**: Taiwan and Hong Kong use different variants (e.g. 裡 vs 裏)
 - **Library import issues**: opencc may have binary compatibility on some macOS — have manual fallback ready

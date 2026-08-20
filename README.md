@@ -146,19 +146,21 @@ cp -r skills/automation/personal-red-team ~/.hermes/skills/
 |---|---|
 | [website-security-owasp-cve](skills/security/website-security-owasp-cve/SKILL.md) | 掃描已授權網站的 OWASP Top 10:2025、依賴 CVE、被動動態風險與 coverage gap |
 
-### seo-geo — SEO + GEO
+### seo-geo — SEO + GEO + AEO
 
-搜尋引擎 + 生成式引擎優化（AI 搜尋可見度）。
+搜尋引擎 + 生成式引擎 + 問答引擎優化（AI 搜尋與直接答案可見度）。
 
 | Skill | 說明 |
 |---|---|
-| [modern-seo-strategy](skills/seo-geo/modern-seo-strategy/SKILL.md) | SEO+GEO 整合策略：語意地圖、EEAT、AI 引用優化、五階段計畫 |
+| [seo-geo-suite](skills/seo-geo/seo-geo-suite/SKILL.md) | SEO、GEO 與 AEO 全能工作台：三軌搜尋策略、問答抽取、全站審計與文章改造路由器 |
+| [modern-seo-strategy](skills/seo-geo/modern-seo-strategy/SKILL.md) | SEO+GEO 整合策略：語意地圖、EEAT、Ahrefs 4 支柱、AEO 引用手冊 |
 | [static-site-geo](skills/seo-geo/static-site-geo/SKILL.md) | 靜態網站 GEO/SEO 模式：JSON-LD、sitemap、OG 圖、llms.txt、建置驗證 |
 | [spa-geo-crawlability](skills/seo-geo/spa-geo-crawlability/SKILL.md) | 用 Edge Functions 預渲染 SPA 空殼，讓 AI 爬蟲看得到內容 |
 | [geo-content-reformatting](skills/seo-geo/geo-content-reformatting/SKILL.md) | 把 H2/H3 改寫成問句形式提升 AI 搜尋可見度，零設計變更 |
 | [geo-article-friendly](skills/seo-geo/geo-article-friendly/SKILL.md) | 既有文章改造為 AI 搜尋友好：證據強化、結構重構、語意優化，保留作者語氣 |
 | [site-seo-geo-audit](skills/seo-geo/site-seo-geo-audit/SKILL.md) | 全站 SEO+GEO 審計工作流：偵察、Schema 診斷、內容缺口、優先序矩陣 |
 | [webapp-geo-optimization](skills/seo-geo/webapp-geo-optimization/SKILL.md) | Web App 隱形 GEO 優化：結構化資料、JSON-LD、sitemap、OG 圖 |
+| [llms-txt-generation](skills/seo-geo/llms-txt-generation/SKILL.md) | 動態生成與維護 `/llms.txt` 與 `/llms-full.txt` AI 專屬語意索引 |
 
 ## 實際用法（組合範例）
 

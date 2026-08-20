@@ -117,9 +117,58 @@ have different `@id` values to avoid schema conflict.
 | BreadcrumbList | Auto-generated from URL structure |
 | SoftwareApp | For product pages |
 
-**Robots.txt:**
+**Robots.txt（2026 主流 AI 爬蟲全面放行矩陣）：**
 ```
 User-agent: *
+Allow: /
+
+# ── 2026 主流 AI 檢索與回答引擎放行 ──
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: meta-externalagent
 Allow: /
 
 Sitemap: https://domain.tld/sitemap-index.xml   (Astro convention)
@@ -128,9 +177,29 @@ Sitemap: https://domain.tld/sitemap.xml          (Hugo/Eleventy default)
 
 Know which convention your SSG uses — check `dist/` after a build.
 
-**llms.txt:** Per [llmstxt.org](https://llmstxt.org) spec. List key pages, a one-line
-description of each, and selected projects. AI crawlers (GPTBot, Google-Extended)
-look for this at the root.
+**深度知識圖譜深構（Deep Knowledge Graph `@graph` Pattern）：**
+- **全域 `Organization`**：必須宣告 `legalName`、`foundingDate`、`knowsAbout`（定義專長關鍵字陣列，強化主題權威）、`hasOfferCatalog`（關聯核心服務列表）與 `areaServed`。
+- **獨立服務頁 `Service` + `FAQPage`**：每個獨立服務路由皆注入專屬 `Service` 規格，並搭配 `FAQPage` 問答，供 AEO/Google Rich Results 精準抽取。
+- **案例頁 `CreativeWork`**：標註 `about`（客戶實體）、`creator`（創作團隊）與具體成果指標。
+- **團隊頁 `AboutPage` + `Person`**：標註團隊成員姓名、`jobTitle`、專長並關聯回文章作者。
+
+**MDX / SSG 封面圖自動 Fallback 防呆機制：**
+當內容庫（如 `content/blog/*.mdx`）文章繁多且 frontmatter 容易漏填 `coverImage` 時，在資料讀取層（如 `lib/mdx.ts`）實作自動檢查 fallback，防止 OG / Twitter Card 與 Article Schema 缺少圖片：
+
+```ts
+export function getBlogCoverImage(slug: string, frontmatterImage?: string): string {
+  if (frontmatterImage) return frontmatterImage;
+  const localCover = path.join(process.cwd(), 'public/images/blog', `${slug}.png`);
+  if (fs.existsSync(localCover)) {
+    return `/images/blog/${slug}.png`;
+  }
+  return '/images/default-og.png';
+}
+```
+
+**雙檔 AI 協議（llms.txt + llms-full.txt）：**
+- `public/llms.txt`：輕量級 Executive Summary + 核心模組導航（依 [llmstxt.org](https://llmstxt.org) 規範）。
+- `public/llms-full.txt`：單檔完整全站業務上下文（含服務規格、流程、案例數據與 FAQ），供 Agent 單次 Context 注入檢索。
 
 **Verification:** Parse built HTML rather than inspecting source. The source may have dynamic template logic; the static output is what crawlers see.
 

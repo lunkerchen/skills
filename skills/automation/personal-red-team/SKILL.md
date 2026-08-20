@@ -18,6 +18,7 @@ description: Use when 紅隊審計/全系統盤點/找隱藏風險。證據優�
 - skills：`du -sh`、`.usage.json`、`.curator_backups/`、symlink 指向
 - 跨 agent 記憶：`~/.agents/AGENTS.md` — **記憶說的話要對照實體**（例：說 launchd 跑著，實際 LaunchAgents 沒有 plist → 發現）
 - 磁碟：`df -h`、單檔怪獸（find -size +500M）
+- **Session Hygiene（agentic 衛生）**：`python3 scripts/session-hygiene-audit.py --days 30`（skill 內 scripts/）— 掃 `$HERMES_HOME/state.db` 12 項反模式：mega-sessions、abandoned、cache starvation、premium waste、model mix、verbose output、repeated prompts、runaway loops、instruction bloat、深夜/週末工作。規則庫分類見 `references/anti-pattern-rules.md`（45 條吸收自 microsoft/AI-Engineering-Coach；B 類 proxy 手動查，C 類寫報告 checklist，D 類 VS Code 專用永不引用）
 
 完整命令集見 `references/evidence-cheatsheet.md`。
 
@@ -63,6 +64,7 @@ Obsidian `04-產出-Hermes-Outputs/紅隊審計-YYYY-MM-DD/`：
 - 生成>>發布：內容管線產出堆積、無發布機制
 - 對撞：同小時多 LLM job、晨間多則 Telegram 簡報
 - 冷庫：skills cron 引用僅 1.2MB / 543 個技能 99.7% cold；.curator_backups 無輪替
+- Session 衛生：mega-session（>500 msgs 單一任務沒拆）、cache starvation（輸入百萬 tokens 但 cache 命中 0 = 白白燒 context）、instruction bloat（CLAUDE.md >40KB = 上下文稀釋）、重複 prompt（同句問 N 次 = skill/memory 沒接住）
 
 ## 驗收
 

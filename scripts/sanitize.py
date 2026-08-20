@@ -61,6 +61,11 @@ SPECIFIC_RULES: dict[str, list[tuple[str, str]]] = {
         ("Laban 版", "custom"),
         ("Laban", "the user"),
     ],
+    "seo-geo-suite": [
+        ("author: Laban", "author: community"),
+        ("Laban 版", "custom"),
+        ("Laban", "the user"),
+    ],
     "site-seo-geo-audit": [
         ("labangram.kamera-ichi.com", "your-app.example.com"),
     ],

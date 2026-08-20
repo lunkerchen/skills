@@ -189,6 +189,37 @@ AI 有強烈**近期偏誤**。內容超過 **3 個月**，AI 引用次數急遽
 
 完整版（Citability 規則表、Brand mentions 數據、平台引用差異、8 類別評分框架、47 methods 學術量測、AutoGEO/E-GEO 論文）見 `references/aeo-playbook-2026.md`。
 
+### 2.8 Ahrefs AI 搜尋四大支柱與內容工程（2026 最新趨勢）
+
+> 基於 Ahrefs 75,000 品牌研究、2.4 億+ Prompt 庫與 1,700 萬引用數據庫提煉（詳見 `references/ahrefs-geo-strategy-2026.md`）。
+
+#### 1. Ahrefs 4 大 AI 搜尋支柱（4 Pillars of AI Search Strategy）
+1. **企業真相來源（Source of Truth）**：有些頁面不為爭排名流量，而是作為 AI 的可靠事實基準（規格、定價、術語、FAQ）；且涵蓋全網受控 Profiles（G2/LinkedIn/Crunchbase）維持一致。
+2. **外部證據與類別共識（Outside Evidence & Category Consensus）**：AI 靠全網共識決定推薦名單。YouTube 逐字稿相關性 **~0.737**（最強）、Reddit 覆蓋 77% 評測搜尋、全網品牌提及相關性 **0.664**（排名前 25% 品牌拿 10x AI 版位）。
+3. **抗摘要深度內容（Deep Content）**：
+   - **資訊增益（Information Gain）**：獨家數據、一手實測、原創觀點（AI 摘要但必須標註引用）。
+   - **抗摘要功能資產（Anti-Summarization Assets）**：免費工具、計算機、模板（「Free tools」關鍵字 CTR 在 AIO 下降幅最小，因為 AI 無法取代操作）。
+4. **長期平均可見度與 SOV（Share of Voice）**：非確定性環境下，追蹤長期平均 AI Mentions、Citations、Share of Voice (SOV)、Perception 與過期引用修復（Outdated Cited Pages）。
+
+#### 2. 高引用內容格式（Ahrefs 流量實測分佈）
+- **「Best」精選指南**：佔 AI 流量 **7.06%**（必含適用對象、優缺點、明確價格）
+- **「How-to」教學指南**：佔 AI 流量 **6.35%**（編號步驟、前置條件、故障排除）
+- **「Top」評選清單**：佔 AI 流量 **5.50%**（評級標準、量化比較表）
+- **「Vs」競品對比**：佔 AI 流量 **4.88%**（客觀規格表、適合誰情境分析）
+- **產品與聯絡頁 (Product/Contact)**：佔 AI 流量 **~18%**（首段一句話價值主張、結構化方案）
+
+#### 3. 全域搜尋優化（Search Everywhere Optimization, SEvO）
+- 搜尋生態去中心化：TikTok（年輕族群 45% 首選）、YouTube（37 億月造訪、AIO 第二大引用源）、Reddit（77% 評測提及、"Reddit modifier" 搜尋習慣）。
+- 官網從「單一發現入口」轉為「信任確認與終端轉換節點」。
+
+#### 4. Google Web Guide 與 Query Fan-out
+- Google Web Guide（Gemini + RankEmbed FastSearch）以雜誌風格模組呈現，保留點擊連結。
+- 透過扎實的 **Topic Clusters（主題群集）** 覆蓋 Query Fan-out 的各個細分子意圖。
+
+#### 5. AI 缺口分析法（AI Gap Analysis）
+- **AI Mention Gap**：找出競品被 AI 推薦但自家缺席的查詢 → 補強外部第三方背書。
+- **AI Citation Gap**：找出競品被引用為權威依據但自家無對應頁面 → 打造更高 Information Gain 的內容覆蓋。
+
 ---
 
 ## 第三章：SEO × GEO 融合框架
@@ -358,6 +389,7 @@ AI 有強烈**近期偏誤**。內容超過 **3 個月**，AI 引用次數急遽
 ## 參考文件
 
 本 skill 含以下參考文件：
+- `references/ahrefs-geo-strategy-2026.md` — Ahrefs 4 大支柱、高引用格式、SEvO、Web Guide、AI 缺口分析實戰指南
 - `references/seo-geo-deep-research-2026.md` — 本研究的完整資料（2026/6 底稿，2026/8 更新）
 - `references/seo-geo-key-data-2026-08.md` — 26 行關鍵數據表 + 32 條來源 URL（2026/8 版）
 - `references/agentic-commerce-2026.md` — Agentic Commerce 完整研究（協定細節、10 項 checkpoint、台灣市場、數據速查）

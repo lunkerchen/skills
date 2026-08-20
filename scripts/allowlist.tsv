@@ -26,6 +26,7 @@ engineering/mcp-worker-deploy	engineering	sanitize
 engineering/typescript-project-verify	engineering	sanitize
 
 # --- seo-geo ---
+seo/seo-geo-suite	seo-geo	sanitize
 seo/modern-seo-strategy	seo-geo
 seo/site-seo-geo-audit	seo-geo	sanitize
 seo/geo-content-reformatting	seo-geo	sanitize
@@ -33,6 +34,7 @@ seo/static-site-geo	seo-geo	sanitize
 seo/spa-geo-crawlability	seo-geo	sanitize
 geo-article-friendly	seo-geo	sanitize
 seo/webapp-geo-optimization	seo-geo	sanitize
+seo/llms-txt-generation	seo-geo	sanitize
 
 # --- ai-adoption ---
 engineering/enterprise-ai-adoption	ai-adoption	sanitize

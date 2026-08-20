@@ -101,6 +101,23 @@ WordPress 站點通常有 Rank Math / Yoast 產出的結構化 sitemap。注意�
 - ＞3 年 → 考慮合併或更新
 - AI 有強烈近期偏誤，關鍵頁面至少每季更新一次
 
+### 2.4 Ahrefs 4 大 AI 搜尋審計維度（AI Search Pillars Audit）
+
+依據 Ahrefs 4 支柱框架審查目標網站的 AI 搜尋準備度：
+
+1. **企業真相來源（Source of Truth）**：
+   - 產品規格、功能列表、定價策略、常見問答（FAQ）是否有清晰、結構化的專門頁面？
+   - 外部可控 Profiles（G2, Capterra, LinkedIn, Crunchbase, App Store 等）之品牌描述與定價是否與官網同步一致？
+2. **外部共識與 SEvO 足跡（Outside Evidence & SEvO Footprint）**：
+   - 是否在 YouTube 擁有帶字幕與章節的教學/評測（相關性最強 ~0.737）？
+   - 是否在 Reddit、論壇與權威產業媒體有自然品牌討論與未加連結的品牌提及（Unlinked brand mentions）？
+3. **抗摘要深度資產（Anti-Summarization & Deep Content）**：
+   - 是否有免費互動工具、試算機、評估表（「Free tools」關鍵字抗 AIO 零點擊最有效）？
+   - 是否有一手原創數據、深度實驗或獨家調查報告（具備高 Information Gain，迫使 AI 引述來源）？
+4. **AI 缺口與過期引用修復（AI Gaps & Outdated Citations）**：
+   - 識別 AI Mention Gap（競品被推薦但自家缺席）與 AI Citation Gap（競品被引述但自家無對應資產）。
+   - 找出可能被 AI 頻繁引用但內容陳舊（舊定價、已棄用功能）的頁面，列為優先更新項目。
+
 ---
 
 ## 步驟三：優先級矩陣產出

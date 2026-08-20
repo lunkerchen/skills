@@ -185,6 +185,35 @@ Hermes 環境的 lark-cli 預設綁 **Hermes workspace 的 app**（`lark-cli con
 
 建議語意（finance-lark-bot 採用）：通知日 = 順延後到期日 - notify（預設 0 = 到期日當天），且**通知日也 clamp 到工作日**（往前移到最近的工作日，絕不在假日/週末發送）。
 
+## Wiki 知識庫建置與搬遷（2026-08 AI 知識庫實測）
+
+**建知識庫（space）**：`POST /wiki/v2/spaces` **只能用 user_access_token**（官方文件明載 "This API can not be accessed as app (tenant access token)"）— bot token 會回 99991663。scope 需 `wiki:space:write_only`（創建/更新知識庫空間）。
+
+**搬文件進知識庫的 CLI 路徑**（lark-cli 1.0.48 實測）：
+1. 建 node：`lark-cli wiki +node-create --space-id <space> [--parent-node-token <parent>] --title <t> --as user` → 回傳 `data.node_token` + `data.obj_token`（document_id）
+2. 填內容：`lark-cli docs +update --api-version v2 --doc <obj_token> --command overwrite --new-title <t> --content=@body.md --as user`
+   - **`--command overwrite` 是必需的**（`--mode overwrite` 會報 `--command is required`）；`--command overwrite` 只吃 `--content`（`--markdown` 會被拒）
+   - **`--content=@file` 用 `=` 號**：content 以 `---` 開頭時 `--content @file`（空格分隔）會被 pflag 當旗標報 "bad flag syntax"
+   - 回 `partial_success` + "Instruction produced no document changes" warning 是**誤報** — fetch 確認內容其實完整寫入
+   - `docs +create --wiki-space` 在 1.0.48 會忽略 `--wiki-space`（文件建到 Drive 不在 wiki）→ 一律用 node-create
+3. 讀回驗證：`docs +fetch --api-version v2 --doc <id>` → content 是 HTML 結構字串（title/hr/p/h2/ul/blockquote），可直接檢查標題與結構
+
+**docx blocks → markdown 轉換要點**（保結構搬遷）：
+- `GET /docx/v1/documents/{id}/blocks?page_size=500` 回 flat list（pre-order），根 block type=1（page，parent_id=""）；children 用 block.children 陣列走樹
+- block_type：2=text, 3-11=heading1-9, 12=bullet, 13=ordered, 14=code（style.language 是語言 enum 非文字）, 15=quote, 22=divider, 31=table 容器（children 是 32=table_cell）, 51=sub_page_list（子頁自動清單，可跳）
+- **bullet/ordered 的文字在 `bullet`/`ordered` key 裡**，不是 `text` — extract 要含全部 key
+- 錨點連結：標題文字帶 `\u200b` + link 的 run（空文字錨點）→ 判空要 strip U+200B
+- 來源 doc 殘骸：圖片 key（`[a-z0-9]{5,6}` 純小寫短行）、`−100%+×`（slider 元件文字）、獨立 `markdown` 行（``` 語言殘留）— 清理時**要追蹤 code fence 狀態**（每行 `count('```') % 2` 翻轉，因為開合在同一個 line 內）
+- **agent workspace 綁定**：HERMES_HOME 存在時 lark-cli 用 `~/.lark-cli/hermes/config.json`（hermes workspace），global `~/.lark-cli/config.json` 的 app 用不到 → `env -i HOME=$HOME PATH=$PATH TERM=$TERM LARKSUITE_CLI_CONFIG_DIR=<dir-with-global-config> lark-cli ...` 繞過
+
+**大規模搬遷（90 頁實測補充）**：
+- **`--content=@path` 只吃相對路徑**：絕對路徑（`@/tmp/x.md`）報 `invalid file path` — 暫存檔放工作目錄用 `@tmp_fill/x.md`
+- **`node-delete` 的 `include_children` 預設 true**：刪一個 node 連整棵子樹一起刪（async task）— 誤刪 90 個 node 後重建 = create 腳本重跑（meta/轉換檔留著就沒事）
+- **`node-copy`/`node-move` 需要額外 scope**（`wiki:node:copy` / `wiki:node:move`，user token 常缺）— 替代：node-create（有 create scope 就夠）重新建 + 重填內容，或上傳路徑
+- **file 節點（PDF 附件）搬遷**：`drive +upload --file x.pdf --wiki-token <parent_node>` 直接掛 wiki node 下（自動 parent_type=wiki）。raw `POST /wiki/v2/spaces/{id}/nodes` obj_type=file 會 99992402 field validation failed；CLI `node-create --obj-type file` 不支援
+- **大文件分段寫入**：>15K chars 拆段（段落邊界 `\n\n` 切，別切進 code fence），第一段 `--command overwrite` + 後續 `--command append`；寫完 `docs +fetch` 驗證字數（123K 字寫入實測完整）
+- 重跑 fill 安全性：overwrite 冪等；但 overwrite+append 組合重跑會重複 append — 全失敗才重跑，部分成功先清空再跑
+
 ## LangBot 替代路徑（免自己寫 bot server）
 
 若要「知識庫 RAG → Lark 問答」而非手寫 bot：**LangBot**（開源 IM bot 平台，v4.10.6）內建 Lark adapter（WebSocket 長連線、免公網）、插件化 Knowledge Base（LangRAG + GeneralParsers）、HTTP API `/api/v1/*` 供同步 script 上傳文件。Obsidian 資料夾 → LangBot → Lark 的完整架構與坑（含 iCloud mount 死鎖、繁中 embedding 選型、引用來源渲染未承諾）見 `team-knowledge-base` 的 `references/langbot-obsidian-rag-lark.md`。

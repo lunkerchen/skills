@@ -148,17 +148,19 @@ Website and dependency scanning, classified with OWASP Top 10:2025 and CVE evide
 
 ### seo-geo
 
-Search + generative engine optimization for real websites.
+Search, generative engine, and answer engine optimization (AI search & direct citation visibility).
 
 | Skill | Description |
 |---|---|
-| [modern-seo-strategy](skills/seo-geo/modern-seo-strategy/SKILL.md) | integrated SEO+GEO strategy: semantic maps, EEAT, AI citation optimization, five-phase plan |
+| [seo-geo-suite](skills/seo-geo/seo-geo-suite/SKILL.md) | all-in-one SEO, GEO & AEO suite: three-tier search routing, answer extraction, whole-site audits, and content transformation |
+| [modern-seo-strategy](skills/seo-geo/modern-seo-strategy/SKILL.md) | integrated SEO+GEO strategy: semantic maps, EEAT, Ahrefs 4-pillar framework, AEO citation playbook |
 | [static-site-geo](skills/seo-geo/static-site-geo/SKILL.md) | GEO/SEO patterns for static sites: JSON-LD, sitemaps, OG images, llms.txt, build verification |
 | [spa-geo-crawlability](skills/seo-geo/spa-geo-crawlability/SKILL.md) | fill SPA shells with prerendered content via Edge Functions so AI crawlers see text |
 | [geo-content-reformatting](skills/seo-geo/geo-content-reformatting/SKILL.md) | rewrite H2/H3 headings into question form for AI-search visibility, zero design change |
 | [geo-article-friendly](skills/seo-geo/geo-article-friendly/SKILL.md) | refit existing articles for AI search: evidence, structure, semantics — preserving the author's voice |
 | [site-seo-geo-audit](skills/seo-geo/site-seo-geo-audit/SKILL.md) | whole-site SEO+GEO audit workflow: reconnaissance, schema checks, content gaps, priority matrix |
 | [webapp-geo-optimization](skills/seo-geo/webapp-geo-optimization/SKILL.md) | invisible GEO optimization for web apps: structured data, JSON-LD, sitemaps, OG images |
+| [llms-txt-generation](skills/seo-geo/llms-txt-generation/SKILL.md) | dynamically generate and maintain `/llms.txt` and `/llms-full.txt` semantic indexes |
 
 ## Example requests
 
