@@ -44,6 +44,25 @@ OWASP Top 10:2025 對應表：
 | A09 | Security Logging and Alerting Failures |
 | A10 | Mishandling of Exceptional Conditions |
 
+## Official OWASP 2025 Indicators
+
+The source of truth is the [OWASP/Top10 `2025/docs/en/` directory](https://github.com/OWASP/Top10/tree/master/2025/docs/en). Use its prevention guidance, example attack scenarios, references, and complete CWE lists when a finding needs classification. The following baseline metrics are copied from each official 2025 score table (repository state checked 2026-08-20); they describe the Top 10 data set, not this target's risk score:
+
+| ID | Mapped CWEs | Avg incidence | Avg coverage | Operational indicators to check |
+|---|---:|---:|---:|---|
+| A01 | 40 | 3.74% | 42.93% | server-side deny-by-default; object/tenant ownership; logout invalidation; directory and backup exposure |
+| A02 | 16 | 3.00% | 52.35% | hardened repeatable config; unnecessary features; debug/error leakage; security headers; cloud permissions |
+| A03 | 6 | 5.72% | 65.42% | SBOM; direct/transitive inventory; CVE/OSV/NVD monitoring; supported versions; trusted sources |
+| A04 | 32 | 3.80% | 47.74% | sensitive-data classification; TLS >= 1.2 and HSTS; strong algorithms/key management; no sensitive caching |
+| A05 | 37 | 3.08% | 42.93% | parameterized APIs/queries; server-side positive validation; interpreter-specific escaping only as fallback |
+| A06 | 39 | 1.86% | 88.76% | threat model; abuse/misuse cases; critical-flow tests; tenant and tier separation; business-limit checks |
+| A07 | 36 | 2.92% | 37.14% | MFA; breached-password checks; no default credentials; session timeout/revocation; login throttling |
+| A08 | 14 | 2.75% | 78.52% | signed artifacts; trusted repositories; CI/CD segregation; integrity checks for serialized/untrusted data |
+| A09 | 5 | 3.91% | 46.48% | security-control success/failure logs; user context; tamper-resistant audit trail; alert playbooks; DAST alert coverage |
+| A10 | 24 | 2.95% | 100.00% | centralized error handling; fail-closed rollback; input validation; rate/resource limits; monitoring and alerting |
+
+For each A-category, record `indicator_status: confirmed|suspected|not_assessed`, the checked asset/path, and the exact official page URL. The mapped CWE count is a classification aid, not a requirement to find that many weaknesses. Do not convert the average incidence or coverage into a pass/fail threshold.
+
 ## Prerequisites
 
 先向使用者取得並記錄：
@@ -142,7 +161,7 @@ curl --fail-with-body --get 'https://services.nvd.nist.gov/rest/json/cves/2.0' -
 
 ### 7. 產出報告與修復順序
 
-輸出 `security-scan-report.md`，可另輸出 `findings.json` 或 SARIF。每項 finding 固定欄位：`id`, `severity`, `status`, `owasp_2025`, `cve`, `asset`, `evidence`, `impact`, `reproduction_safe`, `remediation`, `fixed_version`, `source_urls`, `confidence`, `owner`, `due_date`。
+輸出 `security-scan-report.md`，可另輸出 `findings.json` 或 SARIF。每項 finding 固定欄位：`id`, `severity`, `status`, `owasp_2025`, `indicator_status`, `official_owasp_source`, `cve`, `asset`, `evidence`, `impact`, `reproduction_safe`, `remediation`, `fixed_version`, `source_urls`, `confidence`, `owner`, `due_date`。
 
 排序規則：已確認的 internet-facing critical/high、CISA KEV、auth/access-control、可直接修補的 runtime CVE 優先；再排 medium、hardening 與 coverage gaps。修復建議要指向檔案、依賴或設定，不自動改檔。
 
@@ -173,6 +192,7 @@ curl --fail-with-body --get 'https://services.nvd.nist.gov/rest/json/cves/2.0' -
 
 ## References
 
+- OWASP Top 10:2025 repository source and indicators: https://github.com/OWASP/Top10/tree/master/2025/docs/en/
 - OWASP Top 10:2025: https://owasp.org/Top10/2025/
 - NVD CVE API 2.0: https://nvd.nist.gov/developers/vulnerabilities
 - CISA Known Exploited Vulnerabilities Catalog: https://www.cisa.gov/known-exploited-vulnerabilities-catalog
