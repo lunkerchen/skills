@@ -85,7 +85,7 @@ AIO 與 AI Mode 結論相同約 86%，但引用的 URL 只有 **13.7% 重疊**�
 dualmark 做法：每個頁面有 markdown 分身（twin），依請求端自動決定回傳格式：
 
 - 瀏覽器 → HTML；已知 AI bot UA（GPTBot、ClaudeBot、PerplexityBot 等 24 個）→ markdown；`Accept: text/markdown` → markdown；直接請求 `.md` URL → markdown；其餘 → HTML 帶 `Link rel="alternate"` 廣告 twin
-- URL 慣例：`/about` → `/about.md`、`/` → `/index.md`；協商依 RFC 7231 解析 Accept（q-value、wildcard），無可接受格式回 406
+- URL 慣例：`/about` → `/about.md`、`/` → `/index.md`；協商依 RFC 9110 解析 Accept（q-value、wildcard），無可接受格式回 406
 
 | Header | 用途 |
 |---|---|
