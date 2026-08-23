@@ -27,18 +27,6 @@ engineering/typescript-project-verify	engineering	sanitize
 
 # --- seo-geo ---
 seo/seo-geo-suite	seo-geo	sanitize
-seo/modern-seo-strategy	seo-geo
-seo/site-seo-geo-audit	seo-geo	sanitize
-seo/geo-content-reformatting	seo-geo	sanitize
-seo/static-site-geo	seo-geo	sanitize
-seo/spa-geo-crawlability	seo-geo	sanitize
-geo-article-friendly	seo-geo	sanitize
-seo/webapp-geo-optimization	seo-geo	sanitize
-seo/llms-txt-generation	seo-geo	sanitize
-seo/agentic-commerce-readiness	seo-geo	sanitize
-seo/video-transcript-aeo	seo-geo	sanitize
-seo/ai-gap-analysis	seo-geo	sanitize
-
 # --- ai-adoption ---
 engineering/enterprise-ai-adoption	ai-adoption	sanitize
 engineering/fde-framework	ai-adoption

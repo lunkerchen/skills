@@ -146,24 +146,13 @@ cp -r skills/automation/personal-red-team ~/.hermes/skills/
 |---|---|
 | [website-security-owasp-cve](skills/security/website-security-owasp-cve/SKILL.md) | 掃描已授權網站的 OWASP Top 10:2025、依賴 CVE、被動動態風險與 coverage gap |
 
-### seo-geo — SEO + GEO + AEO
+### seo-geo — SEO + GEO + AEO + Agent-Readiness
 
-搜尋引擎 + 生成式引擎 + 問答引擎優化（AI 搜尋與直接答案可見度）。
+搜尋引擎 + 生成式引擎 + 問答引擎優化 + AI 代理就緒（跨 Google、Perplexity、ChatGPT、Claude、DeepSeek 與 Autonomous Agents 的全方位能見度）。
 
 | Skill | 說明 |
 |---|---|
-| [seo-geo-suite](skills/seo-geo/seo-geo-suite/SKILL.md) | SEO、GEO 與 AEO 全能工作台：三軌搜尋策略、問答抽取、全站審計與文章改造路由器 |
-| [modern-seo-strategy](skills/seo-geo/modern-seo-strategy/SKILL.md) | SEO+GEO 整合策略：語意地圖、EEAT、Ahrefs 4 支柱、AEO 引用手冊 |
-| [static-site-geo](skills/seo-geo/static-site-geo/SKILL.md) | 靜態網站 GEO/SEO 模式：JSON-LD、sitemap、OG 圖、llms.txt、建置驗證 |
-| [spa-geo-crawlability](skills/seo-geo/spa-geo-crawlability/SKILL.md) | 用 Edge Functions 預渲染 SPA 空殼，讓 AI 爬蟲看得到內容 |
-| [geo-content-reformatting](skills/seo-geo/geo-content-reformatting/SKILL.md) | 把 H2/H3 改寫成問句形式提升 AI 搜尋可見度，零設計變更 |
-| [geo-article-friendly](skills/seo-geo/geo-article-friendly/SKILL.md) | 既有文章改造為 AI 搜尋友好：證據強化、結構重構、語意優化，保留作者語氣 |
-| [site-seo-geo-audit](skills/seo-geo/site-seo-geo-audit/SKILL.md) | 全站 SEO+GEO 審計工作流：偵察、Schema 診斷、內容缺口、優先序矩陣 |
-| [webapp-geo-optimization](skills/seo-geo/webapp-geo-optimization/SKILL.md) | Web App 隱形 GEO 優化：結構化資料、JSON-LD、sitemap、OG 圖 |
-| [llms-txt-generation](skills/seo-geo/llms-txt-generation/SKILL.md) | 動態生成與維護 `/llms.txt` 與 `/llms-full.txt` AI 專屬語意索引 |
-| [agentic-commerce-readiness](skills/seo-geo/agentic-commerce-readiness/SKILL.md) | 代理式商務與購物 Agent 審計：UCP/ACP/AP2 協定、PDP 結構化資料與 Bot 分流 |
-| [video-transcript-aeo](skills/seo-geo/video-transcript-aeo/SKILL.md) | 影音/Podcast 逐字稿轉 AEO 資產：結論置頂、高引用自洽問答與 FAQ Schema |
-| [ai-gap-analysis](skills/seo-geo/ai-gap-analysis/SKILL.md) | AI 搜尋缺口分析：診斷競品被 AI 推薦而自家缺席的 Mention 與 Citation 缺口 |
+| [seo-geo-suite](skills/seo-geo/seo-geo-suite/SKILL.md) | SEO × GEO × AEO × Agent-Readiness 全能旗艦工作台：涵蓋傳統搜尋、生成式引擎、問答抽取、Is-Agentic 100分規範、Cloudflare L0-L5、全站審計、內容改造與自動化驗證 |
 
 ## 實際用法（組合範例）
 
