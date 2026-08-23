@@ -47,6 +47,6 @@ rhetorical structure (主標 → 引言 → 卡片 → 金句), translate the *t
 When a delegated task references attached images/cards that aren't in the agent's context:
 1. `session_search` the parent session (look for the task phrase, e.g. "八張圖文繁中重製").
 2. Parent session tool calls usually reveal the source dir (e.g.
-   `$HOME/Documents/FDE_IG自動貼文發布/素材/xiaohongshu-<id>/`) containing
+   `$IG_SOURCE_DIR/素材/xiaohongshu-<id>/`) containing
    `image-01..08.jpg`, `ocr.txt`, `ocr-zh-Hant.txt`, `caption.txt`.
 3. OCR text files already exist there — reuse them instead of re-OCR'ing.

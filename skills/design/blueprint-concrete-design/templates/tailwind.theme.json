@@ -1,0 +1,134 @@
+{
+  "theme": {
+    "extend": {
+      "colors": {
+        "primary": "#38bdf8",
+        "secondary": "#94a3b8",
+        "tertiary": "#0ea5e9",
+        "neutral": "#f8fafc",
+        "surface": "#0a0c10",
+        "surface-charcoal": "#12151c",
+        "surface-card": "#181b24",
+        "border": "#272b38",
+        "border-subtle": "#1e293b",
+        "muted": "#64748b",
+        "text-dim": "#cbd5e1",
+        "text-bright": "#ffffff"
+      },
+      "fontFamily": {
+        "display-lg": [
+          "Plus Jakarta Sans"
+        ],
+        "display-md": [
+          "Plus Jakarta Sans"
+        ],
+        "headline-architect": [
+          "Plus Jakarta Sans"
+        ],
+        "headline-md": [
+          "Plus Jakarta Sans"
+        ],
+        "body-lg": [
+          "Plus Jakarta Sans"
+        ],
+        "body-md": [
+          "Plus Jakarta Sans"
+        ],
+        "body-sm": [
+          "Plus Jakarta Sans"
+        ],
+        "label-mono": [
+          "Space Mono"
+        ],
+        "caption": [
+          "Plus Jakarta Sans"
+        ]
+      },
+      "fontSize": {
+        "display-lg": [
+          "48px",
+          {
+            "letterSpacing": "-0.02em",
+            "fontWeight": "700"
+          }
+        ],
+        "display-md": [
+          "36px",
+          {
+            "letterSpacing": "-0.01em",
+            "fontWeight": "700"
+          }
+        ],
+        "headline-architect": [
+          "24px",
+          {
+            "letterSpacing": "0.2em",
+            "fontWeight": "600"
+          }
+        ],
+        "headline-md": [
+          "20px",
+          {
+            "letterSpacing": "0em",
+            "fontWeight": "600"
+          }
+        ],
+        "body-lg": [
+          "18px",
+          {
+            "letterSpacing": "0em",
+            "fontWeight": "400"
+          }
+        ],
+        "body-md": [
+          "16px",
+          {
+            "letterSpacing": "0em",
+            "fontWeight": "400"
+          }
+        ],
+        "body-sm": [
+          "14px",
+          {
+            "letterSpacing": "0em",
+            "fontWeight": "400"
+          }
+        ],
+        "label-mono": [
+          "12px",
+          {
+            "letterSpacing": "0.15em",
+            "fontWeight": "700"
+          }
+        ],
+        "caption": [
+          "12px",
+          {
+            "letterSpacing": "0.05em",
+            "fontWeight": "400"
+          }
+        ]
+      },
+      "borderRadius": {
+        "none": "0px",
+        "xs": "2px",
+        "sm": "4px",
+        "md": "8px",
+        "lg": "12px",
+        "full": "9999px"
+      },
+      "spacing": {
+        "xs": "4px",
+        "sm": "8px",
+        "md": "16px",
+        "lg": "24px",
+        "xl": "32px",
+        "2xl": "48px",
+        "3xl": "64px",
+        "4xl": "96px",
+        "grid-unit": "24px",
+        "grid-large": "40px"
+      }
+    }
+  }
+}

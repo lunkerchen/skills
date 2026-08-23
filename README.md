@@ -70,6 +70,7 @@ cp -r skills/* ~/.hermes/skills/
 | Flagship Suite | 涵蓋模組與能力 |
 |---|---|
 | [frontend-design-suite](skills/design/frontend-design-suite/SKILL.md) | **前端設計與 RWD 打磨旗艦**：夜空深色星空美學（night-sky-design）、科技品牌極簡風格（Stripe/Linear/Vercel 美學）、行動端 RWD 強制防錯規範（44px 靶區、零橫向溢出、防 CLS）與靜態 HTML 現代化翻新 |
+| [blueprint-concrete-design](skills/design/blueprint-concrete-design/SKILL.md) | **建築藍圖與清水模設計系統**：源自向登群建築師事務所官方重構。深邃玄黑與清水模色階、40px 建築藍圖網格背景、雙字型幾何張力（Plus Jakarta Sans × Space Mono）、科技青藍（Sky-400）重點色與 GSAP 3 視差進場動畫。含完整 Google DESIGN.md 規範檔與 W3C DTCG / Tailwind 匯出樣板 |
 
 ### 5. 軟體工程與無伺服器部署（Software Engineering & Cloud）
 

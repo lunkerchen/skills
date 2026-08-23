@@ -14,6 +14,7 @@ content/multimedia-repurpose-suite	content	sanitize
 
 # --- design ---
 design/frontend-design-suite	design	sanitize
+design/blueprint-concrete-design	design	sanitize
 
 # --- engineering ---
 engineering/code-quality-suite	engineering	sanitize

@@ -89,6 +89,22 @@ SPECIFIC_RULES: dict[str, list[tuple[str, str]]] = {
     "s2t-taiwan": [
         ("/Users/lunker/Documents/FDE_IG自動貼文發布/素材/xiaohongshu-<id>/", "$IG_SOURCE_DIR/素材/xiaohongshu-<id>/"),
     ],
+    "content-writing-suite": [
+        ("Laban's", "the user's"),
+        ("this user (Laban)", "this user"),
+        ("Laban 客製版", "customized"),
+        ("（Laban）", ""),
+        ("Laban 的語氣", "the user's voice"),
+        ("Laban 版", "custom"),
+        ("Laban 專屬", "user-specific"),
+        ("Laban", "the user"),
+        ("/Users/lunker/Documents/FDE_IG自動貼文發布/素材/xiaohongshu-<id>/", "$IG_SOURCE_DIR/素材/xiaohongshu-<id>/"),
+        ("$HOME/Documents/FDE_IG自動貼文發布/素材/xiaohongshu-<id>/", "$IG_SOURCE_DIR/素材/xiaohongshu-<id>/"),
+    ],
+    "cloud-workers-suite": [
+        ("Kamera-ichi", "your-project"),
+        ("kamera-ichi.com", "your-app.example.com"),
+    ],
     "web-monitor": [
         ("momo-gift", "monitored-site"),
     ],

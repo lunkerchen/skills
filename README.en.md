@@ -70,6 +70,7 @@ cp -r skills/* ~/.hermes/skills/
 | Flagship Suite | Capabilities & Modules |
 |---|---|
 | [frontend-design-suite](skills/design/frontend-design-suite/SKILL.md) | **Frontend Design & RWD Polish Flagship**: Night sky dark aesthetics (night-sky-design), Stripe/Linear/Vercel minimalist patterns, strict mobile RWD rules (44px touch targets, zero overflow, zero CLS), and static HTML modernization |
+| [blueprint-concrete-design](skills/design/blueprint-concrete-design/SKILL.md) | **Architectural Blueprint & Concrete Design System**: Derived from Hsiang Ten Chun Architects official redesign. Dark slate concrete palette, 40px blueprint drafting grid, dual-type tension (Plus Jakarta Sans × Space Mono), electric cyan (Sky-400) accents, and GSAP 3 entrance animations. Complete with Google DESIGN.md spec and W3C DTCG / Tailwind templates |
 
 ### 5. Software Engineering & Cloud Deployments
 
