@@ -2,7 +2,7 @@
 name: seo-geo-suite
 description: SEO × GEO × AEO × Agent-Readiness 全能旗艦工作台：涵蓋傳統搜尋、生成式引擎、問答抽取、Is-Agentic 100分規範、Cloudflare L0-L5、全站審計、內容改造與自動化驗證。
 version: 2.0.0
-author: community
+author: Community
 license: MIT
 read_when:
   - User asks about SEO, GEO, AEO, Answer Engine Optimization, or AI search visibility

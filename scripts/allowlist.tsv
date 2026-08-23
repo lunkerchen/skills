@@ -1,57 +1,24 @@
-# Canonical source allowlist — one skill per line.
-# Format: <canonical-relative-path-in-~/.hermes/skills>\t<repo-category>[\tsanitize]
-# `sanitize` rewrites personal paths via scripts/sanitize.py after the copy.
-
-# --- content ---
-writing/stop-slop	content
-writing-humanizer	content
-translation/s2t-taiwan	content	sanitize
-content-generation/html-article-author	content
-vocus-article-writing-sop	content	sanitize
-content-production/markdown-to-podcast	content	sanitize
-media/youtube-content	content	sanitize
-video-production/ig-video-breakdown	content
-
-# --- security ---
-security/website-security-owasp-cve	security
-
-# --- engineering ---
-linter-configuration	engineering	sanitize
-github/github-code-review	engineering
-frontend/static-html-biome-audit	engineering	sanitize
-devops/npm-global-upgrade	engineering	sanitize
-engineering/local-dev-server-startup	engineering	sanitize
-engineering/hono-workers-testing	engineering	sanitize
-engineering/mcp-worker-deploy	engineering	sanitize
-engineering/typescript-project-verify	engineering	sanitize
+# allowlist.tsv — Curated selection of production-tested AI agent skills
+# Format: <canonical-relative-path>\t<target-category>[\tsanitize]
+# Lines beginning with # are comments.
 
 # --- seo-geo ---
 seo/seo-geo-suite	seo-geo	sanitize
+
 # --- ai-adoption ---
-engineering/enterprise-ai-adoption	ai-adoption	sanitize
-engineering/fde-framework	ai-adoption
-autonomous-ai-agents/deep-interview	ai-adoption
-autonomous-ai-agents/qa-scenario-design	ai-adoption
-autonomous-ai-agents/subagent-efficiency	ai-adoption	sanitize
+ai-adoption/fde-adoption-suite	ai-adoption	sanitize
 
-# --- automation ---
-lark-bot-development	automation
-content-publishing/line-messaging-api	automation	sanitize
-cloudflare-email-service	automation
-turnstile-spin	automation
-productivity/gmail-inbox-organizer	automation	sanitize
-note-taking/obsidian-cli	automation
-productivity/gas-form-backend	automation	sanitize
-devops/web-monitor	automation	sanitize
-system/scan-automation	automation	sanitize
-content-publishing/coupang-partners-api	automation	sanitize
-
-# --- note-taking ---
-note-taking/obsidian-vault-organizer	note-taking
+# --- content ---
+content/content-writing-suite	content	sanitize
+content/multimedia-repurpose-suite	content	sanitize
 
 # --- design ---
-design/night-sky-design	design	sanitize
-design/rwd-mobile-rules	design
-content-generation/static-html-polish	design
-creative/popular-web-designs	design
-system/personal-red-team	automation	sanitize
+design/frontend-design-suite	design	sanitize
+
+# --- engineering ---
+engineering/code-quality-suite	engineering	sanitize
+engineering/cloud-workers-suite	engineering	sanitize
+
+# --- automation ---
+automation/messaging-bots-suite	automation	sanitize
+automation/system-watchdog-suite	automation	sanitize
