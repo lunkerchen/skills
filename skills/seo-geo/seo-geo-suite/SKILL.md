@@ -157,9 +157,21 @@ metadata:
    (HTML5 + a11y)      (JSON-LD @graph)     (robots.txt + Signals)  (含 When-to-use)
           │                                                                 │
           ▼                                                                 ▼
-8. 部署與 Live 抽檢 <── 7. 6-Gate 建置驗證 <── 6. Agent 404 頁面 <── 5. Markdown 協商
-   (curl 驗證 Header)   (verify-seo 腳本)       (帶機器導航連結)        (Vary: Accept)
+8. 部署與 Live 抽檢 <── 7. 6-Gate 建置驗證 <── 6. L5 代理就緒套件  <── 5. Markdown 協商
+   (curl 驗證 Header)   (verify-seo 腳本)       (10大協議端點到位)      (Middleware 攔截)
 ```
+
+#### 新專案 Level 5 Agent-Native 一次到位清單（必備 10 大檔案與設定）
+1. **`robots.txt`**：注入 RFC 9309 AI Bot 放行規則 + `Sitemap:` + `Agentmap:` + `Content-Signal:`。
+2. **`next.config.ts` / HTTP Headers**：配置 `Content-Signal`、RFC 8288 `Link` 標頭（關聯 `llms.txt`、`sitemap.xml`、`agent-skills`、`api-catalog`、`mcp-server-card`）與 `Vary: Accept, Accept-Encoding`。
+3. **`proxy.ts` / Middleware**：支援 `Accept: text/markdown` 內容協商，自動導流至 Markdown 雙生頁與 `X-Markdown-Tokens` 計算。
+4. **`/.well-known/agent-skills/index.json`**：符合 RFC v0.2.0 規範，各技能含真實 `sha256:{hex}` 與 `SKILL.md`。
+5. **`/.well-known/mcp/server-card.json` & `mcp.json`**：發布 MCP Server Card，定義 Tools、Resources、Prompts、Website 與 Repository。
+6. **`/.well-known/agent-card.json`**：發布 A2A Agent Card，宣告支援介面、傳輸協議與 AP2 擴充。
+7. **`/.well-known/ai-catalog.json`**：發布 ARD 能力清單（`urn:air:...` 格式與 `representativeQueries`）。
+8. **`/auth.md`**：發布 `# auth.md`，並於 `/.well-known/oauth-authorization-server` 宣告 `agent_auth` 匿名與斷言註冊。
+9. **`/.well-known/api-catalog`**：提供 RFC 9727 `application/linkset+json` 格式之 API 目錄。
+10. **`/.well-known/oauth-protected-resource` / `jwks.json` / WebMCP**：補齊 OAuth PRM、Bot 簽名目錄與前端 `navigator.modelContext.registerTool()`。
 
 ### 管線 2：既有網站 Agentic & SEO 全面升級（Retrofit & Modernization）
 1. 跑 `npx is-agentic <url> --json` 取得基線報告與扣分清單。
