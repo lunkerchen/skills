@@ -1,28 +1,27 @@
 # Changelog
 
+## [0.4.0] — 2026-08-24
+
+- **Mega-Skill Consolidation**: Consolidate 12 fragmented SEO/GEO/AEO skills into a single flagship umbrella skill: `seo-geo-suite` (v2.0.0).
+- **Four-Track Search & Agentic Ecosystem**: Integrate traditional search (SEO), generative engine optimization (GEO: ChatGPT/Claude/DeepSeek), answer engine optimization (AEO: Perplexity/AIO), and autonomous agent readiness (Is-Agentic & Cloudflare L0–L5).
+- **Agentic Standards & Protocol Alignment**:
+  - Integrate Vercel Labs / Ora `is-agentic.com` 100-point audit framework (Essential 80 + Recommended 20 + Bonus 5).
+  - Enforce RFC 9110 (HTTP Semantics & Content Negotiation with `Vary: Accept, Accept-Encoding`).
+  - Enforce RFC 9457 (`application/problem+json`) structured error contracts.
+  - Enforce RFC 9727 API Catalog and Cloudflare L0–L5 readiness.
+  - Mandatory `## When to use this site (Agent instructions)` in `llms.txt`.
+  - Standardized Agent-friendly 404 recovery pages with markdown indices.
+- **Cleanups & Catalog Refinement**: Catalog refined to 39 high-impact production skills; verified by `scripts/scan.py` (0 warnings).
+
 ## [0.3.0] — 2026-08-09
 
-- Dual-source sync: `sync.sh` falls back to `~/.agents/skills` when a skill is missing from the canonical `~/.hermes/skills` tree (4 skills live only in the shared store: `html-article-author`, `ig-video-breakdown`, `cloudflare-email-service`, `static-html-polish`).
-- `sync.sh` now strips `__pycache__` from every mirrored skill (`.pyc` embeds machine-specific source paths).
+- Dual-source sync: `sync.sh` falls back to `~/.agents/skills` when a skill is missing from the canonical `~/.hermes/skills` tree.
+- `sync.sh` now strips `__pycache__` from every mirrored skill.
 - Add `ig-video-breakdown` (content) — Instagram video breakdown workflow.
-- Fix leaks: `s2t-taiwan` now sanitized (personal IG source dir → `$IG_SOURCE_DIR` placeholder); `lark-bot-development` bitable token example → placeholder.
-- READMEs: fix duplicated badge block in `README.en.md`, catalog + badge counts 43 → 44.
+- Fix leaks: `s2t-taiwan` and `lark-bot-development` examples sanitized.
+- READMEs: fix duplicated badge block, catalog counts updated.
 
 ## [0.2.1] — 2026-08-08
 
-- Chinese-primary landing: `README.md` is now 繁體中文 (GitHub main page); English moved to `README.en.md`; `README.zh-TW.md` removed.
-- Skill catalog is now fully linked: every skill name links to its directory in-repo, with a "download a single skill" guide in both languages.
-
-## [0.2.0] — 2026-08-08
-
-- Top-level README overhaul (zh-TW primary): failure-mode table, per-agent installation table, quick start, 4 composed example requests, out-of-scope trust statement.
-- Add `personal-red-team` skill (automation) with Chinese reference docs (evidence cheatsheet, brief/report templates, worked example).
-
-## [0.1.0] — 2026-08-02
-
-- Initial release candidate: 40 skills across 6 categories (ai-adoption, automation, content, design, engineering, seo-geo).
-- Repo structure, bilingual README, MIT license, CI validator, sync + sanitize tooling.
-
-## Unreleased
-
-- v1 skill set (engineering / content / seo-geo / ai-adoption / automation).
+- Chinese-primary landing: `README.md` is now 繁體中文; English moved to `README.en.md`.
+- Fully linked skill catalog linking directly to in-repo files.

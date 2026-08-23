@@ -1,200 +1,161 @@
 [![English](https://img.shields.io/badge/lang-en-red.svg)](README.en.md)
 [![繁體中文](https://img.shields.io/badge/lang-zh--tw-blue.svg)](README.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Skills](https://img.shields.io/badge/skills-45-blue)](https://github.com/lunkerchen/skills/tree/main/skills)
+[![Skills](https://img.shields.io/badge/skills-39-blue)](https://github.com/lunkerchen/skills/tree/main/skills)
 [![AI Agent](https://img.shields.io/badge/AI-Agent%20Ready-brightgreen)](https://github.com/lunkerchen/skills)
 
 # AI 導入實戰 Skills
 
-> 一個 forward-deployed engineer（FDE）每天在用的 agent skills — 全部從真實客戶專案與生產工作流淬煉而來，不是 vibe coding。
+> 一個 Forward-Deployed Engineer（FDE）每天在用的 Agent Skills 集合 — 全部從真實企業專案、生產環境與高併發工作流淬煉而來，不是概念玩具或 Prompt 堆砌。
 
 ## 這是什麼
 
-我以 FDE 身分幫企業導入 AI。這個 repo 裡的每個 skill，原本都是我在客戶、或自己的生產系統上實際跑過的工作流 — 然後被濃縮成**小、可組合、任何 agent 都能安裝**的 skill。
+我以 FDE 身分協助企業與自營品牌完成 AI 落地。這個 Repository 裡的每個 Skill，原本都是在客戶生產系統或自動化架構上實際運行的 SOP 與驗證腳本 — 經過高強度提煉，封裝成**小而獨立、零外部相依、任何 Agent 都能即插即用**的標準技能。
 
-這些 skills 相容任何模型、任何 agent（Hermes、Claude Code、Codex…），設計上就是拿來改造成你自己的。
+這些 Skills 相容於主流模型與 CLI Agent（Hermes、Claude Code、Codex、Cursor 等），採用開放規格設計，開箱即用且極易依據具體業務擴充。
 
-## 為什麼有這些 skills
+## 為什麼需要這些 Skills
 
-Agent 失敗大多來自三個原因，這些 skills 把解法直接編碼進去：
+AI Agent 執行任務失敗通常歸咎於三大根本原因，這些 Skills 將最佳實踐直接編碼為防錯契約：
 
-| 失敗模式 | 對應修復 | 代表 skills |
-|---|---|---|
-| **缺少上下文** — agent 不了解你的目標、限制、成功標準 | 先對齊再執行：結構化訪談、QA 情境設計 | `deep-interview`、`qa-scenario-design`、`fde-framework` |
-| **缺少回饋迴圈** — 做完就交付，沒有驗證關卡 | 靜態檢查、驗證閘門、發布前審計 | `typescript-project-verify`、`static-html-polish`、`scan-automation`、`personal-red-team` |
-| **流程反客為主** — 框架吃掉你的生產力 | 紀律大於儀式：小而可組合，拒絕流程框架 | 所有 skills 的共同設計原則 |
+| 失敗模式 | 根本成因 | 技能解法與機制 | 代表 Skills |
+|---|---|---|---|
+| **上下文語意模糊** | Agent 不清楚真實業務邊界、隱性約束與驗收標準 | 先對齊再執行：結構化提問、QA 測試情境設計、FDE 交付閉環 | `deep-interview`、`qa-scenario-design`、`fde-framework` |
+| **缺少驗證反饋迴圈** | 做完就草率交付，缺乏客觀的品質門戶（Quality Gates） | 發布前自動化斷言、多層次靜態審計、主動紅隊探測 | `typescript-project-verify`、`static-html-polish`、`personal-red-team` |
+| **過度工程與流程浪費** | 繁瑣框架吞噬生產力，死碼與假訊號叢生 | 奧卡姆剃刀原則：小而自洽、代碼最簡化、真實證據優先 | 所有 Skills 的核心設計哲學 |
 
-## 安裝
+---
 
-| 方法 | 指令 / 路徑 |
+## 🌟 旗艦亮點：`seo-geo-suite` (SEO × GEO × AEO × Agent-Readiness)
+
+在 2026 年，網站的可見度不再只是 Google 傳統藍色連結的 SEO 排名。我們將過去 12 個獨立子技能整合成全能旗艦包 **[`seo-geo-suite`](skills/seo-geo/seo-geo-suite/SKILL.md)**，構建了完整的**現代搜尋與 Agentic 四軌體系**：
+
+1. **SEO（搜尋引擎優化）**：Google/Bing 關鍵字、主題地圖（Topic Clusters）、CWV 與反向連結。
+2. **GEO（生成式引擎優化）**：ChatGPT、Claude、DeepSeek、Gemini 的品牌共識（SOV）與抗摘要深度內容。
+3. **AEO（答案引擎優化）**：Perplexity、Google AIO 的直接答案卡抽取、倒金字塔 40–60 字結論置頂。
+4. **Agent-Readiness（代理就緒）**：全面遵循 **Is-Agentic 100 分標準** 與 **Cloudflare Level 0–5 協定**（No-JS SSR、Markdown 內容協商、`Vary: Accept`、標準 `llms.txt`、Agent-Friendly 404 導航、RFC 9457 結構化錯誤與 MCP Server Card）。
+
+---
+
+## 安裝與使用
+
+| 環境 / 工具 | 安裝指令 / 操作方式 |
 |---|---|
 | **npx skills CLI**（推薦） | `npx skills add lunkerchen/skills` |
-| **Hermes** | 複製 `skills/<category>/<name>/` 到 `~/.hermes/skills/`（或 symlink） |
-| **Claude Code** | 複製到 `~/.claude/skills/` |
-| **Codex** | 複製到 `~/.codex/skills/` |
-| **手動** | 直接複製你需要的 skill 目錄到 agent 的 skills 路徑 |
+| **Hermes Agent** | 複製或 Symlink 目錄至 `~/.hermes/skills/` |
+| **Claude Code** | 複製至 `~/.claude/skills/` |
+| **OpenAI Codex** | 複製至 `~/.codex/skills/` |
+| **通用 / 手動安裝** | 直接將特定 Skill 目錄複製到您 Agent 的工作空間中 |
 
-**不需要全裝。** skill 之間零相依，挑你需要的分類複製即可。
+> **提示**：每個 Skill 均為完全自洽的獨立單元，無需安裝全部。依據業務需求挑選對應目錄即可。
 
-### 下載單一 skill
+### 下載單一 Skill
 
-分類清單裡的每個 skill 名稱都可點擊 — 直接連到 repo 內對應的 skill 目錄：
-
-1. 點 skill 名稱（例：[`personal-red-team`](skills/automation/personal-red-team/SKILL.md)）
-2. 下載 `SKILL.md`（如有 `references/` 目錄一併下載）
-3. 放到你 agent 的 skills 路徑（見上方安裝表）
-
-或 clone 整個 repo 只取需要的目錄：
+本清單中所有 Skill 名稱均附帶連結，可直接點擊查看原始碼與參考手冊：
 
 ```bash
+# 範例：僅下載旗艦 seo-geo-suite
 git clone --depth 1 https://github.com/lunkerchen/skills.git
-cp -r skills/automation/personal-red-team ~/.hermes/skills/
+cp -r skills/seo-geo/seo-geo-suite ~/.hermes/skills/
 ```
 
-## 快速開始
+---
 
-1. **挑一個 skill** — 從下面的分類找你要的工作流
-2. **安裝** — 用上表任一方法
-3. **用平常的話描述需求** — agent 會自動載入對應 skill（例：說「幫我把這個表單接上 LINE 通知」，agent 就會載入 `line-messaging-api`）
+## 內容一覽（39 個精選實戰 Skills）
 
-## 內容一覽（44 個 skills）
+### seo-geo — 搜尋、生成式引擎與 Agent 就緒
 
-### ai-adoption — 企業 AI 導入
-
-企業 AI 導入的實戰打法 — 無阻力變革管理、FDE 交付框架。
+涵蓋傳統搜尋、大模型引用、直接問答抽取與 Agentic API 規範的旗艦工作台。
 
 | Skill | 說明 |
 |---|---|
-| [enterprise-ai-adoption](skills/ai-adoption/enterprise-ai-adoption/SKILL.md) | 企業 AI 導入的組織採用戰役：證明價值、降低恐懼、讓同儕帶頭 |
-| [fde-framework](skills/ai-adoption/fde-framework/SKILL.md) | FDE playbook：PSF、MVD、影子工作法、成果計價、轉職路線 |
-| [deep-interview](skills/ai-adoption/deep-interview/SKILL.md) | 一次一問直到目標、限制、成功標準全 clear |
-| [qa-scenario-design](skills/ai-adoption/qa-scenario-design/SKILL.md) | implement 前先設計 QA scenarios 與 failure modes，附證據分級 |
-| [subagent-efficiency](skills/ai-adoption/subagent-efficiency/SKILL.md) | 知道何時直接執行勝過 spawn subagent — 以及何時相反 |
+| [seo-geo-suite](skills/seo-geo/seo-geo-suite/SKILL.md) | **SEO × GEO × AEO × Agent-Readiness 全能旗艦工作台**：整合三軌搜尋、Is-Agentic 100分規範、Cloudflare L0–L5、全站審計、AEO 內容重構與 6 道建置驗證門戶 |
 
-### automation — 自動化
+### ai-adoption — 企業 AI 導入與組織賦能
 
-表單、通知、整合 — 幫你「跑生意」的自動化。
+從商業諮詢、現場交付到團隊無阻力變革管理的實戰打法。
 
 | Skill | 說明 |
 |---|---|
-| [gas-form-backend](skills/automation/gas-form-backend/SKILL.md) | 免費 GAS 後端：靜態表單接 Sheets + Email + LINE push |
-| [lark-bot-development](skills/automation/lark-bot-development/SKILL.md) | 開發 Lark/飛書 BOT：應用生命週期、事件訂閱（WebSocket/webhook）、訊息、卡片、SDK |
-| [line-messaging-api](skills/automation/line-messaging-api/SKILL.md) | 表單資料自動送 LINE 官方帳號或客服群組（Messaging API push） |
-| [cloudflare-email-service](skills/automation/cloudflare-email-service/SKILL.md) | Cloudflare Email Service + Workers 發送與路由交易信 |
-| [turnstile-spin](skills/automation/turnstile-spin/SKILL.md) | Cloudflare Turnstile 端到端防機器人：widget、siteverify、驗證、框架指南 |
-| [coupang-partners-api](skills/automation/coupang-partners-api/SKILL.md) | 酷澎台灣分潤 API：HMAC 簽章、搜尋、deeplinks、報表 |
-| [gmail-inbox-organizer](skills/automation/gmail-inbox-organizer/SKILL.md) | Gmail 自動分類：依寄件人/主旨標籤、封存促銷信 |
-| [web-monitor](skills/automation/web-monitor/SKILL.md) | cron 網頁變更監控：指紋比對、無變化時靜默 |
-| [scan-automation](skills/automation/scan-automation/SKILL.md) | 自動化系統相依掃描、解析 NDJSON、記錄趨勢、debug 卡住 |
-| [personal-red-team](skills/automation/personal-red-team/SKILL.md) | 證據優先的全系統紅隊審計：cron、skills、專案盤點 → 安全修復 + 決策簡報 |
-| [obsidian-cli](skills/automation/obsidian-cli/SKILL.md) | 用 CLI 驅動 Obsidian：筆記、任務、搜尋、plugin/theme 開發 |
+| [enterprise-ai-adoption](skills/ai-adoption/enterprise-ai-adoption/SKILL.md) | 企業 AI 導入戰役：證明業務價值、降低員工恐懼、建立同儕示範槓桿 |
+| [fde-framework](skills/ai-adoption/fde-framework/SKILL.md) | 前置部署工程師（FDE）實戰手冊：PSF 框架、MVD 交付、影子工作法、成果計價 |
+| [deep-interview](skills/ai-adoption/deep-interview/SKILL.md) | 結構化深度訪談：一次一問直到目標、約束與驗收標準 100% 釐清 |
+| [qa-scenario-design](skills/ai-adoption/qa-scenario-design/SKILL.md) | 品質證據設計：開發前先設計 QA Scenarios、極限邊界條件與失敗防護 |
+| [subagent-efficiency](skills/ai-adoption/subagent-efficiency/SKILL.md) | 子代理調度決策矩陣：識別平行加速任務，避免過度派工浪費 Token |
 
-### note-taking — 筆記
+### automation — 流程與系統自動化
 
-知識系統與筆記庫維護。
+串接通訊軟體、雲端服務與本機環境的高效自動化管線。
 
 | Skill | 說明 |
 |---|---|
-| [obsidian-vault-organizer](skills/note-taking/obsidian-vault-organizer/SKILL.md) | 安全盤點與重整 Obsidian vault：分類、連結、模板、批准閘門與驗證 |
+| [lark-bot-development](skills/automation/lark-bot-development/SKILL.md) | 飛書 / Lark 機器人開發：事件訂閱、卡片互動、多維表格（Bitable）雙向串接 |
+| [line-messaging-api](skills/automation/line-messaging-api/SKILL.md) | LINE 官方帳號推播：表單/訂單即時通知、客服群組告警閉環 |
+| [cloudflare-email-service](skills/automation/cloudflare-email-service/SKILL.md) | Cloudflare Email Routing + Worker 交易郵件收發系統 |
+| [turnstile-spin](skills/automation/turnstile-spin/SKILL.md) | Cloudflare Turnstile 無感驗證碼端到端整合與保護管線 |
+| [gmail-inbox-organizer](skills/automation/gmail-inbox-organizer/SKILL.md) | AI 驅動之 Gmail 信箱自動分類、標籤分流與智慧摘要 |
+| [obsidian-cli](skills/automation/obsidian-cli/SKILL.md) | Obsidian 終端控制：筆記讀寫、搜尋、語意連結建立與知識沉澱 |
+| [gas-form-backend](skills/automation/gas-form-backend/SKILL.md) | 靜態表單之 Google Apps Script 無伺服器後端與 Google Sheets 串接 |
+| [web-monitor](skills/automation/web-monitor/SKILL.md) | 輕量網頁內容異動監控：基於雜湊比對之靜默告警與 Watchdog |
+| [scan-automation](skills/automation/scan-automation/SKILL.md) | 自動化系統與依賴掃描：結構化解析並輸出修復建議 |
+| [coupang-partners-api](skills/automation/coupang-partners-api/SKILL.md) | 酷澎台灣分潤（Coupang Partners API）HMAC 簽章與自動化推薦系統 |
+| [personal-red-team](skills/automation/personal-red-team/SKILL.md) | 個人與團隊紅隊審計：全系統盤點、排程檢查、隱藏風險與資安修復 |
 
-### content — 內容
+### content — 內容工程與多媒體產出
 
-寫作與發布工作流，核心是反 AI 味（anti-slop）。
-
-| Skill | 說明 |
-|---|---|
-| [stop-slop](skills/content/stop-slop/SKILL.md) | 去除 AI 寫作味：砍掉模板化廢話與機器節奏 |
-| [writing-humanizer](skills/content/writing-humanizer/SKILL.md) | 審計並改寫 AI 味文字，回到自然人聲 |
-| [s2t-taiwan](skills/content/s2t-taiwan/SKILL.md) | 簡體轉台灣繁體，含正確術語表 |
-| [html-article-author](skills/content/html-article-author/SKILL.md) | markdown 轉深色主題 HTML 文章（CJK 字型） |
-| [vocus-article-writing-sop](skills/content/vocus-article-writing-sop/SKILL.md) | AI 工具簡報改寫為方格子深度長文 |
-| [markdown-to-podcast](skills/content/markdown-to-podcast/SKILL.md) | markdown 文章轉 podcast WAV（神經 TTS + 鋼琴 intro） |
-| [youtube-content](skills/content/youtube-content/SKILL.md) | YouTube 逐字稿轉摘要、Threads、部落格 |
-| [ig-video-breakdown](skills/content/ig-video-breakdown/SKILL.md) | IG 影片拆解工作流：下載、逐字稿、內容分析 |
-
-### design — 設計
-
-有辨識度的單檔 HTML 設計系統。
+高質量文字潤色、音訊生成與影音逐字稿解析管線。
 
 | Skill | 說明 |
 |---|---|
-| [night-sky-design](skills/design/night-sky-design/SKILL.md) | 深色星空單檔 HTML 主題，品牌漸層點綴，簡報/網頁通用 |
-| [rwd-mobile-rules](skills/design/rwd-mobile-rules/SKILL.md) | 每次產出 HTML 的強制行動版規則：viewport、grid、觸控目標、導覽 |
-| [static-html-polish](skills/design/static-html-polish/SKILL.md) | audit→harden→verify 管線：靜態 HTML 補 RWD/SEO-GEO/a11y |
-| [popular-web-designs](skills/design/popular-web-designs/SKILL.md) | 54 套真實設計系統（Stripe、Linear、Vercel…）現成 CSS tokens |
+| [stop-slop](skills/content/stop-slop/SKILL.md) | 去除 AI 寫作機械味：剔除模板化廢話、套路句式，還原自然人聲 |
+| [writing-humanizer](skills/content/writing-humanizer/SKILL.md) | 人性化改寫：保留事實與專業深度，提升文字流暢度與親和力 |
+| [s2t-taiwan](skills/content/s2t-taiwan/SKILL.md) | 簡轉繁台灣在地化：依據台灣資訊與商業用語習慣精確轉換 |
+| [html-article-author](skills/content/html-article-author/SKILL.md) | 單檔高質感 HTML 文章發布：整合排版美學、RWD 與 SEO 元件 |
+| [vocus-article-writing-sop](skills/content/vocus-article-writing-sop/SKILL.md) | 方格子深度專題寫作手冊：科技記者視角、摘要提煉與結構化長文 |
+| [markdown-to-podcast](skills/content/markdown-to-podcast/SKILL.md) | Markdown 轉 Podcast 音訊：Edge Neural TTS + 多角色語音合成 |
+| [youtube-content](skills/content/youtube-content/SKILL.md) | YouTube 影音逐字稿提取、章節拆解與跨平台內容再製 |
+| [ig-video-breakdown](skills/content/ig-video-breakdown/SKILL.md) | Instagram Reels / 短影音逐字稿提取與爆款分鏡腳本拆解 |
 
-### engineering — 工程
+### design — 介面與視覺設計
 
-雲端與基礎設施工作流，生產環境驗證過。
-
-| Skill | 說明 |
-|---|---|
-| [mcp-worker-deploy](skills/engineering/mcp-worker-deploy/SKILL.md) | 部署無狀態 MCP server 到 Cloudflare Workers，auth-first |
-| [hono-workers-testing](skills/engineering/hono-workers-testing/SKILL.md) | Hono/Workers 後端測試：vitest、D1 mocks、fake executionCtx |
-| [github-code-review](skills/engineering/github-code-review/SKILL.md) | 完整 code review 管線：push 前檢查、PR 評論、安全掃描 |
-| [linter-configuration](skills/engineering/linter-configuration/SKILL.md) | 產出符合專案風格的 Biome/Prettier 設定，零 churn |
-| [static-html-biome-audit](skills/engineering/static-html-biome-audit/SKILL.md) | Biome lint 單檔 HTML；修 CSS、a11y、語意 |
-| [typescript-project-verify](skills/engineering/typescript-project-verify/SKILL.md) | TypeScript 五道驗證閘門：tsc、vitest、build、format、smoke |
-| [npm-global-upgrade](skills/engineering/npm-global-upgrade/SKILL.md) | 安全升級全域 npm 套件：allow-scripts、symlinks、OSV 判讀 |
-| [local-dev-server-startup](skills/engineering/local-dev-server-startup/SKILL.md) | 在 launchd/brew 管理的服務旁安全啟動 dev server；修 port 衝突 |
-
-### security — 資安
-
-網站與依賴弱掃，依 OWASP Top 10:2025 與 CVE 證據分級。
+深色美學、行動裝置 RWD 規範與無障礙網頁打磨。
 
 | Skill | 說明 |
 |---|---|
-| [website-security-owasp-cve](skills/security/website-security-owasp-cve/SKILL.md) | 掃描已授權網站的 OWASP Top 10:2025、依賴 CVE、被動動態風險與 coverage gap |
+| [night-sky-design](skills/design/night-sky-design/SKILL.md) | 夜空風格單檔 HTML：深色星空、玻璃擬物（Glassmorphism）與品牌漸層 |
+| [rwd-mobile-rules](skills/design/rwd-mobile-rules/SKILL.md) | RWD 行動版強制規範：觸控 44px 靶區、Viewport 防溢出、零佈局偏移 |
+| [static-html-polish](skills/design/static-html-polish/SKILL.md) | 靜態 HTML 全方位翻新：補齊 RWD、語意標籤、a11y 與現代 CSS |
+| [popular-web-designs](skills/design/popular-web-designs/SKILL.md) | 現代科技品牌風格手冊：Stripe / Linear / Vercel 極簡美學實作 |
 
-### seo-geo — SEO + GEO + AEO + Agent-Readiness
+### engineering — 軟體工程與品質驗證
 
-搜尋引擎 + 生成式引擎 + 問答引擎優化 + AI 代理就緒（跨 Google、Perplexity、ChatGPT、Claude、DeepSeek 與 Autonomous Agents 的全方位能見度）。
+開發環境維護、TypeScript 驗證與嚴格程式碼審查。
 
 | Skill | 說明 |
 |---|---|
-| [seo-geo-suite](skills/seo-geo/seo-geo-suite/SKILL.md) | SEO × GEO × AEO × Agent-Readiness 全能旗艦工作台：涵蓋傳統搜尋、生成式引擎、問答抽取、Is-Agentic 100分規範、Cloudflare L0-L5、全站審計、內容改造與自動化驗證 |
+| [typescript-project-verify](skills/engineering/typescript-project-verify/SKILL.md) | 5 道 TypeScript 建置驗證門戶：型別檢查、依賴合規與執行期防錯 |
+| [github-code-review](skills/engineering/github-code-review/SKILL.md) | 嚴格代碼審查：安全性掃描、品質門戶、架構反思與可操作改善建議 |
+| [linter-configuration](skills/engineering/linter-configuration/SKILL.md) | Linter 設定自動生成：Biome / Prettier / ESLint 配置一鍵落地 |
+| [static-html-biome-audit](skills/engineering/static-html-biome-audit/SKILL.md) | 針對單檔 HTML 執行 Biome 語法、CSS 與 a11y 深度靜態檢查 |
+| [npm-global-upgrade](skills/engineering/npm-global-upgrade/SKILL.md) | 全域 npm 套件安全升級：處理符號連結、allow-scripts 與依賴衝突 |
+| [local-dev-server-startup](skills/engineering/local-dev-server-startup/SKILL.md) | 本機開發伺服器管理：處理 macOS 系統服務與 Port 佔用共存 |
+| [hono-workers-testing](skills/engineering/hono-workers-testing/SKILL.md) | Hono on Cloudflare Workers 測試套件：Vitest、D1 Mock 與環境模擬 |
+| [mcp-worker-deploy](skills/engineering/mcp-worker-deploy/SKILL.md) | 無狀態 MCP 伺服器部署至 Cloudflare Workers（2026 最新標準） |
 
-## 實際用法（組合範例）
+### security — 資訊安全
 
-```text
-「幫我把這個靜態表單接上 LINE 通知 + Google Sheets 存檔」
-```
+| Skill | 說明 |
+|---|---|
+| [website-security-owasp-cve](skills/security/website-security-owasp-cve/SKILL.md) | 網站安全掃描：OWASP Top 10 防護檢驗、CVE 依賴漏洞審計與防禦 |
 
-→ agent 載入 `gas-form-backend` + `line-messaging-api` 建後端，再用 `turnstile-spin` 加防機器人。
+### note-taking — 第二大腦與知識庫
 
-```text
-「我的網站 AI 搜尋（ChatGPT/Gemini）都找不到內容」
-```
+| Skill | 說明 |
+|---|---|
+| [obsidian-vault-organizer](skills/note-taking/obsidian-vault-organizer/SKILL.md) | Obsidian 知識庫整理：PARA 架構、雙向連結修復與索引建立 |
 
-→ 先跑 `site-seo-geo-audit` 找出缺口，再用 `static-site-geo`（靜態站）或 `spa-geo-crawlability`（SPA）落地。
+---
 
-```text
-「我感覺整個系統哪裡在漏，幫我全面檢查一遍」
-```
+## 授權條款
 
-→ `personal-red-team` 會做證據優先的全系統盤點（cron / skills / 專案），安全修復 + 決策簡報。
-
-```text
-「把這篇文章的 AI 味去掉」
-```
-
-→ `stop-slop` 砍模板化廢話，`writing-humanizer` 收尾到自然人聲。
-
-## Repository 結構
-
-```
-skills/<category>/<skill-name>/SKILL.md   ← 技能本體（+ 選擇性 references/）
-scripts/                                  ← sync + scan + sanitize 工具
-docs/CONTRIBUTING.md                      ← 貢獻指南
-.out-of-scope/                            ← 為什麼某些 skills 不在這裡（信任聲明）
-```
-
-**為什麼有些 skills 不在這裡？** 見 `.out-of-scope/` — 每個排除決定都有紀錄：客戶專案資料、商業工具、個人研究收藏、過時技能。公開 repo 只收「通用化之後仍有價值」的工作流；涉及客戶名、真實路徑、金鑰的內容一律 sanitize 或排除。
-
-## 貢獻
-
-想分享自己的工作流？見 [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md)。發布前會通過秘密掃描與 sanitize 關卡 — 公開 repo 不留客戶資料。
-
-## License
-
-MIT — hack around with them, make them your own.
+本專案採用 [MIT License](LICENSE) 授權開源。
