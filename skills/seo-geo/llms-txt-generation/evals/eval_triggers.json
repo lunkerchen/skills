@@ -1,0 +1,16 @@
+{
+  "evals": [
+    {
+      "query": "Please help me execute llms-txt-generation task for my project",
+      "expected_trigger": true
+    },
+    {
+      "query": "What is the recommended workflow for llms-txt-generation?",
+      "expected_trigger": true
+    },
+    {
+      "query": "Explain unrelated general programming syntax",
+      "expected_trigger": false
+    }
+  ]
+}

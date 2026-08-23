@@ -1,0 +1,11 @@
+interface:
+  display_name: "Writing Humanizer"
+  short_description: "Rewrite text with a specific human voice"
+  default_prompt: "Use $writing-humanizer to remove AI artifacts while preserving meaning, evidence, audience, and the writer's voice."
+compatibility:
+  canonical_format: "agent-skills"
+  adapter_targets: ["openai", "claude", "generic"]
+  activation: {mode: "manual", paths: []}
+  execution: {context: "inline", shell: "bash"}
+  trust: {source_tier: "local", remote_inline_execution: "forbid", remote_metadata_policy: "allow-metadata-only"}
+  degradation: {openai: "metadata-adapter", claude: "neutral-source", generic: "neutral-source"}

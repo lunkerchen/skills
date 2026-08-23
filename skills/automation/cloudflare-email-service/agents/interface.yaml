@@ -1,0 +1,22 @@
+interface:
+  display_name: "Cloudflare Email Service"
+  short_description: "Use the Cloudflare Email Service skill for its documented workflow."
+  default_prompt: "Use this skill according to its SKILL.md instructions."
+compatibility:
+  canonical_format: "agent-skills"
+  adapter_targets: ["openai", "claude", "generic"]
+  activation:
+    mode: "manual"
+    paths: []
+  execution:
+    context: "inline"
+    shell: "bash"
+  trust:
+    source_tier: "local"
+    remote_inline_execution: "forbid"
+    remote_metadata_policy: "allow-metadata-only"
+  degradation:
+    openai: "metadata-adapter"
+    claude: "neutral-source"
+    generic: "neutral-source"
+

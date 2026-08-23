@@ -1,0 +1,11 @@
+interface:
+  display_name: "Turnstile Spin"
+  short_description: "Implement Cloudflare Turnstile safely"
+  default_prompt: "Use $turnstile-spin to choose a Turnstile flow, handle secrets safely, edit the frontend contract, and verify the integration."
+compatibility:
+  canonical_format: "agent-skills"
+  adapter_targets: ["openai", "claude", "generic"]
+  activation: {mode: "manual", paths: []}
+  execution: {context: "inline", shell: "bash"}
+  trust: {source_tier: "local", remote_inline_execution: "forbid", remote_metadata_policy: "allow-metadata-only"}
+  degradation: {openai: "metadata-adapter", claude: "neutral-source", generic: "neutral-source"}
