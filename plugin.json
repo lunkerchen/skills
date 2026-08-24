@@ -1,0 +1,12 @@
+{
+  "$schema": "https://agent-plugins.org/schema/plugin.json",
+  "name": "labangram-agent-services",
+  "version": "1.0.0",
+  "description": "Labangram public MCP endpoints, agent rules, and pricing-aware integration skill.",
+  "homepage": "https://labangram.kamera-ichi.com",
+  "skills": ["skills/labangram-agent"],
+  "mcp": {
+    "product": "https://labangram.kamera-ichi.com/api/product-mcp",
+    "documentation": "https://labangram.kamera-ichi.com/api/mcp"
+  }
+}
