@@ -1,12 +1,14 @@
 {
-  "$schema": "https://agent-plugins.org/schema/plugin.json",
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "labangram-agent-services",
   "version": "1.0.0",
   "description": "Labangram public MCP endpoints, agent rules, and pricing-aware integration skill.",
+  "author": {
+    "name": "Laban Chen",
+    "url": "https://labangram.kamera-ichi.com"
+  },
   "homepage": "https://labangram.kamera-ichi.com",
-  "skills": ["skills/labangram-agent"],
-  "mcp": {
-    "product": "https://labangram.kamera-ichi.com/api/product-mcp",
-    "documentation": "https://labangram.kamera-ichi.com/api/mcp"
-  }
+  "repository": "https://github.com/lunkerchen/skills",
+  "license": "MIT",
+  "keywords": ["labangram", "mcp", "agent", "skills", "photography"]
 }
