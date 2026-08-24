@@ -1,6 +1,7 @@
 ---
 name: cloud-workers-suite
-description: Cloudflare Workers 與 MCP 服務旗艦：Hono on Workers 完整測試套件（hono-workers-testing: Vitest, D1 mock, execution context）與無狀態 MCP 伺服器部署（mcp-worker-deploy: 2026 最新標準）。
+description: >-
+  Cloudflare Workers 與 MCP 服務旗艦：Hono on Workers 完整測試套件（hono-workers-testing: Vitest, D1 mock, execution context）與無狀態 MCP 伺服器部署（mcp-worker-deploy: 2026 最新標準）。
 version: 1.0.0
 author: Community
 license: MIT
