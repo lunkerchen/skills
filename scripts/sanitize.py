@@ -163,6 +163,13 @@ RENAME_PATHS: dict[str, list[tuple[str, str]]] = {
     "geo-content-reformatting": [
         ("references/report-with-photos-implementation.md", "references/your-demo-implementation.md"),
     ],
+    "seo-geo-suite": [
+        ("references/aeo-content/geo-content-reformatting-report-with-photos-implementation.md", "references/aeo-content/geo-content-reformatting-your-demo-implementation.md"),
+        ("references/web-app-ssg/webapp-geo-optimization-camera-market-implementation.md", "references/web-app-ssg/webapp-geo-optimization-your-marketplace-implementation.md"),
+        ("references/agent-readiness/llms-txt-generation-kamera-ichi-llms.md", "references/agent-readiness/llms-txt-generation-your-app-llms.md"),
+        ("references/agent-readiness/spa-geo-crawlability-kamera-ichi-cloudflare-implementation.md", "references/agent-readiness/spa-geo-crawlability-your-app-cloudflare-implementation.md"),
+        ("references/verification/static-site-seo-build-verification-content-entry-audit-labangram.md", "references/verification/static-site-seo-build-verification-content-entry-audit-your-brand.md"),
+    ],
 }
 
 BINARY_SUFFIXES = {".pyc", ".pyo", ".png", ".jpg", ".jpeg", ".gif", ".webp", ".ico", ".pdf", ".woff", ".woff2"}
