@@ -50,7 +50,7 @@ cp -r skills/* ~/.hermes/skills/
 
 | Flagship Suite | 涵蓋模組與能力 |
 |---|---|
-| [seo-geo-suite](skills/seo-geo/seo-geo-suite/SKILL.md) | **SEO × GEO × AEO × Agent-Readiness 全能旗艦工作台**：整合四軌搜尋體系、AI 內容工程品質層（五問 brief、四道品質閘門、證據與人工責任）、Is-Agentic 100分規範、Cloudflare L0–L5、全站 Reconnaissance 審計、AEO 40-60字答案抽取、Markdown Twin 內容協商與 6 道建置驗證門戶 |
+| [seo-geo-suite](skills/seo-geo/seo-geo-suite/SKILL.md) | **SEO × GEO × AEO × Agent-Readiness 全能旗艦工作台**：整合四軌搜尋體系、AI 內容工程品質層（五問 brief、四道品質閘門、證據與人工責任）、客戶報告輸出契約（寵物旅館／電子業診斷書骨架）、Is-Agentic 100分規範、Cloudflare L0–L5、全站 Reconnaissance 審計、AEO 40-60字答案抽取、Markdown Twin 內容協商與 6 道建置驗證門戶 |
 
 ### 2. 企業 AI 導入與組織賦能（Enterprise AI Adoption）
 

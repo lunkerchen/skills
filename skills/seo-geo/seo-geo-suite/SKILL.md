@@ -49,6 +49,10 @@ metadata:
 
 每篇內容先完成 Ahrefs 五問 brief：Reader、Promise、Point of view、Evidence、Information gain。接著分開保存研究、內容缺口、提綱、證據與草稿，經過四個可繼續、退回或終止的品質閘門，再由具體 owner 與第二位人類審閱者確認，最後才發布與量測。完整欄位與事實邊界見 `references/strategy/ai-content-engineering-quality.md`。
 
+### 客戶導向報告輸出契約
+
+產出客戶專屬 SEO/GEO 診斷／提案報告時，不得只交付通用分數或能力矩陣；先選定「在地服務型」或「B2B 產品／製造型」archetype，依 `Metadata -> 01 執行摘要與核心現狀 -> 02 Gap Matrix -> 03 Implementation Artifact -> 04 Roadmap -> CTA／報告邊界／來源` 六段結構交付。每個 finding、可驗收指標、程式碼狀態（current／proposed／deployed）、證據層級與報價估算都必須遵守 `references/strategy/client-report-output-contract.md`；完整契約與 Markdown outline 以該 reference 為準。
+
 ### 標準內容管線
 
 ```text
@@ -65,6 +69,7 @@ metadata:
 | **「規劃跨 Google、AI 與問答引擎的整體策略」** | **模組 1：戰略規劃** | 盤點主題地圖、Ahrefs 4 支柱、Fan-out 查詢、競品 AI Mention/Citation 落差分析。 |
 | **「全面體檢網站的 SEO、GEO、AEO 與 Agent 友好度」**| **模組 2：全站審計** | 跑 `npx is-agentic <url>` + Sitemap Reconnaissance + 逐頁 Schema 診斷，輸出 P0~P3 矩陣。 |
 | **「讓文章/長文/腳本能被 AI 快速引用與直接回答」** | **模組 3：內容工程** | 先完成 Reader、Promise、Point of view、Evidence、Information gain 五問 brief，再走四個品質閘門、第二位人類審核、發布與量測；倒金字塔 40-60 字結論置頂、Passage Citability（150-250字獨立段落）、串接 `stop-slop`。 |
+| **「產出客戶專屬 SEO/GEO 診斷／提案報告」** | **模組 1 + 2 + 3 + 7：客戶報告輸出** | 先選在地服務型或 B2B 產品／製造型 archetype，依 Metadata、01 摘要、02 Gap Matrix、03 Implementation Artifact、04 Roadmap、CTA／邊界／來源六段結構；每個 finding 附 URL／頁面／元素／測試時間、影響、信心、修正與驗收方法，成效改寫為可驗收指標／驗證方法。 |
 | **「影音/Podcast 逐字稿轉為高引用問答與 FAQ」** | **模組 3：內容工程** | 逐字稿清洗、高引用問句提取（How/Why/Best/Vs）、注入 FAQPage & Speakable Schema。 |
 | **「靜態網站（Astro/Hugo/Next）加入結構化與 OG」**| **模組 4：架構優化** | JSON-LD 三件套（WebSite+Organization/Person+Service）、SVG OG Image 自動管線。 |
 | **「Web 應用 / SPA / SaaS 導入隱式 GEO/AEO」** | **模組 4：架構優化** | 首頁語意加固、JSON-LD `@graph`、產品 PDP Schema、保護結帳路徑同時放行購物 Agent。 |
@@ -107,6 +112,7 @@ metadata:
    - 先回答五問 brief，保存研究、內容缺口、提綱、證據與草稿等階段產物。
    - 題目、提綱、證據與草稿各設一個品質閘門；不通過時退回補研究、改角度或終止，不只修正文句。
    - 指定具體 owner 與第二位人類審閱者；審閱者必須能挑戰前提、追問證據、刪除章節、補研究或取消發布。
+   - 若任務是客戶專屬診斷／提案報告，另讀取 `references/strategy/client-report-output-contract.md`；不要在本節重複整份報告規範。
 1. **倒金字塔 40–60 字答案置頂（Answer-First Principle）**：
    - 每個 H2/H3 下方第一句話直接回答核心問題，定義事實、給出數字或結論。
 2. **Passage Citability（段落可提取性）**：
@@ -294,7 +300,7 @@ AI 引擎在評估台灣本土品牌與主題權威（Topic Authority）時，�
 ## 擴充參考資源索引（Extended References Map）
 
 本 Skill 之詳細代碼範本與實戰手冊已收錄於 `references/` 目錄：
-- **戰略與理論 (`references/strategy/`)**：`modern-seo-strategy-spec.md`, `modern-seo-strategy-ahrefs-geo-strategy-2026.md`, `modern-seo-strategy-ai-search-ecosystem-2026.md`, `modern-seo-strategy-aeo-playbook-2026.md`, `modern-seo-strategy-agentic-commerce-2026.md`, `modern-seo-strategy-darkseoking-strategy.md`, `modern-seo-strategy-seo-geo-deep-research-2026.md`, `modern-seo-strategy-seo-geo-key-data-2026-08.md`, `modern-seo-strategy-tool-ecosystem-2026-08.md`, `ai-gap-analysis-spec.md`, `ai-content-engineering-quality.md`, `geolook-tw-geolook-methodology.md`, `geolook-tw-spec.md`
+- **戰略與理論 (`references/strategy/`)**：`modern-seo-strategy-spec.md`, `modern-seo-strategy-ahrefs-geo-strategy-2026.md`, `modern-seo-strategy-ai-search-ecosystem-2026.md`, `modern-seo-strategy-aeo-playbook-2026.md`, `modern-seo-strategy-agentic-commerce-2026.md`, `modern-seo-strategy-darkseoking-strategy.md`, `modern-seo-strategy-seo-geo-deep-research-2026.md`, `modern-seo-strategy-seo-geo-key-data-2026-08.md`, `modern-seo-strategy-tool-ecosystem-2026-08.md`, `ai-gap-analysis-spec.md`, `ai-content-engineering-quality.md`, `client-report-output-contract.md`, `geolook-tw-geolook-methodology.md`, `geolook-tw-spec.md`
 - **全站審計手冊 (`references/audit/`)**：`site-seo-geo-audit-spec.md`, `site-seo-geo-audit-portfolio-ssg-execution.md`
 - **AEO 內容與影音 (`references/aeo-content/`)**：`geo-content-reformatting-spec.md`, `video-transcript-aeo-spec.md`, `geo-content-reformatting-your-demo-implementation.md`
 - **Web 應用與 SSG (`references/web-app-ssg/`)**：`static-site-geo-spec.md`, `webapp-geo-optimization-spec.md`, `agentic-commerce-readiness-spec.md`, `static-site-geo-astro-portfolio-implementation.md`, `static-site-geo-build-output-verification.md`, `static-site-geo-event-landing-page-geo.md`, `static-site-geo-og-image-generation.md`, `static-site-geo-og-image-svg-pipeline.md`, `webapp-geo-optimization-your-marketplace-implementation.md`
