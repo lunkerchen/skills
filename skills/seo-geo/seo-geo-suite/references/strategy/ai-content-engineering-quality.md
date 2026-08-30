@@ -95,4 +95,14 @@ GSC 的搜尋資料，與 AI citation/crawl signal 必須分開記錄與解讀�
 - **需限定**：The Verge 對 AI 內容品質、搜尋與出版產業案例的報導可作為背景與案例來源；報導內容不等於 Google 排名規則或整體錯誤率。
 - **不可推論**：不要把 AI 偵測率、AI 占比、發文速度、重複率或相似度當成未公開的 Google 處罰門檻；Google 沒有在此文件中公布這些門檻。不要把 CNET 的 41/77 當成整體 AI 錯誤率，也不要把 Ahrefs 的 6–12 分鐘當成一般團隊保證。
 
-建議核對來源：Google Search Central「AI-generated content」與「Scaled content abuse」政策頁、Ahrefs 內容策略／AI 內容工程相關原文、The Verge 對 AI 內容與搜尋的報導。每次引用仍應保存實際 URL、日期與上下文。
+## 可追溯來源
+
+以下來源支撐本參考文件的事實邊界；Ahrefs 與 The Verge 的內容仍須按第一方自述或媒體報導理解，不升格為 Google 排名規則：
+
+- Google Search Central，2023-02-08，AI 生成內容說明：<https://developers.google.com/search/blog/2023/02/google-search-and-ai-content>
+- Google Search Central，現行垃圾內容政策，`scaled content abuse`：<https://developers.google.com/search/docs/essentials/spam-policies#scaled-content>
+- Google，2024-03-05 公告、2024-04-26 更新，低品質與非原創搜尋結果：<https://blog.google/products-and-platforms/products/search/google-search-update-march-2024/>
+- Ahrefs，〈How We Use AI for Every Article Without Making AI Slop〉：<https://ahrefs.com/blog/how-we-use-ai-without-making-ai-slop/>
+- The Verge，2023-01-25，CNET AI 文章更正案例：<https://www.theverge.com/2023/1/25/23571082/cnet-ai-written-stories-errors-red-ventures>
+
+每次引用都要保存實際 URL、日期、上下文與適用範圍；來源未提供的數字或因果關係不得補寫。
