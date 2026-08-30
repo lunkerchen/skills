@@ -43,13 +43,28 @@ metadata:
 
 ---
 
+## AI 內容工程品質層：先判斷，再生成
+
+本工作臺採用可重用的 AI 內容工程流程，並將它與 SEO/GEO/AEO 的內容改造、證據檢查及發布驗證接在一起。適當使用 AI 或自動化不會因產製方式本身違規；風險在於大量、低價值、缺乏原創性，且主要為操縱排名而製作的 scaled content abuse。人工審核也不是 Google 的安全豁免。
+
+每篇內容先完成 Ahrefs 五問 brief：Reader、Promise、Point of view、Evidence、Information gain。接著分開保存研究、內容缺口、提綱、證據與草稿，經過四個可繼續、退回或終止的品質閘門，再由具體 owner 與第二位人類審閱者確認，最後才發布與量測。完整欄位與事實邊界見 `references/strategy/ai-content-engineering-quality.md`。
+
+### 標準內容管線
+
+```text
+題目 brief -> 研究/內容缺口 -> 提綱 -> 證據 -> 四個品質閘門 -> 草稿
+  -> 第二人審核 -> 發布前門禁 -> 可信分發 -> 量測與更新
+```
+
+生成器可以協助整理、比較、提出缺口與產生草稿，但不能自行決定事實或放行。GSC 搜尋成效、AI crawler 存取與 AI citation 必須分開觀測；沒有可追溯來源的數字、案例或主張不得進稿。
+
 ## 全能意圖路由器（Intent Router & Execution Matrix）
 
 | 使用者場景與意圖 | 對應旗艦模組 | 核心執行任務與 SOP |
 |---|---|---|
 | **「規劃跨 Google、AI 與問答引擎的整體策略」** | **模組 1：戰略規劃** | 盤點主題地圖、Ahrefs 4 支柱、Fan-out 查詢、競品 AI Mention/Citation 落差分析。 |
 | **「全面體檢網站的 SEO、GEO、AEO 與 Agent 友好度」**| **模組 2：全站審計** | 跑 `npx is-agentic <url>` + Sitemap Reconnaissance + 逐頁 Schema 診斷，輸出 P0~P3 矩陣。 |
-| **「讓文章/長文/腳本能被 AI 快速引用與直接回答」** | **模組 3：內容工程** | 倒金字塔 40-60 字結論置頂、Passage Citability（150-250字獨立段落）、串接 `stop-slop`。 |
+| **「讓文章/長文/腳本能被 AI 快速引用與直接回答」** | **模組 3：內容工程** | 先完成 Reader、Promise、Point of view、Evidence、Information gain 五問 brief，再走四個品質閘門、第二位人類審核、發布與量測；倒金字塔 40-60 字結論置頂、Passage Citability（150-250字獨立段落）、串接 `stop-slop`。 |
 | **「影音/Podcast 逐字稿轉為高引用問答與 FAQ」** | **模組 3：內容工程** | 逐字稿清洗、高引用問句提取（How/Why/Best/Vs）、注入 FAQPage & Speakable Schema。 |
 | **「靜態網站（Astro/Hugo/Next）加入結構化與 OG」**| **模組 4：架構優化** | JSON-LD 三件套（WebSite+Organization/Person+Service）、SVG OG Image 自動管線。 |
 | **「Web 應用 / SPA / SaaS 導入隱式 GEO/AEO」** | **模組 4：架構優化** | 首頁語意加固、JSON-LD `@graph`、產品 PDP Schema、保護結帳路徑同時放行購物 Agent。 |
@@ -88,6 +103,10 @@ metadata:
    - **Bonus（+5 分上限）**：MCP Apps（`ui://`）、Generative UI、無 a11y Prompt Injection。
 
 ### 模組 3：內容工程、問答抽取與 AEO 改造 (Content Engineering & AEO)
+0. **AI 內容工程品質層**：
+   - 先回答五問 brief，保存研究、內容缺口、提綱、證據與草稿等階段產物。
+   - 題目、提綱、證據與草稿各設一個品質閘門；不通過時退回補研究、改角度或終止，不只修正文句。
+   - 指定具體 owner 與第二位人類審閱者；審閱者必須能挑戰前提、追問證據、刪除章節、補研究或取消發布。
 1. **倒金字塔 40–60 字答案置頂（Answer-First Principle）**：
    - 每個 H2/H3 下方第一句話直接回答核心問題，定義事實、給出數字或結論。
 2. **Passage Citability（段落可提取性）**：
@@ -213,6 +232,7 @@ metadata:
 2. **語氣優先於模板**：做文章 GEO/AEO 改造時，若結構化會破壞創作者原始風格，以保留特色口吻為優先。
 3. **管線順序不可逆**：內容改造必須先做 AEO 證據與結構重構，再跑 `stop-slop`；反過來會使事實標籤被誤刪。
 4. **嚴禁虛構數據**：缺少統計或來源時僅能標註 `[建議補充數據口徑]`，絕對不可捏造研究機構或數字。
+   - 人工審核不是安全豁免；無來源數字或未驗證的重大主張必須退回補證據或終止發布。
 5. **Vary 標頭必不可少**：凡有支援 `Accept: text/markdown` 之站點，回應標頭必須帶 `Vary: Accept, Accept-Encoding`，否則 CDN 會將快取的 HTML 回給 Agent 或反之。
 6. **拒絕 Soft-404**：不存在的路由必須回傳真正的 404/410 HTTP 狀態碼，不可用 200 SPA App Shell 混充。
 7. **程式碼必須可直接落地**：任何審計報告必須附帶可直接複製貼上的 JSON-LD、robots.txt、_headers 或修復代碼。
@@ -274,7 +294,7 @@ AI 引擎在評估台灣本土品牌與主題權威（Topic Authority）時，�
 ## 擴充參考資源索引（Extended References Map）
 
 本 Skill 之詳細代碼範本與實戰手冊已收錄於 `references/` 目錄：
-- **戰略與理論 (`references/strategy/`)**：`modern-seo-strategy-spec.md`, `modern-seo-strategy-ahrefs-geo-strategy-2026.md`, `modern-seo-strategy-ai-search-ecosystem-2026.md`, `modern-seo-strategy-aeo-playbook-2026.md`, `modern-seo-strategy-agentic-commerce-2026.md`, `modern-seo-strategy-darkseoking-strategy.md`, `modern-seo-strategy-seo-geo-deep-research-2026.md`, `modern-seo-strategy-seo-geo-key-data-2026-08.md`, `modern-seo-strategy-tool-ecosystem-2026-08.md`, `ai-gap-analysis-spec.md`, `geolook-tw-geolook-methodology.md`, `geolook-tw-spec.md`
+- **戰略與理論 (`references/strategy/`)**：`modern-seo-strategy-spec.md`, `modern-seo-strategy-ahrefs-geo-strategy-2026.md`, `modern-seo-strategy-ai-search-ecosystem-2026.md`, `modern-seo-strategy-aeo-playbook-2026.md`, `modern-seo-strategy-agentic-commerce-2026.md`, `modern-seo-strategy-darkseoking-strategy.md`, `modern-seo-strategy-seo-geo-deep-research-2026.md`, `modern-seo-strategy-seo-geo-key-data-2026-08.md`, `modern-seo-strategy-tool-ecosystem-2026-08.md`, `ai-gap-analysis-spec.md`, `ai-content-engineering-quality.md`, `geolook-tw-geolook-methodology.md`, `geolook-tw-spec.md`
 - **全站審計手冊 (`references/audit/`)**：`site-seo-geo-audit-spec.md`, `site-seo-geo-audit-portfolio-ssg-execution.md`
 - **AEO 內容與影音 (`references/aeo-content/`)**：`geo-content-reformatting-spec.md`, `video-transcript-aeo-spec.md`, `geo-content-reformatting-your-demo-implementation.md`
 - **Web 應用與 SSG (`references/web-app-ssg/`)**：`static-site-geo-spec.md`, `webapp-geo-optimization-spec.md`, `agentic-commerce-readiness-spec.md`, `static-site-geo-astro-portfolio-implementation.md`, `static-site-geo-build-output-verification.md`, `static-site-geo-event-landing-page-geo.md`, `static-site-geo-og-image-generation.md`, `static-site-geo-og-image-svg-pipeline.md`, `webapp-geo-optimization-your-marketplace-implementation.md`

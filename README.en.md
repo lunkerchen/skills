@@ -50,7 +50,7 @@ cp -r skills/* ~/.hermes/skills/
 
 | Flagship Suite | Capabilities & Modules |
 |---|---|
-| [seo-geo-suite](skills/seo-geo/seo-geo-suite/SKILL.md) | **SEO × GEO × AEO × Agent-Readiness Flagship Workspace**: Four-track search system, Is-Agentic 100-pt audit, Cloudflare L0–L5, full-site reconnaissance, AEO 40-60 character answer extraction, Markdown Twin content negotiation, and 6 CI/CD quality gates |
+| [seo-geo-suite](skills/seo-geo/seo-geo-suite/SKILL.md) | **SEO × GEO × AEO × Agent-Readiness Flagship Workspace**: Four-track search system, AI content engineering quality layer (five-question brief, four quality gates, evidence and human ownership), Is-Agentic 100-pt audit, Cloudflare L0–L5, full-site reconnaissance, AEO 40-60 character answer extraction, Markdown Twin content negotiation, and 6 CI/CD quality gates |
 
 ### 2. Enterprise AI Adoption & Delivery
 
