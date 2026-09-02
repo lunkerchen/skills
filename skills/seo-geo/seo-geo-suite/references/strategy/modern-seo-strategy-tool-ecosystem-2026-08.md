@@ -6,12 +6,15 @@
 
 | 工具 | 2026/8 現況 | 價格 | 適合誰 |
 |---|---|---|---|
-| **Profound**（tryprofound.com） | 已成為 GEO 首家獨角獸：2026/2 完成 $96M Series C（Lightspeed 領投），估值 $10 億。客戶含 Figma、Ramp、MongoDB、Plaid 等 | 免費入門方案 + 企業客製報價 | 品牌大廠；要 share of voice + sentiment + prompt 層級排名的企業 |
+| **Profound**（tryprofound.com） | 已成為 GEO 首家獨角獸：2026/2 完成 $96M Series C（Lightspeed 領投，Sequoia、Kleiner Perkins 參投），估值達 $10 億。客戶含 Figma、Ramp、MongoDB、Plaid 等。公開發布客戶案例（如 Ramp 可見度 3.2%→22.2%，但坦承引用率僅 7.5%→8.1%） | 免費入門方案 + 企業客製報價 | 品牌大廠；要 share of voice + sentiment + prompt 層級排名的企業 |
+| **SEMrush / Adobe**（semrush.com） | **重大併購**：Adobe 以約 19 億美元（$1.9B）收購 Semrush，明確押注 GEO/AI 搜尋可見度，Semrush 企業 ARR YoY +33%。單獨加購 $99/月/domain；Semrush One（SEO+AI 一套）$199–549/月。prompt 庫 1.3 億+，覆蓋 ChatGPT/AIO/Gemini/Claude/Grok/Perplexity/DeepSeek | $99/月起 | 想 SEO 與 AI 可見度一站式搞定的大型團隊 |
 | **Ahrefs Brand Radar**（ahrefs.com） | 追蹤 6 平台（Google AI Overviews/AI Mode、ChatGPT、Perplexity、Gemini、Copilot），prompt 資料庫已擴至 2.18–2.39 億筆；另延伸 YouTube/TikTok/Reddit 追蹤（beta）。注意：第三方評測指其 ChatGPT/Perplexity 追蹤有準確度落差（關鍵字為本 vs prompt 層級） | 內含於 Ahrefs Lite $129/月起；部分方案加購模組約 $398–699/月（各來源說法不一，未確認） | 已是 Ahrefs 用戶、主戰場在 Google AI Overviews 者 |
-| **SEMrush AI Visibility Toolkit**（semrush.com） | 單獨加購 $99/月/domain；Semrush One（SEO+AI 一套）$199–549/月。prompt 庫 1.3 億+，覆蓋 ChatGPT/AIO/Gemini/Claude/Grok/Perplexity/DeepSeek | $99/月起 | 已是 Semrush 用戶，想 SEO 與 AI 可見度一個儀表板搞定 |
+| **Peec AI**（peec.ai） | 資本狂飆新星：2025/7 種子輪 €7M → 2025/11 A輪 $21M（估值 $100M+，ARR ~$4M）→ 2026/6 再融 $10M，估值達 $2 億（8 個月翻倍） | 約 €75/月起 | 成長型團隊、專注 European & Global AI 品牌可見度 |
+| **Conductor + Optimizely** | 兩大企業級平台建立策略聯盟，共同打造整合型 AEO 聯合解決方案 | 企業客製報價 | 跨國企業與大型電商數位體驗管理 |
+| **Promptwatch**（promptwatch.com） | 專精模型端引用追蹤與異動警報；曾第一時間監測到 ChatGPT 模型更新導致 Reddit 引用暴跌 95% 的關鍵指標 | 訂閱制 | 監測模型更新對社群與外部網域引用衝擊的團隊 |
 | **Otterly.AI**（otterly.ai） | 仍是最低門檻付費工具：追蹤 7 引擎（含 AI Mode、Copilot；Claude/Gemini 低階方案需加購），每日追蹤 + 引用分析 + GEO 稽核 | Lite $29/月（15 prompts）→ Standard $189 → Premium $489/月 | 個人/小團隊，想低成本開始每日追蹤 |
 | **OGTool**（ogtool.com） | 2026 竄紅的新玩家（創辦人前 Stanford、bootstrapped 500k+ 自然流量）：ChatGPT 關鍵字可見度 + Reddit 監控與 AI 回文、幻覺偵測。另有代管服務（Reddit Managed $6,000/月、GEO Managed $9,000/月） | Starter $99/月 → Growth $199 → Scale $399 | 想同時經營 Reddit 社群訊號 + AI 可見度的品牌 |
-| **其他新面孔** | Gauge（$99/月起，引用率診斷）、ZipTie.Dev（$99/月 400 次檢查）、AIclicks（$59–499/月）、SE Ranking Visible（$49/月起）、Peec AI（約 €75/月）、Writesonic GEO（$199/月） | 見各官網 | 依預算與引擎覆蓋選擇 |
+| **其他新面孔** | Gauge（$99/月起，引用率診斷）、ZipTie.Dev（$99/月 400 次檢查）、Scrunch AI（$15M A輪）、AthenaHQ（$2.2M YC）、Evertune（$15M A輪）、Writesonic GEO（$199/月） | 見各官網 | 依預算與引擎覆蓋選擇 |
 
 ### 5.2 開源 GEO 生態（2026/8/9 GitHub API 驗證）
 
