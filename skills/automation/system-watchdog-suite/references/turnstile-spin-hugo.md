@@ -83,7 +83,7 @@ export async function onRequestPost({ request, env }) {
 
 After the user approves a canonical absolute `WRANGLER_BIN` outside the project, set the secret with `(set +x; printf '%s' "$WIDGET_SECRET" | "$WRANGLER_BIN" pages secret put TURNSTILE_SECRET)` (or use the dashboard's Pages → your project → Settings → Environment variables → Add secret).
 
-**External backend**: any Node/Ruby/Python/Go handler can do the same call. See the [vanilla-html reference](./vanilla-html.md) for non-Cloudflare-specific snippets.
+**External backend**: any Node/Ruby/Python/Go handler can do the same call. See the [vanilla-html reference](./turnstile-spin-vanilla-html.md) for non-Cloudflare-specific snippets.
 
 ## Variant: shortcode for content files
 

@@ -1,6 +1,6 @@
 # Email Deliverability & Best Practices
 
-For full details, see the [deliverability docs](https://developers.cloudflare.com/email-service/concepts/deliverability/) and [email authentication docs](https://developers.cloudflare.com/email-service/concepts/email-authentication/). All the monitoring endpoints below can be called via the [REST API](rest-api.md), [Wrangler CLI, or the Cloudflare MCP server](cli-and-mcp.md).
+For full details, see the [deliverability docs](https://developers.cloudflare.com/email-service/concepts/deliverability/) and [email authentication docs](https://developers.cloudflare.com/email-service/concepts/email-authentication/). All the monitoring endpoints below can be called via the [REST API](cloudflare-email-service-rest-api.md), [Wrangler CLI, or the Cloudflare MCP server](cloudflare-email-service-cli-and-mcp.md).
 
 ## What Cloudflare Handles
 

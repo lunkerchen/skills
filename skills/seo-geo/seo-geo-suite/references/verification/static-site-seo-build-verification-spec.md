@@ -26,11 +26,11 @@ use targeted regex/python3/node, not `read_file`.
 
 ## Extended References & Guides
 
-- [Astro inline-script pitfalls (empirically verified on Astro 6)](references/astro-inline-script-pitfalls-empirically-verified-on-astro-6.md)
-- [llms.txt: generate from source, never hand-maintain](references/llms-txt-generate-from-source-never-hand-maintain.md)
-- [AEO description extraction: one filter rule for ALL surfaces](references/aeo-description-extraction-one-filter-rule-for-all-surfaces.md)
-- [Verification checklist (run, don't eyeball)](references/verification-checklist-run-don-t-eyeball.md)
-- [New content entry audit (read-only acceptance check)](references/new-content-entry-audit-read-only-acceptance-check.md)
-- [Post-deploy live verification (deployed site, not just dist)](references/post-deploy-live-verification-deployed-site-not-just-dist.md)
-- [Scripts](references/scripts.md)
+- [Astro inline-script pitfalls (empirically verified on Astro 6)](static-site-seo-build-verification-astro-inline-script-pitfalls-empirically-verified-on-astro-6.md)
+- [llms.txt: generate from source, never hand-maintain](static-site-seo-build-verification-llms-txt-generate-from-source-never-hand-maintain.md)
+- [AEO description extraction: one filter rule for ALL surfaces](static-site-seo-build-verification-aeo-description-extraction-one-filter-rule-for-all-surfaces.md)
+- [Verification checklist (run, don't eyeball)](static-site-seo-build-verification-verification-checklist-run-don-t-eyeball.md)
+- [New content entry audit (read-only acceptance check)](static-site-seo-build-verification-new-content-entry-audit-read-only-acceptance-check.md)
+- [Post-deploy live verification (deployed site, not just dist)](static-site-seo-build-verification-post-deploy-live-verification-deployed-site-not-just-dist.md)
+- [Scripts](static-site-seo-build-verification-scripts.md)
 - [Trigger Evals](evals/eval_triggers.json): Automated evaluation test fixtures.

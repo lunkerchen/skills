@@ -37,5 +37,5 @@ Implementation methodology for making any website compliant with Cloudflare's Ag
 
 ## Extended References
 
-- [Implementation Guide](references/guide.md): Code examples across Next.js, Cloudflare Workers, and static sites.
-- [Protocol Specifications](references/protocol-specs.md): JSON schemas and header definitions for all 22 checks.
+- [Implementation Guide](cloudflare-agent-readiness-guide.md): Code examples across Next.js, Cloudflare Workers, and static sites.
+- [Protocol Specifications](cloudflare-agent-readiness-protocol-specs.md): JSON schemas and header definitions for all 22 checks.

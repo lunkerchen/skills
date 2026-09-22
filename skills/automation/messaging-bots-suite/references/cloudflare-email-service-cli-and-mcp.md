@@ -98,7 +98,7 @@ async () => {
 }
 ```
 
-GraphQL analytics queries also work through `execute` — see [deliverability.md](deliverability.md#graphql-analytics-api) for query examples. Note that email analytics are **zone-level** datasets (`emailSendingAdaptiveGroups`, `emailSendingAdaptive`) queried under `viewer > zones`, and require the **Analytics Read** token permission.
+GraphQL analytics queries also work through `execute` — see [deliverability.md](cloudflare-email-service-deliverability.md#graphql-analytics-api) for query examples. Note that email analytics are **zone-level** datasets (`emailSendingAdaptiveGroups`, `emailSendingAdaptive`) queried under `viewer > zones`, and require the **Analytics Read** token permission.
 
 ## Sending from CLI / Agents
 

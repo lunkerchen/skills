@@ -46,7 +46,7 @@ Retrieve real GSC search analytics (clicks, impressions, CTR, position), site pr
 
 ## Extended References & Runbooks
 
-- [OAuth & Loopback Re-Auth Guide](references/oauth-loopback-flow.md): Step-by-step local OAuth re-authentication and GCP setup.
+- [OAuth & Loopback Re-Auth Guide](google-search-console-api-oauth-loopback-flow.md): Step-by-step local OAuth re-authentication and GCP setup.
 - [Client Site Verification Runbook](references/client-site-gsc-verification.md): Verification via HTML meta tag when API access is unavailable.
 - [your-project SEO Loop](references/your-app-seo-loop.md): Practical production analytics loop.
 - [Trigger Evals](evals/eval_triggers.json): Automated test fixtures.

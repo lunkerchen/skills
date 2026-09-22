@@ -1,6 +1,6 @@
 # Sending Emails — Workers Binding & Agents SDK
 
-Send emails from Cloudflare Workers using the native binding, or from AI agents using the Agents SDK. If your app is NOT on Workers, use the [REST API](rest-api.md) instead.
+Send emails from Cloudflare Workers using the native binding, or from AI agents using the Agents SDK. If your app is NOT on Workers, use the [REST API](cloudflare-email-service-rest-api.md) instead.
 
 ## Workers Binding
 
@@ -23,7 +23,7 @@ For local development, add `"remote": true` so email sends are proxied to the re
 
 Run `npx wrangler types` to auto-generate the `Env` interface with your `EMAIL` binding. This produces a `worker-configuration.d.ts` with the real `SendEmail`, `EmailAttachment`, `EmailAddress`, and related types from the workerd runtime. Always use these generated types — do not define them manually.
 
-**Note:** Workers binding uses `email` in the from object (`EmailAddress` type). REST API uses `address`. See [rest-api.md](rest-api.md).
+**Note:** Workers binding uses `email` in the from object (`EmailAddress` type). REST API uses `address`. See [cloudflare-email-service-rest-api.md](cloudflare-email-service-rest-api.md).
 
 ## send()
 
@@ -61,7 +61,7 @@ const response = await env.EMAIL.send({
 
 **Important:** The Workers binding and REST API handle attachment content differently:
 - **Workers binding:** `content` accepts `string | ArrayBuffer | ArrayBufferView`. Strings are treated as **raw content** (not base64). For text files, pass the raw string. For binary files (images, PDFs), pass an `ArrayBuffer`. Note: `ArrayBuffer` does not work with `"remote": true` in local dev — deploy to test binary attachments.
-- **REST API:** `content` is always a **base64-encoded string**. See [rest-api.md](rest-api.md).
+- **REST API:** `content` is always a **base64-encoded string**. See [cloudflare-email-service-rest-api.md](cloudflare-email-service-rest-api.md).
 
 ```typescript
 // Text file attachment — pass raw string content
@@ -212,7 +212,7 @@ try {
 }
 ```
 
-These error codes are for the **Workers binding** (thrown as Error objects with `.code` and `.message`). The **REST API** returns standard Cloudflare API numeric error codes instead — see [rest-api.md](rest-api.md).
+These error codes are for the **Workers binding** (thrown as Error objects with `.code` and `.message`). The **REST API** returns standard Cloudflare API numeric error codes instead — see [cloudflare-email-service-rest-api.md](cloudflare-email-service-rest-api.md).
 
 | Error Code | What It Means | What to Do |
 |------------|---------------|------------|

@@ -16,11 +16,11 @@ metadata:
 
 ## Extended References & Guides
 
-- [Use](references/use.md)
-- [Spec（dualmark / agent-readability）](references/spec-dualmark-agent-readability.md)
-- [實作：單一內容來源](references/guide.md)
-- [HTML→MD 轉換器](references/html-md.md)
+- [Use](markdown-twin-aeo-use.md)
+- [Spec（dualmark / agent-readability）](markdown-twin-aeo-spec-dualmark-agent-readability.md)
+- [實作：單一內容來源](markdown-twin-aeo-guide.md)
+- [HTML→MD 轉換器](markdown-twin-aeo-html-md.md)
 - [Pitfalls](references/pitfalls.md)
-- [驗證迴圈（production）](references/production.md)
-- [參考](references/guide.md)
+- [驗證迴圈（production）](markdown-twin-aeo-production.md)
+- [參考](markdown-twin-aeo-guide.md)
 - [Trigger Evals](evals/eval_triggers.json): Automated evaluation test fixtures.

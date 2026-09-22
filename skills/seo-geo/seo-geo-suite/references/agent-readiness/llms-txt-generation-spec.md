@@ -16,9 +16,9 @@ metadata:
 
 ## Extended References & Guides
 
-- [核心原則：靜態 llms.txt 註定過時](references/llms-txt.md)
-- [動態生成（Next.js App Router 模式）](references/next-js-app-router.md)
-- [檢查清單（audit 或驗收時）](references/audit.md)
-- [陷阱](references/guide.md)
-- [驗證（build 後）](references/build.md)
+- [核心原則：靜態 llms.txt 註定過時](llms-txt-generation-llms-txt.md)
+- [動態生成（Next.js App Router 模式）](llms-txt-generation-next-js-app-router.md)
+- [檢查清單（audit 或驗收時）](llms-txt-generation-audit.md)
+- [陷阱](llms-txt-generation-guide.md)
+- [驗證（build 後）](llms-txt-generation-build.md)
 - [Trigger Evals](evals/eval_triggers.json): Automated evaluation test fixtures.
