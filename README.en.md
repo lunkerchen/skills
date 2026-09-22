@@ -46,6 +46,43 @@ cp -r skills/* ~/.hermes/skills/
 
 ---
 
+## Quick Cards
+
+### Two-stage routing at a glance
+
+![Two-stage routing: PROMPT -> root router SKILL.md scans 12 skills -> locks seo-geo-suite -> eval 24/24 PASS](docs/assets/routing-demo.gif)
+
+*Diagram: a user prompt sweeps the root [SKILL.md](SKILL.md) routing table and locks the matching Suite (Stage 1); the suite index then pulls `references/` on demand (Stage 2). Bottom-right shows the CI deterministic routing eval. Regenerate the GIF with [`docs/assets/make_routing_gif.py`](docs/assets/make_routing_gif.py).*
+
+### 12 skill cards (10 flagship + 2 standalone)
+
+All 10 flagship suites plus 2 standalone skills — click a name to open its SKILL.md:
+
+<table>
+  <tr>
+    <td width="33%"><a href="skills/seo-geo/seo-geo-suite/SKILL.md"><code>seo-geo-suite</code></a><br>Four-track search: full-site audit, llms.txt, Is-Agentic</td>
+    <td width="33%"><a href="skills/ai-adoption/fde-adoption-suite/SKILL.md"><code>fde-adoption-suite</code></a><br>Deep interviews, QA evidence, PSF/MVD delivery, change management</td>
+    <td width="33%"><a href="skills/content/content-writing-suite/SKILL.md"><code>content-writing-suite</code></a><br>stop-slop de-AI writing, s2t-taiwan, Vocus SOP</td>
+  </tr>
+  <tr>
+    <td width="33%"><a href="skills/content/multimedia-repurpose-suite/SKILL.md"><code>multimedia-repurpose-suite</code></a><br>YouTube chaptering, IG Reels scripts, Markdown to podcast TTS</td>
+    <td width="33%"><a href="skills/design/frontend-design-suite/SKILL.md"><code>frontend-design-suite</code></a><br>Night-sky aesthetics, 44px targets, zero overflow, zero CLS</td>
+    <td width="33%"><a href="skills/design/blueprint-concrete-design/SKILL.md"><code>blueprint-concrete-design</code></a><br>Blueprint grid, concrete palette, dual type, GSAP parallax</td>
+  </tr>
+  <tr>
+    <td width="33%"><a href="skills/engineering/code-quality-suite/SKILL.md"><code>code-quality-suite</code></a><br>GitHub code review, 5-gate TS build verification, Biome</td>
+    <td width="33%"><a href="skills/engineering/cloud-workers-suite/SKILL.md"><code>cloud-workers-suite</code></a><br>Hono on Workers test suite and stateless MCP servers</td>
+    <td width="33%"><a href="skills/automation/messaging-bots-suite/SKILL.md"><code>messaging-bots-suite</code></a><br>Lark/Bitable sync, LINE push, Cloudflare email, GAS forms</td>
+  </tr>
+  <tr>
+    <td width="33%"><a href="skills/automation/system-watchdog-suite/SKILL.md"><code>system-watchdog-suite</code></a><br>Red-team audits, dependency scans, OWASP/CVE defense, Gmail triage</td>
+    <td width="33%"><a href="skills/automation/sync-lark-wiki/SKILL.md"><code>sync-lark-wiki</code></a><br>Safe Markdown to Lark Wiki sync: OAuth, preview, read-back</td>
+    <td width="33%"><a href="skills/plugin/labangram-agent/SKILL.md"><code>labangram-agent</code></a><br>Public MCP/REST portfolio lookup; drafts need human confirmation</td>
+  </tr>
+</table>
+
+---
+
 ## Catalog (10 Flagship Mega-Suites)
 
 ### 1. Search & Agent Readiness

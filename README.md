@@ -46,6 +46,43 @@ cp -r skills/* ~/.hermes/skills/
 
 ---
 
+## 快速一覽（Quick Cards）
+
+### 兩階段路由一圖看懂
+
+![兩階段路由：PROMPT → 根路由器 SKILL.md 掃描 12 張技能 → 鎖定 seo-geo-suite → eval 24/24 PASS](docs/assets/routing-demo.gif)
+
+*圖：使用者 prompt 掃過根 [SKILL.md](SKILL.md) 路由表並鎖定對口 Suite（Stage 1），套件索引再按需取 `references/`（Stage 2）；右下角為 CI 的確定性路由評測。GIF 可用 [`docs/assets/make_routing_gif.py`](docs/assets/make_routing_gif.py) 重新生成。*
+
+### 12 張技能卡（10 旗艦 ＋ 2 獨立）
+
+10 張旗艦與 2 張獨立技能，點名稱即開啟對應 SKILL.md：
+
+<table>
+  <tr>
+    <td width="33%"><a href="skills/seo-geo/seo-geo-suite/SKILL.md"><code>seo-geo-suite</code></a><br>四軌搜尋全能工作台：全站審計、llms.txt、Is-Agentic</td>
+    <td width="33%"><a href="skills/ai-adoption/fde-adoption-suite/SKILL.md"><code>fde-adoption-suite</code></a><br>深度訪談、QA 證據、PSF/MVD 交付與變革管理</td>
+    <td width="33%"><a href="skills/content/content-writing-suite/SKILL.md"><code>content-writing-suite</code></a><br>stop-slop 去 AI 味、簡轉繁、方格子 SOP</td>
+  </tr>
+  <tr>
+    <td width="33%"><a href="skills/content/multimedia-repurpose-suite/SKILL.md"><code>multimedia-repurpose-suite</code></a><br>YouTube 章節拆解、IG 爆款分鏡、Markdown 轉 Podcast</td>
+    <td width="33%"><a href="skills/design/frontend-design-suite/SKILL.md"><code>frontend-design-suite</code></a><br>夜空深色美學、44px 靶區、零橫向溢出防 CLS</td>
+    <td width="33%"><a href="skills/design/blueprint-concrete-design/SKILL.md"><code>blueprint-concrete-design</code></a><br>藍圖網格清水模色階、雙字型張力、GSAP 視差</td>
+  </tr>
+  <tr>
+    <td width="33%"><a href="skills/engineering/code-quality-suite/SKILL.md"><code>code-quality-suite</code></a><br>GitHub Code Review、TS 五道建置驗證、Biome</td>
+    <td width="33%"><a href="skills/engineering/cloud-workers-suite/SKILL.md"><code>cloud-workers-suite</code></a><br>Hono on Workers 測試套件與無狀態 MCP 建置</td>
+    <td width="33%"><a href="skills/automation/messaging-bots-suite/SKILL.md"><code>messaging-bots-suite</code></a><br>Lark/Bitable 串接、LINE 推播、CF 交易郵件</td>
+  </tr>
+  <tr>
+    <td width="33%"><a href="skills/automation/system-watchdog-suite/SKILL.md"><code>system-watchdog-suite</code></a><br>紅隊審計、依賴掃描、OWASP/CVE 防禦、Gmail 分流</td>
+    <td width="33%"><a href="skills/automation/sync-lark-wiki/SKILL.md"><code>sync-lark-wiki</code></a><br>Markdown 安全同步 Lark Wiki：OAuth、preview、read-back</td>
+    <td width="33%"><a href="skills/plugin/labangram-agent/SKILL.md"><code>labangram-agent</code></a><br>公開 MCP/REST 查詢作品集；詢價草稿需人工確認</td>
+  </tr>
+</table>
+
+---
+
 ## 10 大旗艦工作台一覽
 
 ### 1. 搜尋與代理就緒（SEO & Agent Readiness）
