@@ -15,3 +15,5 @@ jobs:
           python-version: "3.12"
       - name: Run repo validator
         run: python3 scripts/scan.py --repo . --strict
+      - name: Run routing eval
+        run: python3 scripts/eval.py --repo .

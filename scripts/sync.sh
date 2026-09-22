@@ -42,3 +42,4 @@ done < "$ALLOWLIST"
 
 echo "sync: $copied skill(s) mirrored"
 python3 "$ROOT/scripts/scan.py" --repo "$ROOT" --strict
+python3 "$ROOT/scripts/eval.py" --repo "$ROOT"

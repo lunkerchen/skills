@@ -51,19 +51,24 @@ source (`~/.hermes/skills/`). Read this before editing anything.
 ## Validation
 
 ```bash
-python3 scripts/scan.py --repo .
+python3 scripts/scan.py --repo . --strict
+python3 scripts/eval.py --repo .
 ```
 
-Exit 0 = clean. The same check runs in CI on every push.
+Exit 0 = clean. Both run in CI on every push. The eval scores every golden
+prompt in `scripts/golden.tsv` against the skill corpora and hard-fails on a
+routing miss, an ambiguous tie, or a skill with no golden prompt.
 
 ## Adding or updating a skill
 
 1. Edit/improve the skill at its canonical path (`~/.hermes/skills/...`).
 2. Add its canonical-relative path to `scripts/allowlist.tsv`.
-3. Run `scripts/sync.sh` (copies + scans).
-4. Update the category list in `README.md` (zh-TW primary) **and** `README.en.md` (both, same
+3. Run `scripts/sync.sh` (copies + scans + routing eval).
+4. Add ≥1 golden prompt row to `scripts/golden.tsv` (coverage is enforced —
+   a skill with no golden prompt fails `eval.py`).
+5. Update the category list in `README.md` (zh-TW primary) **and** `README.en.md` (both, same
    structure — see `docs/CONTRIBUTING.md` for the i18n rule).
-5. `git add -A && git commit` with a conventional message.
+6. `git add -A && git commit` with a conventional message.
 
 ## Language policy
 

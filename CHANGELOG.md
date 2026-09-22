@@ -1,5 +1,10 @@
 # Changelog
 
+## [Unreleased]
+
+- **Routing eval in CI**: new `scripts/eval.py` + `scripts/golden.tsv` (24 golden prompts, zh + en) — deterministic keyword scoring (ASCII 2x, CJK bigrams) over each skill's frontmatter, router row, and filenames; asserts unique top-1 routing per prompt plus full skill coverage (a new skill without a golden prompt fails). Wired into CI and `sync.sh`.
+- **Validator completeness**: root routing table must list every discovered skill (nothing ships unrouted); `allowlist.tsv` ↔ `skills/` verified bidirectionally; relative Markdown links now hard-fail on the router surface (SKILL.md / skill-root docs) while `references/` prose links aggregate to advisory warnings (upstream archive targets that are not mirrored; code samples and placeholder targets like `](url)` are ignored, two-base resolution).
+
 ## [1.0.0] — 2026-09-23
 
 - **Catalog accuracy**: flagship count corrected from 9 to 10 across both READMEs (badge, intro, bash example, catalog heading); `plugin.json` version now aligns with this CHANGELOG as the single repo-level version source.

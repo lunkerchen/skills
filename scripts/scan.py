@@ -11,6 +11,12 @@ Checks (exit 0 = clean):
   7. SKILL.md token budget: advisory warn at 8 KiB, hard fail at 10 KiB.
   8. README relative links, plugin.json, and mcp.json stay valid.
   9. Repo-root SKILL.md router: frontmatter present; every routed path exists.
+ 10. Router completeness: every skills/<category>/<name> is listed in the
+     root SKILL.md routing table (nothing ships unrouted).
+ 11. allowlist.tsv ↔ skills/ directory agree in both directions.
+ 12. Relative Markdown links: hard-fail outside `references/` (router surface),
+     advisory warn inside `references/` prose (upstream archive links); code
+     samples and placeholder targets ignored; two-base resolution.
      (--strict is accepted for compatibility; findings are always fatal.)
 
 Usage:
@@ -73,6 +79,49 @@ MD_LINK = re.compile(r"\]\(([^)\s]+)\)")
 WARN_BYTES = 8 * 1024
 FAIL_BYTES = 10 * 1024
 SKILL_TREE_REF = re.compile(r"`(skills/[A-Za-z0-9_./-]+/SKILL\.md)`")
+
+
+FENCED_CODE = re.compile(r"```.*?```", re.S)
+INLINE_CODE = re.compile(r"`[^`\n]*`")
+
+
+def link_findings(md_file: Path, skills_root: Path) -> tuple[list[str], list[str]]:
+    """Relative-link check for one markdown file.
+
+    Returns (hard_findings, soft_targets). Code fences and inline code are
+    stripped first so documentation samples like `](url)` are not mistaken for
+    links. Targets resolve against both the file's directory and the owning
+    skill root (reference docs often cite paths from the skill-root
+    perspective). Targets without a file extension (placeholders such as `url`
+    or `<root>`) are ignored. Links outside `references/` are the router
+    surface and fail hard; links inside `references/` prose point at upstream
+    archives that may not ship in this mirror, so they are returned as soft
+    targets for the caller to aggregate into advisory warnings.
+    """
+    body = md_file.read_text(encoding="utf-8", errors="replace")
+    body = INLINE_CODE.sub(" ", FENCED_CODE.sub(" ", body))
+    rel_parts = md_file.relative_to(skills_root).parts
+    skill_root = (
+        skills_root.joinpath(*rel_parts[:2]) if len(rel_parts) >= 2 else md_file.parent
+    )
+    hard: list[str] = []
+    soft: list[str] = []
+    bucket = soft if "references" in rel_parts else hard
+    for target in MD_LINK.findall(body):
+        if target.startswith(("http://", "https://", "mailto:", "#")):
+            continue
+        if "${" in target:
+            continue
+        rel = target.split("#", 1)[0].split("?", 1)[0]
+        if not rel:
+            continue
+        leaf = rel.replace("\\", "/").rstrip("/").rsplit("/", 1)[-1]
+        if "." not in leaf:
+            continue  # placeholder word, not a file path
+        if (md_file.parent / rel).exists() or (skill_root / rel).exists():
+            continue
+        bucket.append(target)
+    return [f"broken link ({t})" for t in hard], soft
 
 
 def scan_file(path: Path) -> list[str]:
@@ -148,13 +197,30 @@ def main() -> int:
         print("scan: no skills/ directory — nothing to validate")
         return 0
     warnings: list[str] = []
+    discovered: set[str] = set()
     for md in skills_root.rglob("SKILL.md"):
         rel = md.parent.relative_to(skills_root)
         if len(rel.parts) != 2:
             findings.append(
                 f"{md}: expected skills/<category>/<name>/SKILL.md, found {len(rel.parts)} level(s)"
             )
+        else:
+            discovered.add(f"skills/{rel.parts[0]}/{rel.parts[1]}")
         findings.extend(validate_skill(md.parent, warnings))
+    allow_expected: set[str] = set()
+    allow_path = repo / "scripts" / "allowlist.tsv"
+    if allow_path.is_file():
+        for line in allow_path.read_text(encoding="utf-8").splitlines():
+            line = line.strip()
+            if not line or line.startswith("#"):
+                continue
+            fields = line.split("\t")
+            if len(fields) >= 2 and fields[0] and fields[1]:
+                allow_expected.add(f"skills/{fields[1]}/{Path(fields[0]).name}")
+        for path in sorted(allow_expected - discovered):
+            findings.append(f"{path}: allowlist entry not present under skills/")
+        for path in sorted(discovered - allow_expected):
+            findings.append(f"{path}: missing from scripts/allowlist.tsv")
     for f in skills_root.rglob("*"):
         if f.is_file() and any(f.match(g) for g in FORBIDDEN_FILES):
             findings.append(f"{f}: forbidden file type")
@@ -173,6 +239,17 @@ def main() -> int:
                 json.loads(manifest.read_text(encoding="utf-8"))
             except Exception as exc:
                 findings.append(f"{manifest}: invalid JSON ({exc})")
+    soft_by_file: dict[Path, list[str]] = {}
+    for md_file in sorted(skills_root.rglob("*.md")):
+        hard, soft = link_findings(md_file, skills_root)
+        findings.extend(f"{md_file}: {h}" for h in hard)
+        if soft:
+            soft_by_file[md_file] = soft
+    for f, targets in soft_by_file.items():
+        sample = ", ".join(targets[:3]) + ("…" if len(targets) > 3 else "")
+        warnings.append(
+            f"{f}: {len(targets)} unresolved reference-prose link(s): {sample}"
+        )
     root_md = repo / "SKILL.md"
     if root_md.is_file():
         rtext = root_md.read_text(encoding="utf-8", errors="replace")
@@ -181,9 +258,14 @@ def main() -> int:
             findings.append(f"{root_md}: missing frontmatter name/description")
         elif not NAME_FORMAT.match(rm_name.group(1).strip()):
             findings.append(f"{root_md}: invalid frontmatter name")
-        for ref in SKILL_TREE_REF.findall(rtext):
+        routed = set(SKILL_TREE_REF.findall(rtext))
+        for ref in routed:
             if not (repo / ref).is_file():
                 findings.append(f"{root_md}: broken routed path {ref}")
+        for path in sorted(
+            f"{d}/SKILL.md" for d in discovered if f"{d}/SKILL.md" not in routed
+        ):
+            findings.append(f"{root_md}: skill not listed in routing table: {path}")
     for w in warnings:
         print(f"WARN {w}")
     if findings:

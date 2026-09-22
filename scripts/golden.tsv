@@ -1,0 +1,28 @@
+# golden.tsv — routing eval fixtures for scripts/eval.py
+# Format: <prompt><TAB>skills/<category>/<name>/SKILL.md
+# Every skill needs at least one golden prompt (coverage enforced by eval).
+# Prompts mirror real user requests (zh + en); ASCII keywords are weighted 2x.
+幫我做全站 SEO 與 GEO 審計，產生 llms.txt 與 AI 摘要優化建議	skills/seo-geo/seo-geo-suite/SKILL.md
+Audit our site for AEO and generative engine optimization, then generate llms.txt	skills/seo-geo/seo-geo-suite/SKILL.md
+企業要導入 AI，幫我做深度訪談、子代理調度與 PSF/MVD 交付規劃	skills/ai-adoption/fde-adoption-suite/SKILL.md
+Plan an enterprise FDE rollout: deep-interview questions, QA evidence, PSF delivery	skills/ai-adoption/fde-adoption-suite/SKILL.md
+這篇 AI 味太重，幫我人性化潤色、轉成台灣繁體並發布到方格子	skills/content/content-writing-suite/SKILL.md
+Run stop-slop and writing-humanizer on this draft, then s2t convert for Vocus Taiwan	skills/content/content-writing-suite/SKILL.md
+把這支 YouTube 影片逐字稿拆成章節，並做成 IG Reels 短影音分鏡	skills/content/multimedia-repurpose-suite/SKILL.md
+Extract a YouTube transcript, split it into chapters, and storyboard IG Reels	skills/content/multimedia-repurpose-suite/SKILL.md
+幫我做夜空深色星空風的官網首頁，並檢查手機 RWD 不要橫向溢出	skills/design/frontend-design-suite/SKILL.md
+Redesign the landing page with a night-sky dark theme and enforce mobile RWD rules	skills/design/frontend-design-suite/SKILL.md
+幫建築事務所做一個藍圖風格的深色官網，要有 GSAP 標線質感	skills/design/blueprint-concrete-design/SKILL.md
+Build an architectural blueprint-style dark website for an architecture studio with concrete texture	skills/design/blueprint-concrete-design/SKILL.md
+幫我做嚴格的 GitHub Code Review，跑 TypeScript 五道建置驗證並修 linter	skills/engineering/code-quality-suite/SKILL.md
+Run a strict GitHub code review and the five-step TypeScript build verification with Biome lint fixes	skills/engineering/code-quality-suite/SKILL.md
+用 Hono 在 Cloudflare Workers 上部署並寫 Vitest + D1 mock 測試	skills/engineering/cloud-workers-suite/SKILL.md
+Deploy a stateless MCP server on Cloudflare Workers with Vitest and D1 mock testing	skills/engineering/cloud-workers-suite/SKILL.md
+開發 Lark 機器人串接多維表格，並用 LINE 推播通知，表單走 GAS 後端	skills/automation/messaging-bots-suite/SKILL.md
+Build a Lark bot that syncs Bitable records and sends LINE push notifications; GAS form backend	skills/automation/messaging-bots-suite/SKILL.md
+對網站做紅隊審計、依賴掃描與 OWASP/CVE 防禦，再設網頁變更監控	skills/automation/system-watchdog-suite/SKILL.md
+Run a red-team audit, dependency scan, OWASP CVE hardening, and web change monitoring; also Gmail rules	skills/automation/system-watchdog-suite/SKILL.md
+把我本機的 Markdown 筆記同步到既有 Lark Wiki，先 preview 再覆寫，並檢查 OAuth scope	skills/automation/sync-lark-wiki/SKILL.md
+Sync local Markdown into the existing Lark Wiki with revision-aware preview, explicit confirmation, and OAuth scope debugging	skills/automation/sync-lark-wiki/SKILL.md
+查一下 Labangram 的作品集、服務與定價，幫我準備詢價草稿（要人工確認）	skills/plugin/labangram-agent/SKILL.md
+Look up Labangram's portfolio, services, and pricing on the public MCP/API, and prep a human-confirmed inquiry draft	skills/plugin/labangram-agent/SKILL.md
