@@ -69,9 +69,9 @@ def scan_file(path: Path) -> list[str]:
     except Exception:
         return [f"{path}: unreadable"]
     for i, line in enumerate(text.splitlines(), 1):
-        placeholder = any(h in line for h in PLACEHOLDER_HINTS)
         for pat in SECRET_PATTERNS:
-            if pat.search(line) and not placeholder:
+            match = pat.search(line)
+            if match and not any(h in match.group(0) for h in PLACEHOLDER_HINTS):
                 findings.append(f"{path}:{i}: secret pattern {pat.pattern[:30]}...")
                 break
         for pat in PRIVATE_PATH_PATTERNS:
