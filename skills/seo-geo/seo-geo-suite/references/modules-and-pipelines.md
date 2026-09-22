@@ -148,3 +148,23 @@
 2. 配置週/月 Cron 定期查詢 GSC API 與執行 Is-Agentic 掃描，產出健康指標。
 
 ---
+
+## 全能意圖路由器（Intent Router & Execution Matrix）
+
+| 使用者場景與意圖 | 對應旗艦模組 | 核心執行任務與 SOP |
+|---|---|---|
+| **「規劃跨 Google、AI 與問答引擎的整體策略」** | **模組 1：戰略規劃** | 盤點主題地圖、Ahrefs 4 支柱、Fan-out 查詢、競品 AI Mention/Citation 落差。 |
+| **「全面體檢網站的 SEO、GEO、AEO 與 Agent 友好度」**| **模組 2：全站審計** | `npx is-agentic <url>` + Sitemap Reconnaissance + 逐頁 Schema 診斷 → P0~P3 矩陣。 |
+| **「讓文章/長文/腳本能被 AI 快速引用與直接回答」** | **模組 3：內容工程** | 五問 brief → 四個品質閘門 → 草稿 → 第二人審核 → 發布 → 量測；40-60 字結論置頂、150-250 字獨立段、串接 `stop-slop`。 |
+| **「產出客戶專屬 SEO/GEO 診斷／提案報告」** | **模組 1 + 2 + 3 + 7：客戶報告輸出** | 先選 archetype，依六段契約結構交付；finding 附證據與驗收方法，成效改寫為可驗收指標。 |
+| **「影音/Podcast 逐字稿轉為高引用問答與 FAQ」** | **模組 3：內容工程** | 逐字稿清洗、高引用問句提取（How/Why/Best/Vs）、注入 FAQPage & Speakable。 |
+| **「靜態網站（Astro/Hugo/Next）加入結構化與 OG」**| **模組 4：架構優化** | JSON-LD 三件套（WebSite+Organization/Person+Service）、SVG OG 管線。 |
+| **「Web 應用 / SPA / SaaS 導入隱式 GEO/AEO」** | **模組 4：架構優化** | 首頁語意加固、JSON-LD `@graph`、PDP Schema、保護結帳同時放行購物 Agent。 |
+| **「設定 AI 爬蟲 Content Negotiation 與 Markdown」**| **模組 5：代理就緒** | `Accept: text/markdown`、`Vary: Accept, Accept-Encoding`、.md 雙生檔案。 |
+| **「建立/維護 llms.txt 與 llms-full.txt」** | **模組 5：代理就緒** | 從內容來源生成並做 URL 雙向驗證；不宣稱為 Google 支援或 citation signal。 |
+| **「解決 SPA / React 前端在 AI 爬蟲前內容空白問題」** | **模組 5：代理就緒** | Pages Functions 中間件、UA 判斷、SSR 預渲染 HTML 與 Schema 注入。 |
+| **「設定 Cloudflare Agent-Readiness (L0-L5) 與 MCP」**| **模組 5：代理就緒** | `Content-Signal` 標頭、`/.well-known/mcp/server-card.json`、`ai-catalog.json`。 |
+| **「查詢與分析 Google Search Console 搜尋成效」** | **模組 6：GSC 數據** | GSC API 抓 clicks/impressions/CTR/position、URL Inspection、提交 Sitemap。 |
+| **「CI/CD 或部署前自動驗證全站標籤與 404 引導」** | **模組 7：驗證門戶** | 6-Gate 測試（H1/Title/Meta/JSON-LD/Canonical/Agent 404/Vary）。 |
+| **「排程監控品牌在 Google 與 AI 中的聲量」** | **模組 7：長效監控** | Cron 檢查品牌詞能見度、AI Mention/Citation 變化與過期預警。 |
+

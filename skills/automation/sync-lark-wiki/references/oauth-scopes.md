@@ -26,6 +26,19 @@ lark-cli auth check --scope "wiki:space:retrieve wiki:space:read wiki:node:retri
 需要新增 scope 時，先說明用途與外部授權風險，再執行 Device Flow：
 
 ```bash
+
+
+## 權限邊界（三層判斷）
+
+把三種權限分開判斷：
+
+1. App 是否獲准使用某 scope。
+2. 目前 user Token 是否已取得該 scope 且仍有效。
+3. 目前使用者是否對指定 space/document 有實際讀寫或管理權。
+
+`+space-list` 成功只證明能列出空間，不證明可以列子節點、建立頁面或覆寫正文。dry-run 只證明請求形狀，不證明遠端已接受寫入；真正的權限結果以 API 回應和 read-back 為準。
+
+若需要組織內連結可讀，先釐清「同事可讀」與「匿名網路可讀」的差異。`tenant_readable` 是組織內範圍；Wiki 節點不支援匿名 `anyone_readable`。空間 setting API 需要 `wiki:setting:write_only` 與空間管理員權限，且不等同於雲文件連結分享；任何 permission/visibility 變更都要另做 preview、確認與 read-back。
 lark-cli auth login --scope "wiki:space:retrieve wiki:space:read wiki:node:retrieve wiki:node:read docx:document:readonly"
 ```
 

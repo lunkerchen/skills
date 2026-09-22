@@ -4,6 +4,7 @@
 
 - **Routing eval in CI**: new `scripts/eval.py` + `scripts/golden.tsv` (24 golden prompts, zh + en) — deterministic keyword scoring (ASCII 2x, CJK bigrams) over each skill's frontmatter, router row, and filenames; asserts unique top-1 routing per prompt plus full skill coverage (a new skill without a golden prompt fails). Wired into CI and `sync.sh`.
 - **Validator completeness**: root routing table must list every discovered skill (nothing ships unrouted); `allowlist.tsv` ↔ `skills/` verified bidirectionally; relative Markdown links now hard-fail on the router surface (SKILL.md / skill-root docs) while `references/` prose links aggregate to advisory warnings (upstream archive targets that are not mirrored; code samples and placeholder targets like `](url)` are ignored, two-base resolution).
+- **Size guard cleared**: `seo-geo-suite` 10.2KB → 6.7KB (intent-router matrix + nine pitfalls verbatim → `references/`) and `sync-lark-wiki` 10.2KB → 8.1KB (OAuth staging, permission-boundary, and pitfall prose consolidated into `references/`); both now under the 8KiB advisory line with zero size warnings.
 
 ## [1.0.0] — 2026-09-23
 

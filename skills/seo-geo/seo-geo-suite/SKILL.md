@@ -40,24 +40,9 @@ metadata:
 
 判準與契約：`references/strategy/ai-content-engineering-quality.md`、`references/strategy/client-report-output-contract.md`；完整六節與 GEOFlow 執行映射表：`references/geoflow-operating-model.md`。
 
-## 全能意圖路由器（Intent Router & Execution Matrix）
+## 全能意圖路由器（Intent Router）
 
-| 使用者場景與意圖 | 對應旗艦模組 | 核心執行任務與 SOP |
-|---|---|---|
-| **「規劃跨 Google、AI 與問答引擎的整體策略」** | **模組 1：戰略規劃** | 盤點主題地圖、Ahrefs 4 支柱、Fan-out 查詢、競品 AI Mention/Citation 落差。 |
-| **「全面體檢網站的 SEO、GEO、AEO 與 Agent 友好度」**| **模組 2：全站審計** | `npx is-agentic <url>` + Sitemap Reconnaissance + 逐頁 Schema 診斷 → P0~P3 矩陣。 |
-| **「讓文章/長文/腳本能被 AI 快速引用與直接回答」** | **模組 3：內容工程** | 五問 brief → 四個品質閘門 → 草稿 → 第二人審核 → 發布 → 量測；40-60 字結論置頂、150-250 字獨立段、串接 `stop-slop`。 |
-| **「產出客戶專屬 SEO/GEO 診斷／提案報告」** | **模組 1 + 2 + 3 + 7：客戶報告輸出** | 先選 archetype，依六段契約結構交付；finding 附證據與驗收方法，成效改寫為可驗收指標。 |
-| **「影音/Podcast 逐字稿轉為高引用問答與 FAQ」** | **模組 3：內容工程** | 逐字稿清洗、高引用問句提取（How/Why/Best/Vs）、注入 FAQPage & Speakable。 |
-| **「靜態網站（Astro/Hugo/Next）加入結構化與 OG」**| **模組 4：架構優化** | JSON-LD 三件套（WebSite+Organization/Person+Service）、SVG OG 管線。 |
-| **「Web 應用 / SPA / SaaS 導入隱式 GEO/AEO」** | **模組 4：架構優化** | 首頁語意加固、JSON-LD `@graph`、PDP Schema、保護結帳同時放行購物 Agent。 |
-| **「設定 AI 爬蟲 Content Negotiation 與 Markdown」**| **模組 5：代理就緒** | `Accept: text/markdown`、`Vary: Accept, Accept-Encoding`、.md 雙生檔案。 |
-| **「建立/維護 llms.txt 與 llms-full.txt」** | **模組 5：代理就緒** | 從內容來源生成並做 URL 雙向驗證；不宣稱為 Google 支援或 citation signal。 |
-| **「解決 SPA / React 前端在 AI 爬蟲前內容空白問題」** | **模組 5：代理就緒** | Pages Functions 中間件、UA 判斷、SSR 預渲染 HTML 與 Schema 注入。 |
-| **「設定 Cloudflare Agent-Readiness (L0-L5) 與 MCP」**| **模組 5：代理就緒** | `Content-Signal` 標頭、`/.well-known/mcp/server-card.json`、`ai-catalog.json`。 |
-| **「查詢與分析 Google Search Console 搜尋成效」** | **模組 6：GSC 數據** | GSC API 抓 clicks/impressions/CTR/position、URL Inspection、提交 Sitemap。 |
-| **「CI/CD 或部署前自動驗證全站標籤與 404 引導」** | **模組 7：驗證門戶** | 6-Gate 測試（H1/Title/Meta/JSON-LD/Canonical/Agent 404/Vary）。 |
-| **「排程監控品牌在 Google 與 AI 中的聲量」** | **模組 7：長效監控** | Cron 檢查品牌詞能見度、AI Mention/Citation 變化與過期預警。 |
+14 個典型場景 → 模組 1–7 → SOP 的完整對照表見 `references/modules-and-pipelines.md`「全能意圖路由器」一節；先定場景、再派模組。
 
 ---
 
@@ -87,19 +72,9 @@ metadata:
 
 ---
 
-## 防錯原則與高壓陷阱指南
+## 防錯原則與高壓陷阱
 
-1. **全站優先於單頁**：先看全站結構與 Sitemap，不只看單一 URL。
-2. **語氣優先於模板**：結構化若破壞原始風格，以保留口吻為先。
-3. **管線順序不可逆**：先 AEO 證據與結構重構，再跑 stop-slop。
-4. **嚴禁虛構數據**：缺來源只標 `[建議補充數據口徑]` 或退回補證據；人工審核不是安全豁免。
-5. **Vary 標頭必不可少**：支援 `Accept: text/markdown` 必帶 `Vary: Accept, Accept-Encoding`。
-6. **拒絕 Soft-404**：不存在路由回真實 404/410，不用 200 App Shell 混充。
-7. **程式碼必須可落地**：審計報告附可直接貼上的 JSON-LD、robots.txt、_headers 修復代碼。
-8. **警惕 AEO 泡沫與過度優化反噬**：學術與實測（arXiv:2607.14035、C-SEO Bench、SAGEO Arena）顯示多數戰術無效甚至使引用 −6~9%；規模化生成與人造新鮮度招致降權。以真實深度內容與站外自然提及為本。
-9. **首屏擠壓與 1% 點擊**：AIO ~1200px 把 #1 推到折疊線下；AIO 出現時傳統點擊 15%→8%，僅 1% 點 AIO 來源；但 AI 轉介轉換率為傳統 4.4 倍（Semrush）。追求高意圖轉換，不期待 AI 大流量。
-
-完整論證：`references/pitfalls.md`。
+核心六則：全站優先於單頁、管線順序不可逆（先 AEO 後 stop-slop）、嚴禁虛構數據、`Accept: text/markdown` 必帶 `Vary`、拒絕 Soft-404、審計必須附可落地修復代碼。九條完整論證與 AEO 泡沫／1% 點擊實測：`references/pitfalls.md`（執行前必讀）。
 
 ---
 
