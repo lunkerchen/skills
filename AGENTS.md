@@ -28,6 +28,21 @@ source (`~/.hermes/skills/`). Read this before editing anything.
 5. Keep skills small, composable, and dependency-free. A skill that needs
    another skill's directory is broken — make it self-contained.
 
+## Repo-native exception
+
+- `skills/plugin/labangram-agent` is the one business-owned skill in this repo.
+  It exists because the root `plugin.json` / `mcp.json` (agent-plugins.org
+  manifest) register the public Labangram MCP endpoints and the skill is their
+  required companion. Do not delete it as "project-specific"; it still mirrors
+  from canonical `~/.hermes/skills/labangram-agent/` via the allowlist like
+  every other skill.
+
+## Versioning
+
+- Repo-level version lives in `CHANGELOG.md` and must match `plugin.json`
+  `version` (single source, bumped together per release).
+- Per-skill `version:` frontmatter is independent and owned by each skill.
+
 ## Validation
 
 ```bash

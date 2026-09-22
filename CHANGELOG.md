@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.0] — 2026-09-23
+
+- **Catalog accuracy**: flagship count corrected from 9 to 10 across both READMEs (badge, intro, bash example, catalog heading); `plugin.json` version now aligns with this CHANGELOG as the single repo-level version source.
+- **Merge PR #1**: add `sync-lark-wiki` (automation) — staged-scope Lark Wiki Markdown sync with preview, read-back, and permission troubleshooting; cataloged under a new Standalone Skills section.
+- **Catalog `labangram-agent`**: moved to `skills/plugin/`, added to `allowlist.tsv`, and mirrored from canonical `~/.hermes/skills/labangram-agent/`; root `plugin.json` / `mcp.json` (agent-plugins.org manifest for the public Labangram MCP endpoints) documented as intentionally paired with this skill.
+- **Validator hardening**: `scan.py` placeholder hints now match against the matched secret itself instead of the whole line (fewer false negatives).
+
 ## [0.4.0] — 2026-08-24
 
 - **Mega-Skill Consolidation**: Consolidate 12 fragmented SEO/GEO/AEO skills into a single flagship umbrella skill: `seo-geo-suite` (v2.0.0).

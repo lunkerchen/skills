@@ -1,7 +1,7 @@
 [![English](https://img.shields.io/badge/lang-en-red.svg)](README.en.md)
 [![繁體中文](https://img.shields.io/badge/lang-zh--tw-blue.svg)](README.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Skills](https://img.shields.io/badge/skills-9%20Flagships-blue)](https://github.com/lunkerchen/skills/tree/main/skills)
+[![Skills](https://img.shields.io/badge/skills-10%20Flagships-blue)](https://github.com/lunkerchen/skills/tree/main/skills)
 [![AI Agent](https://img.shields.io/badge/AI-Agent%20Ready-brightgreen)](https://github.com/lunkerchen/skills)
 
 # AI 導入實戰旗艦技能庫（Production AI Agent Suites）
@@ -10,7 +10,7 @@
 
 ## 這是什麼
 
-我以 FDE 身分協助企業與自營品牌完成 AI 落地。這個 Repository 將過去 39+ 個細碎技能深度濃縮為 **9 大旗艦級全能工作台（Flagship Mega-Suites）**。每個工作台皆為**自洽獨立、零外部相依、包含完整規格與實戰手冊**的標準技能。
+我以 FDE 身分協助企業與自營品牌完成 AI 落地。這個 Repository 將過去 39+ 個細碎技能深度濃縮為 **10 大旗艦級全能工作台（Flagship Mega-Suites）**。每個工作台皆為**自洽獨立、零外部相依、包含完整規格與實戰手冊**的標準技能。
 
 這些 Skills 相容於主流模型與 CLI Agent（Hermes、Claude Code、Codex、Cursor 等），採用開放規格設計，開箱即用且極易依據具體業務擴充。
 
@@ -37,14 +37,14 @@
 | **通用 / 手動安裝** | 直接將特定 Suite 目錄複製到您 Agent 的工作空間中 |
 
 ```bash
-# 範例：下載全套 9 大旗艦技能
+# 範例：下載全套 10 大旗艦技能
 git clone --depth 1 https://github.com/lunkerchen/skills.git
 cp -r skills/* ~/.hermes/skills/
 ```
 
 ---
 
-## 9 大旗艦工作台一覽
+## 10 大旗艦工作台一覽
 
 ### 1. 搜尋與代理就緒（SEO & Agent Readiness）
 
@@ -95,6 +95,9 @@ cp -r skills/* ~/.hermes/skills/
 | Skill | 說明 |
 |---|---|
 | [sync-lark-wiki](skills/automation/sync-lark-wiki/SKILL.md) | 安全同步本機 Markdown 到既有 Lark Wiki：per-user OAuth、分階段 scope、revision-aware preview、原地覆寫、read-back 與權限排錯 |
+| [labangram-agent](skills/plugin/labangram-agent/SKILL.md) | 透過公開 MCP / REST 端點查詢作品集、服務與定價，產出需人工確認的詢價準備草稿 |
+
+本 repo 根目錄同時以 [agent-plugins.org](https://agent-plugins.org) 規格提供 `plugin.json` 與 `mcp.json`（註冊 Labangram 公開 MCP 端點），配套技能即上表 `labangram-agent`。
 
 ---
 

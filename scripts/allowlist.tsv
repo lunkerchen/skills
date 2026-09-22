@@ -24,3 +24,6 @@ engineering/cloud-workers-suite	engineering	sanitize
 automation/messaging-bots-suite	automation	sanitize
 automation/system-watchdog-suite	automation	sanitize
 sync-lark-wiki	automation
+
+# --- plugin (agent plugin paired with root plugin.json / mcp.json) ---
+labangram-agent	plugin

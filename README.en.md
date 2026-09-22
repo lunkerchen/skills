@@ -1,7 +1,7 @@
 [![English](https://img.shields.io/badge/lang-en-red.svg)](README.en.md)
 [![Traditional Chinese](https://img.shields.io/badge/lang-zh--tw-blue.svg)](README.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Skills](https://img.shields.io/badge/skills-9%20Flagships-blue)](https://github.com/lunkerchen/skills/tree/main/skills)
+[![Skills](https://img.shields.io/badge/skills-10%20Flagships-blue)](https://github.com/lunkerchen/skills/tree/main/skills)
 [![AI Agent](https://img.shields.io/badge/AI-Agent%20Ready-brightgreen)](https://github.com/lunkerchen/skills)
 
 # Practical Enterprise AI Agent Suites
@@ -10,7 +10,7 @@
 
 ## What is this?
 
-As an FDE helping enterprises and independent brands deploy AI, this repository consolidates 39+ previously fragmented skills into **9 Flagship Mega-Suites**. Each suite is **self-contained, dependency-free, and packaged with complete specifications and production playbooks**.
+As an FDE helping enterprises and independent brands deploy AI, this repository consolidates 39+ previously fragmented skills into **10 Flagship Mega-Suites**. Each suite is **self-contained, dependency-free, and packaged with complete specifications and production playbooks**.
 
 These skills are compatible with any modern LLM and CLI Agent framework (Hermes, Claude Code, OpenAI Codex, Cursor, etc.), engineered for immediate adoption and seamless extension.
 
@@ -37,14 +37,14 @@ Fragmented micro-skills cause agent routing indecision, tool mismatches, and unn
 | **Manual / Custom Agent** | Copy specific suite directories directly into your agent workspace |
 
 ```bash
-# Example: Download all 9 Flagship Mega-Suites
+# Example: Download all 10 Flagship Mega-Suites
 git clone --depth 1 https://github.com/lunkerchen/skills.git
 cp -r skills/* ~/.hermes/skills/
 ```
 
 ---
 
-## Catalog (9 Flagship Mega-Suites)
+## Catalog (10 Flagship Mega-Suites)
 
 ### 1. Search & Agent Readiness
 
@@ -95,6 +95,9 @@ Single-purpose skills not belonging to any flagship suite:
 | Skill | Description |
 |---|---|
 | [sync-lark-wiki](skills/automation/sync-lark-wiki/SKILL.md) | Safely sync local Markdown to an existing Lark Wiki: per-user OAuth, staged scopes, revision-aware preview, in-place overwrite, read-back, and permission troubleshooting |
+| [labangram-agent](skills/plugin/labangram-agent/SKILL.md) | Query portfolio, services, and pricing via public MCP / REST endpoints; prepares human-confirmed inquiry drafts |
+
+The repository root also ships `plugin.json` and `mcp.json` under the [agent-plugins.org](https://agent-plugins.org) spec (registering the public Labangram MCP endpoints), paired with the `labangram-agent` skill above.
 
 ---
 
