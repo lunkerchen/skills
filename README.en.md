@@ -30,7 +30,7 @@ Fragmented micro-skills cause agent routing indecision, tool mismatches, and unn
 
 | Tool / Environment | Installation Command / Method |
 |---|---|
-| **npx skills CLI** (Recommended) | `npx skills add lunkerchen/skills` |
+| **npx skills CLI** (Recommended) | `npx skills add https://github.com/lunkerchen/skills.git` |
 | **Hermes Agent** | Copy or symlink directories into `~/.hermes/skills/` |
 | **Claude Code** | Copy into `~/.claude/skills/` |
 | **OpenAI Codex** | Copy into `~/.codex/skills/` |
@@ -41,6 +41,8 @@ Fragmented micro-skills cause agent routing indecision, tool mismatches, and unn
 git clone --depth 1 https://github.com/lunkerchen/skills.git
 cp -r skills/* ~/.hermes/skills/
 ```
+
+> After installing, start from the repo-root [SKILL.md](SKILL.md) (suite router): two-stage loading — route to the matching suite, then pull `references/` details on demand.
 
 ---
 

@@ -36,6 +36,11 @@ source (`~/.hermes/skills/`). Read this before editing anything.
   required companion. Do not delete it as "project-specific"; it still mirrors
   from canonical `~/.hermes/skills/labangram-agent/` via the allowlist like
   every other skill.
+- The repo-root `SKILL.md` is also repo-native: it is the router the skills CLI
+  installs when users run `npx skills add <git-url>` (the CLI only discovers a
+  root-level SKILL.md; nested suites are reached through this router). Keep its
+  routing table in sync with `scripts/allowlist.tsv` whenever skills are added
+  or removed.
 
 ## Versioning
 

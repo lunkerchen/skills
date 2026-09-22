@@ -30,7 +30,7 @@
 
 | 環境 / 工具 | 安裝指令 / 操作方式 |
 |---|---|
-| **npx skills CLI**（推薦） | `npx skills add lunkerchen/skills` |
+| **npx skills CLI**（推薦） | `npx skills add https://github.com/lunkerchen/skills.git` |
 | **Hermes Agent** | 複製或 Symlink 目錄至 `~/.hermes/skills/` |
 | **Claude Code** | 複製至 `~/.claude/skills/` |
 | **OpenAI Codex** | 複製至 `~/.codex/skills/` |
@@ -41,6 +41,8 @@
 git clone --depth 1 https://github.com/lunkerchen/skills.git
 cp -r skills/* ~/.hermes/skills/
 ```
+
+> 安裝完成後，從 repo 根目錄的 [SKILL.md](SKILL.md)（技能庫路由器）開始兩階段載入：先路由到對應 Suite，再依其索引按需讀取 `references/` 明細。
 
 ---
 

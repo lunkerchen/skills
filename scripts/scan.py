@@ -10,6 +10,7 @@ Checks (exit 0 = clean):
   6. `references/...` paths cited in SKILL.md resolve to real files.
   7. SKILL.md token budget: advisory warn at 8 KiB, hard fail at 10 KiB.
   8. README relative links, plugin.json, and mcp.json stay valid.
+  9. Repo-root SKILL.md router: frontmatter present; every routed path exists.
      (--strict is accepted for compatibility; findings are always fatal.)
 
 Usage:
@@ -71,6 +72,7 @@ REF_DIR = re.compile(r"`(references/[A-Za-z0-9_./-]+/)`")
 MD_LINK = re.compile(r"\]\(([^)\s]+)\)")
 WARN_BYTES = 8 * 1024
 FAIL_BYTES = 10 * 1024
+SKILL_TREE_REF = re.compile(r"`(skills/[A-Za-z0-9_./-]+/SKILL\.md)`")
 
 
 def scan_file(path: Path) -> list[str]:
@@ -171,6 +173,17 @@ def main() -> int:
                 json.loads(manifest.read_text(encoding="utf-8"))
             except Exception as exc:
                 findings.append(f"{manifest}: invalid JSON ({exc})")
+    root_md = repo / "SKILL.md"
+    if root_md.is_file():
+        rtext = root_md.read_text(encoding="utf-8", errors="replace")
+        rm_name = FRONTMATTER_NAME.search(rtext)
+        if not rm_name or not FRONTMATTER_DESC.search(rtext):
+            findings.append(f"{root_md}: missing frontmatter name/description")
+        elif not NAME_FORMAT.match(rm_name.group(1).strip()):
+            findings.append(f"{root_md}: invalid frontmatter name")
+        for ref in SKILL_TREE_REF.findall(rtext):
+            if not (repo / ref).is_file():
+                findings.append(f"{root_md}: broken routed path {ref}")
     for w in warnings:
         print(f"WARN {w}")
     if findings:
