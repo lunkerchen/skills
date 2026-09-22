@@ -5,7 +5,9 @@
 - **Catalog accuracy**: flagship count corrected from 9 to 10 across both READMEs (badge, intro, bash example, catalog heading); `plugin.json` version now aligns with this CHANGELOG as the single repo-level version source.
 - **Merge PR #1**: add `sync-lark-wiki` (automation) — staged-scope Lark Wiki Markdown sync with preview, read-back, and permission troubleshooting; cataloged under a new Standalone Skills section.
 - **Catalog `labangram-agent`**: moved to `skills/plugin/`, added to `allowlist.tsv`, and mirrored from canonical `~/.hermes/skills/labangram-agent/`; root `plugin.json` / `mcp.json` (agent-plugins.org manifest for the public Labangram MCP endpoints) documented as intentionally paired with this skill.
-- **Validator hardening**: `scan.py` placeholder hints now match against the matched secret itself instead of the whole line (fewer false negatives).
+- **Validator hardening**: `scan.py` placeholder hints now match against the matched secret itself instead of the whole line (fewer false negatives). New checks: frontmatter `name` must match the directory name, cited `references/` files/dirs must exist, SKILL.md token budget (advisory warn 8 KiB / hard fail 10 KiB), README relative links, `plugin.json` / `mcp.json` JSON validity, and the two-level `skills/<category>/<name>/` layout.
+- **seo-geo-suite v2.1.0 slimming**: `SKILL.md` cut from 33.8 KB to ~10 KB as a pure intent router (four-track table, compact GEOFlow summary, intent matrix, module/pipeline one-liners, pitfall list, Taiwan one-liner, folder-level references map). Detail moved verbatim into new `references/` files: `geoflow-operating-model.md`, `modules-and-pipelines.md`, `pitfalls.md`, `taiwan-localization.md`, plus a full-file `INDEX.md` for two-stage lookup. `sanitize.py` now rewrites mirror-only filename mentions so the references map never dangles.
+- **Repo metadata**: GitHub description and topics (`ai-agents`, `agent-skills`, `llm`, `mcp`, `seo`, `geo`, `claude-code`, `codex`, `cloudflare-workers`, `skills`) added.
 
 ## [0.4.0] — 2026-08-24
 

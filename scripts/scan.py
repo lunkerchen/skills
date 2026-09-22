@@ -6,6 +6,11 @@ Checks (exit 0 = clean):
   2. No secret patterns in any tracked file under skills/.
   3. No absolute personal paths (/Users/...) in skill payloads.
   4. No stray files that shouldn't be mirrored (.env, *.pem, *.key).
+  5. Frontmatter name matches the directory name (lowercase-hyphens).
+  6. `references/...` paths cited in SKILL.md resolve to real files.
+  7. SKILL.md token budget: advisory warn at 8 KiB, hard fail at 10 KiB.
+  8. README relative links, plugin.json, and mcp.json stay valid.
+     (--strict is accepted for compatibility; findings are always fatal.)
 
 Usage:
   python3 scripts/scan.py --repo . [--strict]
@@ -60,6 +65,12 @@ PLACEHOLDER_HINTS = (
 )
 FRONTMATTER_NAME = re.compile(r"(?m)^name:\s*[\"']?([^\"'\n]+)")
 FRONTMATTER_DESC = re.compile(r"(?m)^description:\s*(.*)$")
+NAME_FORMAT = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
+REF_PATH = re.compile(r"`(references/[A-Za-z0-9_./-]+\.md)`")
+REF_DIR = re.compile(r"`(references/[A-Za-z0-9_./-]+/)`")
+MD_LINK = re.compile(r"\]\(([^)\s]+)\)")
+WARN_BYTES = 8 * 1024
+FAIL_BYTES = 10 * 1024
 
 
 def scan_file(path: Path) -> list[str]:
@@ -89,16 +100,34 @@ def scan_file(path: Path) -> list[str]:
     return findings
 
 
-def validate_skill(skill_dir: Path) -> list[str]:
+def validate_skill(skill_dir: Path, warnings: list[str]) -> list[str]:
     findings: list[str] = []
     md = skill_dir / "SKILL.md"
     if not md.exists():
         return [f"{skill_dir}: missing SKILL.md"]
     text = md.read_text(encoding="utf-8", errors="replace")
-    if not FRONTMATTER_NAME.search(text):
+    m_name = FRONTMATTER_NAME.search(text)
+    if not m_name:
         findings.append(f"{md}: missing frontmatter name")
+    else:
+        name = m_name.group(1).strip()
+        if not NAME_FORMAT.match(name):
+            findings.append(f"{md}: invalid name '{name}' (lowercase-hyphens expected)")
+        if name != skill_dir.name:
+            findings.append(f"{md}: frontmatter name '{name}' != directory '{skill_dir.name}'")
     if not FRONTMATTER_DESC.search(text):
         findings.append(f"{md}: missing frontmatter description")
+    size = md.stat().st_size
+    if size > FAIL_BYTES:
+        findings.append(f"{md}: {size} bytes exceeds {FAIL_BYTES}-byte token budget")
+    elif size > WARN_BYTES:
+        warnings.append(f"{md}: {size} bytes over {WARN_BYTES}-byte advisory budget")
+    for ref in REF_PATH.findall(text):
+        if not (skill_dir / ref).is_file():
+            findings.append(f"{md}: broken reference {ref}")
+    for ref_dir in REF_DIR.findall(text):
+        if not (skill_dir / ref_dir).is_dir():
+            findings.append(f"{md}: broken reference dir {ref_dir}")
     for f in skill_dir.rglob("*"):
         if f.is_file():
             findings.extend(scan_file(f))
@@ -116,11 +145,34 @@ def main() -> int:
     if not skills_root.exists():
         print("scan: no skills/ directory — nothing to validate")
         return 0
+    warnings: list[str] = []
     for md in skills_root.rglob("SKILL.md"):
-        findings.extend(validate_skill(md.parent))
+        rel = md.parent.relative_to(skills_root)
+        if len(rel.parts) != 2:
+            findings.append(
+                f"{md}: expected skills/<category>/<name>/SKILL.md, found {len(rel.parts)} level(s)"
+            )
+        findings.extend(validate_skill(md.parent, warnings))
     for f in skills_root.rglob("*"):
         if f.is_file() and any(f.match(g) for g in FORBIDDEN_FILES):
             findings.append(f"{f}: forbidden file type")
+    for readme in (repo / "README.md", repo / "README.en.md"):
+        if not readme.is_file():
+            continue
+        for target in MD_LINK.findall(readme.read_text(encoding="utf-8", errors="replace")):
+            if target.startswith(("http://", "https://", "mailto:", "#")):
+                continue
+            rel = target.split("#", 1)[0]
+            if rel and not (repo / rel).exists():
+                findings.append(f"{readme}: broken link ({target})")
+    for manifest in (repo / "plugin.json", repo / "mcp.json"):
+        if manifest.is_file():
+            try:
+                json.loads(manifest.read_text(encoding="utf-8"))
+            except Exception as exc:
+                findings.append(f"{manifest}: invalid JSON ({exc})")
+    for w in warnings:
+        print(f"WARN {w}")
     if findings:
         for line in findings:
             print(f"FAIL {line}")

@@ -65,6 +65,13 @@ SPECIFIC_RULES: dict[str, list[tuple[str, str]]] = {
         ("author: Laban", "author: community"),
         ("Laban 版", "custom"),
         ("Laban", "the user"),
+        # Mirror-only renames must also rewrite filename mentions in SKILL.md / INDEX.md,
+        # otherwise the references map points at files that no longer exist in the mirror.
+        ("geo-content-reformatting-report-with-photos-implementation.md", "geo-content-reformatting-your-demo-implementation.md"),
+        ("webapp-geo-optimization-camera-market-implementation.md", "webapp-geo-optimization-your-marketplace-implementation.md"),
+        ("llms-txt-generation-kamera-ichi-llms.md", "llms-txt-generation-your-app-llms.md"),
+        ("spa-geo-crawlability-kamera-ichi-cloudflare-implementation.md", "spa-geo-crawlability-your-app-cloudflare-implementation.md"),
+        ("static-site-seo-build-verification-content-entry-audit-labangram.md", "static-site-seo-build-verification-content-entry-audit-your-brand.md"),
     ],
     "site-seo-geo-audit": [
         ("labangram.kamera-ichi.com", "your-app.example.com"),

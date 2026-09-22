@@ -1,18 +1,17 @@
 ---
 name: seo-geo-suite
 description: SEO × GEO × AEO × Agent-Readiness 全能旗艦工作台：涵蓋傳統搜尋、生成式引擎、問答抽取、Is-Agentic 100分規範、Cloudflare L0-L5、全站審計、內容改造與自動化驗證。
-version: 2.0.0
+version: 2.1.0
 author: Community
 license: MIT
 read_when:
-  - User asks about SEO, GEO, AEO, Answer Engine Optimization, or AI search visibility
-  - User wants to optimize a website, web app, or single page for Google, Perplexity, ChatGPT, Claude, DeepSeek
-  - User asks to check or improve site score with is-agentic.com (npx is-agentic) or isitagentready.com
-  - User wants direct answers, featured snippets, voice search, or AI citations
-  - User wants to transform articles or video transcripts into AI-friendly citeable QA content
-  - User needs an end-to-end SEO/GEO/AEO/Agentic workflow (audit -> optimize -> verify -> monitor)
-  - User mentions llms.txt, Markdown Twin, Content Negotiation, Schema markup, Speakable, or AI crawlers
-  - User wants to analyze Google Search Console (GSC) searchAnalytics or properties data
+  - User asks about SEO, GEO, AEO, or AI search visibility
+  - User wants to optimize a site or page for Google, Perplexity, ChatGPT, Claude, DeepSeek
+  - User wants an is-agentic.com score, direct answers, featured snippets, or AI citations
+  - User wants to transform articles or transcripts into AI-citeable QA content
+  - User needs an end-to-end SEO/GEO/AEO workflow (audit -> optimize -> verify -> monitor)
+  - User mentions llms.txt, Markdown Twin, Content Negotiation, Schema, or AI crawlers
+  - User wants to analyze Google Search Console searchAnalytics data
 metadata:
   hermes:
     tags: [seo, geo, aeo, agentic, is-agentic, cloudflare, llms-txt, schema, gsc, suite]
@@ -20,351 +19,108 @@ metadata:
 
 # SEO × GEO × AEO × Agent-Readiness 全能旗艦工作台
 
-整合傳統搜尋引擎優化（SEO）、生成式引擎優化（GEO）、答案引擎優化（AEO）與 AI 代理就緒標準（Agent-Readiness / Is-Agentic）的一體化全能解決方案。
+整合 SEO、生成式引擎優化（GEO）、答案引擎優化（AEO）與 AI 代理就緒標準（Agent-Readiness / Is-Agentic）的一體化全能解決方案。
 
 ---
 
 ## 核心認知：現代搜尋與 Agentic 四軌體系
 
-```
-                               ┌────────────────────────────────────────────────────────┐
-                               │             現代搜尋與 Agentic 四軌體系 (2026+)        │
-                               └───────────────────────────┬────────────────────────────┘
-                                                           │
-         ┌─────────────────────────┬───────────────────────┴────────────────────────┬─────────────────────────┐
-         ▼                         ▼                                                ▼                         ▼
-【SEO 搜尋引擎優化】        【GEO 生成式引擎優化】                           【AEO 答案引擎優化】       【Agent-Readiness 代理就緒】
-  Search Engine Optimization Generative Engine Optimization                  Answer Engine Optimization  Agent-Native Architecture
- • 標的：Google, Bing 藍色連結• 標的：ChatGPT, Claude, DeepSeek, Gemini     • 標的：Perplexity, AIO, 語音 • 標的：Autonomous AI Agents
- • 核心：排名 (Rankings) & 點擊 • 核心：品牌共識 (SOV) & 深度抗摘要內容     • 核心：直接答案 (Direct Answer) • 核心：可發現、可存取、可操作
- • 手段：Topic Cluster、反向連結• 手段：全網證據 (Reddit/YouTube)、原創數據 • 手段：40-60字首句、QA Schema  • 手段：Is-Agentic 100分、MCP、
- • 指標：SERP 排名、有機流量、CTR• 指標：AI Mentions、Citations、Perception  • 指標：精選摘要率、Direct 引用率 • 指標：Is-Agentic Score、RFC 9457
-```
+| 軌道 | 標的 | 核心 | 手段 | 指標 |
+|---|---|---|---|---|
+| **SEO** 搜尋引擎優化 | Google、Bing 藍色連結 | 排名與點擊 | Topic Cluster、反向連結 | SERP 排名、有機流量、CTR |
+| **GEO** 生成式引擎優化 | ChatGPT、Claude、DeepSeek、Gemini | 品牌共識（SOV）與抗摘要深度內容 | 全網證據（Reddit/YouTube）、原創數據 | AI Mentions、Citations、Perception |
+| **AEO** 答案引擎優化 | Perplexity、AIO、語音 | 直接答案 | 40–60 字首句、QA Schema | 精選摘要率、Direct 引用率 |
+| **Agent-Readiness** 代理就緒 | Autonomous AI Agents | 可發現、可存取、可操作 | Is-Agentic 100 分、MCP、RFC 9457 | Is-Agentic Score、RFC 9457 合規 |
 
 ---
 
-## GEOFlow 吸收層：把 GEO 做成可驗證的內容工程閉環
+## GEOFlow 吸收層：內容工程運作模型（摘要）
 
-以下是依 GEOFlow 公開程式與文件可核對的能力，轉譯成適合本工作台的建議；不是 GEOFlow 宣稱的完整 GEO 方法論。只吸收與 GEO 直接相關、可移植到本工作台的模式；不搬 Laravel、PostgreSQL、Redis、佇列或後台 UI。
+只吸收可移植的內容工程模式。流程：五問 brief（Reader、Promise、Point of view、Evidence、Information gain）→ 研究/證據 → 四道品質閘門 → 草稿 → 第二人審核 → 發布 → 量測；生成器不決定事實、不放行。配套：四層資產（Source of Truth／Evidence／Question Map／Deep Content，缺證據標 `unverified`）、六項發布前門禁（Intent/Evidence/Structure/Integrity/Risk/Traceability，有未驗證主張即 `needs_review`）、雜湊快照失效、觀測分層（抓取 ≠ 引用、GSC ≠ AI 引用、缺實測報「未測量」）、分發後讀回。客戶報告先選 archetype，依六段契約交付。
 
-### AI 內容工程品質層：先判斷，再生成
-
-這是本工作台採用的可重用內容工程流程，不是 Google 的完整官方規格，也不是排名或 AI 引用的安全豁免。適當使用 AI/自動化不因產製方式本身違規；仍須避免大量、低價值、缺乏原創性且主要為操縱排名的 scaled content abuse。每篇內容先完成 Ahrefs 五問 brief（Reader、Promise、Point of view、Evidence、Information gain），再依「題目 brief -> 研究/證據 -> 閘門 -> 草稿 -> 第二人審核 -> 發布 -> 量測」執行。研究、內容缺口、提綱、證據與草稿分開保存；四個品質閘門可繼續、退回或終止。完整判準、證據欄位與事實邊界見 `references/strategy/ai-content-engineering-quality.md`。
-
-### 客戶導向報告輸出契約
-
-產出客戶專屬 SEO/GEO 診斷／提案報告時，不得只交付通用分數或能力矩陣；先選定「在地服務型」或「B2B 產品／製造型」archetype，依 `Metadata -> 01 執行摘要與核心現狀 -> 02 Gap Matrix -> 03 Implementation Artifact -> 04 Roadmap -> CTA／報告邊界／來源` 六段結構交付。每個 finding、可驗收指標、程式碼狀態（current／proposed／deployed）、證據層級與報價估算都必須遵守 `references/strategy/client-report-output-contract.md`；完整契約與 Markdown outline 以該 reference 為準。
-
-### 1. 本工作台轉譯的四層資產模型：不要把 GEO 縮成關鍵字
-
-每個品牌或網站先建立四層資產：
-
-1. **Source of Truth**：官方定位、服務邊界、價格、資格、聯絡方式與更新責任人。
-2. **Evidence Assets**：每個可驗證主張綁定來源 URL、發布/有效時間、適用範圍、來源類型、owner 與版本/雜湊；缺證據就標為 `unverified`，不可補寫。
-3. **Question Map**：把關鍵字擴成使用者問題，至少覆蓋定義、推薦、How-to、比較、限制/例外與預算情境。
-4. **Deep Content**：能提供原創數據、實測、案例、計算方式或清楚方法論的抗摘要資產。
-
-### 2. 標準 GEO 內容管線
-
-```text
-題目 brief -> 研究/內容缺口 -> 提綱 -> 證據 -> 四個品質閘門 -> 草稿
-  -> 第二人審核 -> 發布前門禁 -> 可信分發 -> 量測與更新
-  -> 觀測抓取、搜尋與 AI 提及/引用 -> 回補問題、證據或內容
-```
-
-生成器可以提出草稿，但不能決定事實或放行；模型判斷、固定規則評分、人工覆核與最終發布狀態必須分開。
-
-### 3. 發布前 GEO 質量門禁
-
-對文章、服務頁與知識資產逐項檢查：
-
-- **Intent**：首段與 H2/H3 是否直接回答目標問題。
-- **Evidence**：每個物質性主張是否有可追溯來源；狀態分 `supported`、`contradicted`、`unverified`。
-- **Structure**：答案置頂、獨立段落、步驟/比較/限制條件可被單獨抽取。
-- **Integrity**：禁止虛構來源、數字、法規、案例與引用編號；缺資料只能標 `[待補證據]`。
-- **Risk**：絕對化承諾、效果保證、過期資訊與主體/範圍錯置進人工覆核或阻擋。
-- **Traceability**：保存內容、證據、提示詞、規則版本與模型版本快照，讓之後能重現。
-
-質量分數不是發布結論：分數高但有未驗證的重大主張，仍須 `needs_review`；技術或證據檢索失敗時顯示「未評分」，不可當成通過。
-
-### 4. 快照、失效與回退
-
-生成或審核時記錄 `knowledge_base_id + chunk_id + content_hash + source_hash`，並一併保存 prompt、模型、規則與執行版本。知識內容、來源或治理狀態變更後，舊結果自動失效；只有快照仍吻合才可重用。
-
-只有在事先授權且風險覆蓋、證據覆蓋與結構校驗都通過時，才能從全文檢查降級為確定性抽樣；否則失敗並保留人工重檢入口。失敗回退不得悄悄變成成功。
-
-### 5. 觀測語義必須分層
-
-- AI crawler / agent 存取是**抓取觀測信號**，不等於 ChatGPT、Perplexity 或 Google AI Overviews 已引用。
-- GSC 是搜尋成效資料，不冒充 AI 引用資料。
-- 每次內容或部署記錄時間戳，至少比較 7/14/28 日變化。
-- AI Mention、Citation、Perception 與 SOV 必須保留查詢、引擎、地區、答案快照、引用 URL 和採樣時間；缺少實測就報「未測量」。
-
-### 6. 分發與實體一致性
-
-先確定一個 canonical 事實來源，再依出口能力分發到官網、靜態頁、WordPress/API、社群或影音說明；各出口保留可用的來源與適用範圍。分發成功不代表內容正確。自有網站發布後，依專案能力讀回 URL、狀態碼、canonical、Schema、robots、sitemap、llms.txt 與實際內容；第三方渠道只記錄可取得的發布回執，無法讀回就標為 `unverified`。
-
-### GEOFlow 對本工作台的執行映射
-
-執行跨模組任務時，先依本工作臺的內容管線、證據門禁與發布驗證規則建立 lifecycle，再依下表載入專責 skill；單頁、單一標籤的小修不必啟動完整 pipeline。
-
-| GEOFlow 模式 | 本工作台的最小落地 |
-|---|---|
-| 知識庫與證據快照 | `geo-content-reformatting` + `site-seo-geo-audit` 的 evidence ledger；不新增資料庫 |
-| 主張質檢與門禁 | `seo-geo-suite` 的 deterministic checklist；需要自動化時再加專案腳本 |
-| 問題地圖與內容生產 | `ai-gap-analysis` + `geo-article-friendly`，先建 prompt universe 再寫頁面 |
-| 靜態/機器可讀分發 | `static-site-geo`、`llms-txt-generation`、`static-site-seo-build-verification` |
-| 抓取與引用觀測 | `brand-search-monitoring`、GSC skill；明確區分 crawl signal 與 citation |
-| 失效與回退 | 內容/來源雜湊、規則版本、部署時間；禁止未授權的自動放行 |
+判準與契約：`references/strategy/ai-content-engineering-quality.md`、`references/strategy/client-report-output-contract.md`；完整六節與 GEOFlow 執行映射表：`references/geoflow-operating-model.md`。
 
 ## 全能意圖路由器（Intent Router & Execution Matrix）
 
 | 使用者場景與意圖 | 對應旗艦模組 | 核心執行任務與 SOP |
 |---|---|---|
-| **「規劃跨 Google、AI 與問答引擎的整體策略」** | **模組 1：戰略規劃** | 盤點主題地圖、Ahrefs 4 支柱、Fan-out 查詢、競品 AI Mention/Citation 落差分析。 |
-| **「全面體檢網站的 SEO、GEO、AEO 與 Agent 友好度」**| **模組 2：全站審計** | 跑 `npx is-agentic <url>` + Sitemap Reconnaissance + 逐頁 Schema 診斷，輸出 P0~P3 矩陣。 |
-| **「讓文章/長文/腳本能被 AI 快速引用與直接回答」** | **模組 3：內容工程** | 先完成 Reader、Promise、Point of view、Evidence、Information gain 五問 brief，再走題目 brief -> 研究/證據 -> 四個品質閘門 -> 草稿 -> 第二位人類審核 -> 發布 -> 量測；倒金字塔 40-60 字結論置頂、Passage Citability（150-250字獨立段落）、串接 `stop-slop`。 |
-| **「產出客戶專屬 SEO/GEO 診斷／提案報告」** | **模組 1 + 2 + 3 + 7：客戶報告輸出** | 先選在地服務型或 B2B 產品／製造型 archetype，依 Metadata、01 摘要、02 Gap Matrix、03 Implementation Artifact、04 Roadmap、CTA／邊界／來源六段結構；每個 finding 附 URL／頁面／元素／測試時間、影響、信心、修正與驗收方法，成效改寫為可驗收指標／驗證方法。 |
-| **「影音/Podcast 逐字稿轉為高引用問答與 FAQ」** | **模組 3：內容工程** | 逐字稿清洗、高引用問句提取（How/Why/Best/Vs）、注入 FAQPage & Speakable Schema。 |
-| **「靜態網站（Astro/Hugo/Next）加入結構化與 OG」**| **模組 4：架構優化** | JSON-LD 三件套（WebSite+Organization/Person+Service）、SVG OG Image 自動管線。 |
-| **「Web 應用 / SPA / SaaS 導入隱式 GEO/AEO」** | **模組 4：架構優化** | 首頁語意加固、JSON-LD `@graph`、產品 PDP Schema、保護結帳路徑同時放行購物 Agent。 |
-| **「設定 AI 爬蟲 Content Negotiation 與 Markdown」**| **模組 5：代理就緒** | 支援 `Accept: text/markdown`、配置 `Vary: Accept, Accept-Encoding`、產出 .md 雙生檔案。 |
-| **「建立/維護 llms.txt 與 llms-full.txt」** | **模組 5：代理就緒** | 可選的機器可讀內容索引；從內容來源生成，並依既有 skill 做 URL 雙向驗證。不把它宣稱為 Google 支援或 citation signal。 |
-| **「解決 SPA / React 前端在 AI 爬蟲前內容空白問題」** | **模組 5：代理就緒** | Cloudflare Pages Functions 中間件、UA 判斷、SSR 預渲染 HTML 與 Schema 注入。 |
-| **「設定 Cloudflare Agent-Readiness (L0-L5) 與 MCP」**| **模組 5：代理就緒** | `Content-Signal` 標頭、`/.well-known/mcp/server-card.json`、`/.well-known/ai-catalog.json`。 |
-| **「查詢與分析 Google Search Console 搜尋成效」** | **模組 6：GSC 數據** | 透過 GSC API 抓取 clicks/impressions/CTR/position、URL Inspection 診斷與提交 Sitemap。 |
-| **「CI/CD 或部署前自動驗證全站標籤與 404 引導」** | **模組 7：驗證門戶** | 執行 6-Gate 自動化測試（H1/Title/Meta/JSON-LD/Canonical/Agent 404 / Vary）。 |
-| **「排程監控品牌在 Google 與 AI 中的聲量」** | **模組 7：長效監控** | 設定 Cron 定期檢查品牌詞第一頁能見度、AI Mention/Citation 變化與過期預警。 |
+| **「規劃跨 Google、AI 與問答引擎的整體策略」** | **模組 1：戰略規劃** | 盤點主題地圖、Ahrefs 4 支柱、Fan-out 查詢、競品 AI Mention/Citation 落差。 |
+| **「全面體檢網站的 SEO、GEO、AEO 與 Agent 友好度」**| **模組 2：全站審計** | `npx is-agentic <url>` + Sitemap Reconnaissance + 逐頁 Schema 診斷 → P0~P3 矩陣。 |
+| **「讓文章/長文/腳本能被 AI 快速引用與直接回答」** | **模組 3：內容工程** | 五問 brief → 四個品質閘門 → 草稿 → 第二人審核 → 發布 → 量測；40-60 字結論置頂、150-250 字獨立段、串接 `stop-slop`。 |
+| **「產出客戶專屬 SEO/GEO 診斷／提案報告」** | **模組 1 + 2 + 3 + 7：客戶報告輸出** | 先選 archetype，依六段契約結構交付；finding 附證據與驗收方法，成效改寫為可驗收指標。 |
+| **「影音/Podcast 逐字稿轉為高引用問答與 FAQ」** | **模組 3：內容工程** | 逐字稿清洗、高引用問句提取（How/Why/Best/Vs）、注入 FAQPage & Speakable。 |
+| **「靜態網站（Astro/Hugo/Next）加入結構化與 OG」**| **模組 4：架構優化** | JSON-LD 三件套（WebSite+Organization/Person+Service）、SVG OG 管線。 |
+| **「Web 應用 / SPA / SaaS 導入隱式 GEO/AEO」** | **模組 4：架構優化** | 首頁語意加固、JSON-LD `@graph`、PDP Schema、保護結帳同時放行購物 Agent。 |
+| **「設定 AI 爬蟲 Content Negotiation 與 Markdown」**| **模組 5：代理就緒** | `Accept: text/markdown`、`Vary: Accept, Accept-Encoding`、.md 雙生檔案。 |
+| **「建立/維護 llms.txt 與 llms-full.txt」** | **模組 5：代理就緒** | 從內容來源生成並做 URL 雙向驗證；不宣稱為 Google 支援或 citation signal。 |
+| **「解決 SPA / React 前端在 AI 爬蟲前內容空白問題」** | **模組 5：代理就緒** | Pages Functions 中間件、UA 判斷、SSR 預渲染 HTML 與 Schema 注入。 |
+| **「設定 Cloudflare Agent-Readiness (L0-L5) 與 MCP」**| **模組 5：代理就緒** | `Content-Signal` 標頭、`/.well-known/mcp/server-card.json`、`ai-catalog.json`。 |
+| **「查詢與分析 Google Search Console 搜尋成效」** | **模組 6：GSC 數據** | GSC API 抓 clicks/impressions/CTR/position、URL Inspection、提交 Sitemap。 |
+| **「CI/CD 或部署前自動驗證全站標籤與 404 引導」** | **模組 7：驗證門戶** | 6-Gate 測試（H1/Title/Meta/JSON-LD/Canonical/Agent 404/Vary）。 |
+| **「排程監控品牌在 Google 與 AI 中的聲量」** | **模組 7：長效監控** | Cron 檢查品牌詞能見度、AI Mention/Citation 變化與過期預警。 |
 
 ---
 
-## 7 大旗艦功能模組
+## 7 大旗艦功能模組（一覽）
 
-### 模組 1：戰略規劃與 AI 引用缺口分析 (Strategy & Gap Analysis)
-1. **Ahrefs 4 大支柱**：
-   - 企業真相源（Source of Truth）：清晰不可被曲解的官方定位。
-   - 外部共識（Outside Evidence）：YouTube 逐字稿 (~0.737 相關度)、Reddit、維基與權威目錄。
-   - 抗摘要深度資產（Deep Content）：具備獨家數據、案例、計算公式之實戰內容。
-   - 平均 SOV（Share of Voice）量化追蹤。
-2. **AI Mention & Citation Gap 診斷**：
-   - 收集同業在 ChatGPT / Perplexity / AIO 的推薦情境。
-   - 鎖定「競品被提及而自家缺席」的語意缺口（Context Gaps）。
-3. **台灣在地化語意對齊（GeoLook TW）**：
-   - 繁體中文市場用語校準、消保/政府開放資料關聯、在地實體對齊。
+1. **戰略規劃與 AI 引用缺口**：Ahrefs 4 支柱、競品 AI Mention/Citation Gap、GeoLook TW 在地語意。
+2. **全站與單頁審計**：Sitemap Reconnaissance + `npx is-agentic <url> --json` → P0~P3 修正矩陣。
+3. **內容工程與 AEO**：五問 brief 與四閘門、40–60 字答案置頂、150–250 字可提取段落、高引用句型、FAQPage/Speakable、stop-slop。
+4. **SSG / SPA 架構**：JSON-LD `@graph`、Agentic Commerce Offer、SVG/Satori OG 管線。
+5. **Agent 就緒**：robots.txt 與 Content-Signal 分設、llms.txt 雙向驗證、Markdown 協商＋`Vary`、Cloudflare L0–L5、Edge 預渲染。
+6. **GSC 數據**：searchAnalytics 查詢、部署後 7/14/28 日成效位移、URL Inspection 與 Sitemap 重提。
+7. **驗證與監控**：發布前 6 道門戶（H1/Title、JSON-LD、Canonical/OG、機器可讀檔、真實 404、Vary）＋品牌與 AI 引用 Cron。
 
-### 模組 2：全站與單頁深度審計 (Full-Site & Is-Agentic Audit)
-1. **Site Reconnaissance 盤點**：
-   - 抓取全站 Sitemap（page, post, product, category），依頁面類型分類。
-   - 檢查每頁的 H1、Canonical、Meta Description、JSON-LD `@graph`。
-2. **Is-Agentic（Vercel Labs / Ora）100 分審計流程**：
-   - 執行 `npx is-agentic <url> --json`。
-   - **Essential（80 分池）**：No-JS SSR 內容（H1 + 500+ 字元）、AI 爬蟲無阻擋、真實 404/301/302、Markdown 協商帶 `Vary: Accept, Accept-Encoding`、OpenAPI 規格與 RFC 9457 結構化錯誤。
-   - **Recommended（20 分池）**：`llms.txt` 具備 `When to use this site` 指引、Sitemap 存在、內容效率 $\ge 5\%$、Rich JSON-LD、信任錨點頁（/about, /contact, /privacy）、RateLimit 標頭、100% 原生控制項與 Accessible Names。
-   - **Bonus（+5 分上限）**：MCP Apps（`ui://`）、Generative UI、無 a11y Prompt Injection。
-
-### 模組 3：內容工程、問答抽取與 AEO 改造 (Content Engineering & AEO)
-0. **AI 內容工程品質層**：
-   - 先回答 Reader、Promise、Point of view、Evidence、Information gain 五問，保存題目 brief、研究/內容缺口、提綱、證據與草稿等階段產物。
-   - 在題目、提綱、證據、草稿之間執行四個品質閘門；每閘門可繼續、退回或終止。
-   - 指定具體 owner 與第二位人類審閱者；人工審核必須能挑戰前提、追問證據、刪章節、換角度、補研究或取消發布，不只是修字。
-   - 若任務是客戶專屬診斷／提案報告，另讀取 `references/strategy/client-report-output-contract.md`；不要在本節重複整份報告規範。
-1. **倒金字塔 40–60 字答案置頂（Answer-First Principle）**：
-   - 每個 H2/H3 下方第一句話直接回答核心問題，定義事實、給出數字或結論。
-2. **Passage Citability（段落可提取性）**：
-   - 單段長度控制在 150–250 繁中字（134–167 英文單字），具備上下文獨立性，禁止無主詞的指涉代名詞。
-3. **高引用結構轉換**：
-   - 對齊「Best」(7.06%)、「How-to」(6.35%)、「Top」(5.50%)、「Vs」(4.88%) 四大高引用句型。
-4. **影音/Podcast 逐字稿 AEO 化**：
-   - 逐字稿清洗口語贅字，轉為高引用問答段落，注入 `FAQPage`、`QAPage` 與 `Speakable` 標籤。
-5. **去除 AI 套話（串接 stop-slop）**：
-   - 內容改造後自動去除樣板化廢話與機械感連接詞，保留創作者原始口吻。
-
-### 模組 4：靜態站 (SSG) 與 Web 應用 (SPA/SaaS) 架構優化
-1. **JSON-LD `@graph` 規格**：
-   - 整合 `WebSite`、`Organization` / `Person`（含 `contactPoint`、`address`、`sameAs`）、`Service` / `Product`、`BreadcrumbList`。
-2. **電商與產品頁 Agentic Commerce（UCP/ACP/AP2）**：
-   - `Product` + `Offer` 補齊 `priceCurrency`、`availability`、`hasMerchantReturnPolicy`、`shippingDetails`。
-   - 放行 AI 購物搜尋 Bot，隔離保護結帳與支付端點。
-3. **動態 OG Image 管線**：
-   - SVG 模板或 Satori 自動生成 1200×630 高清社群分享卡。
-
-### 模組 5：AI 專屬協定、機器可讀中繼與 Agent 就緒 (Agent-Readiness & Machine Interfaces)
-1. **Robots.txt 與 Content-Signal 分開設定**：
-   - `robots.txt` 僅放 `User-agent`、`Allow`、`Disallow`、`Sitemap` 等支援語法；依專案政策設定 AI 爬蟲規則。
-   - `Content-Signal: ai-train=yes, search=yes, ai-input=yes` 若採用，放在 HTTP response header，不放進 robots.txt。
-   - `Agentmap`、`llms.txt` 等連結只在實際支援且有驗證方式時宣告。
-2. **可選的 `llms.txt` 與 `llms-full.txt` 內容索引**：
-   - 若專案採用，從內容來源生成，不手動維護，並做 URL 雙向驗證。
-   - `## When to use this site` 可作為內容慣例，但不是必要標準，也不代表 Google 支援或 AI citation signal。
-3. **Markdown Content Negotiation**：
-   - 伺服器支援 `Accept: text/markdown` 回傳乾淨 Markdown。
-   - 標頭必須帶 `Vary: Accept, Accept-Encoding`，避免 CDN 快取污染。
-4. **Cloudflare Level 0–5 協定矩陣**：
-   - L1: `robots.txt`, `sitemap.xml`, RFC 8288 `Link` 標頭。
-   - L2: `Content-Signal` 標頭與 AI 爬蟲規則。
-   - L3: Markdown 內容協商與 `X-Markdown-Tokens`。
-   - L4: MCP Server Card (`/.well-known/mcp/server-card.json`)、Agent Skills Index (`/.well-known/agent-skills/index.json`)、RFC 9727 API Catalog。
-   - L5: Agentic Auth metadata (`/auth.md` & `/.well-known/oauth-protected-resource`)。
-5. **SPA 爬蟲預渲染（Edge Functions Rescue）**：
-   - 透過 Cloudflare Pages Functions 或 Edge 中間件識別 AI Bot UA，注入完整 SSR HTML 與結構化資料。
-
-### 模組 6：Search Console 數據獲取與分析反饋 (GSC Analytics & Performance Loop)
-1. **GSC API 授權與查詢**：
-   - 透過 Google ADC / OAuth 存取 Search Console API。
-   - 依維度（query, page, country, device）撈取 clicks, impressions, CTR, average position。
-2. **部署反饋時序與成效追蹤**：
-   - 記錄修改部署時間戳，追蹤 7天 / 14天 / 28天 之成效位移。
-3. **自動化 URL Inspection & Sitemap 重新提交**。
-
-### 模組 7：發布前自動化門戶驗證與長效監控 (Verification Gates & Long-term Watchdog)
-1. **發布前 6 道品質門戶（6 Quality Gates）**：
-   - **Gate 1：HTML 語意與標籤**（單一 H1、Title 長度 30-60 字元、Description 70-150 字元）。
-   - **Gate 2：結構化資料驗證**（JSON-LD 語法正確、必填欄位無缺漏）。
-   - **Gate 3：Canonical 與 OpenGraph**（Canonical 絕對路徑、OG 標籤完備）。
-   - **Gate 4：機器可讀檔案**（`robots.txt`、`sitemap.xml`、`llms.txt` 存在且格式合法）。
-   - **Gate 5：Agent-Friendly 404 驗證**（404 狀態碼真實回傳，頁面帶 Markdown 導航指示）。
-   - **Gate 6：HTTP 標頭與快取合規**（`Vary: Accept, Accept-Encoding`、安全標頭）。
-2. **品牌搜尋與 AI SOV 長效監控（Brand Watchdog Cron）**：
-   - 排程每日/每週檢查品牌詞第一頁能見度與 AI 引用提及率，異常時主動警報。
+完整 SOP：`references/modules-and-pipelines.md`。
 
 ---
 
-## 5 大標準執行管線
+## 5 大標準執行管線（一覽）
 
-### 管線 1：新網站 / 新專案建置上線 8 步標準流程（Greenfield Deployment）
-```
-1. 語意架構設計 ──> 2. 結構化資料注入 ──> 3. AI 爬蟲與權限聲明 ──> 4. llms.txt 生成
-   (HTML5 + a11y)      (JSON-LD @graph)     (robots.txt + Signals)  (含 When-to-use)
-          │                                                                 │
-          ▼                                                                 ▼
-8. 部署與 Live 抽檢 <── 7. 6-Gate 建置驗證 <── 6. L5 代理就緒套件  <── 5. Markdown 協商
-   (curl 驗證 Header)   (verify-seo 腳本)       (10大協議端點到位)      (Middleware 攔截)
-```
+1. **Greenfield 8 步**：語意架構 → JSON-LD → AI 爬蟲權限 → llms.txt → Markdown 協商 → L5 十大端點 → 6-Gate → Live 抽檢。
+2. **Retrofit 既有站**：is-agentic 基線 → robots/Content-Signal → llms.txt → 消 Soft-404 → `Vary` → 複掃 80+/90+。
+3. **Content-to-AEO**：問句 H2/H3＋答案置頂＋獨立段＋數據口徑 → stop-slop → Schema 封裝（順序不可逆）。
+4. **SPA 爬蟲救援**：Edge 攔截 → 識別 AI Bot → 直出預渲染 HTML＋JSON-LD。
+5. **CI/CD 驗證與監控**：build 後 `verify-seo.mjs` 失敗擋板；週/月 Cron 查 GSC 與 Is-Agentic。
 
-#### 新專案 Level 5 Agent-Native 一次到位清單（必備 10 大檔案與設定）
-1. **`robots.txt`**：依 RFC 9309 放置 AI crawler 的 `User-agent`、`Allow`、`Disallow` 與 `Sitemap:` 規則；`Content-Signal` 若採用，另放 HTTP response header；`Agentmap` 僅在實際支援時宣告。
-2. **`next.config.ts` / HTTP Headers**：配置 `Content-Signal`、RFC 8288 `Link` 標頭（關聯 `llms.txt`、`sitemap.xml`、`agent-skills`、`api-catalog`、`mcp-server-card`）與 `Vary: Accept, Accept-Encoding`。
-3. **`proxy.ts` / Middleware**：支援 `Accept: text/markdown` 內容協商，自動導流至 Markdown 雙生頁與 `X-Markdown-Tokens` 計算。
-4. **`/.well-known/agent-skills/index.json`**：符合 RFC v0.2.0 規範，各技能含真實 `sha256:{hex}` 與 `SKILL.md`。
-5. **`/.well-known/mcp/server-card.json` & `mcp.json`**：發布 MCP Server Card，定義 Tools、Resources、Prompts、Website 與 Repository。
-6. **`/.well-known/agent-card.json`**：發布 A2A Agent Card，宣告支援介面、傳輸協議與 AP2 擴充。
-7. **`/.well-known/ai-catalog.json`**：發布 ARD 能力清單（`urn:air:...` 格式與 `representativeQueries`）。
-8. **`/auth.md`**：發布 `# auth.md`，並於 `/.well-known/oauth-authorization-server` 宣告 `agent_auth` 匿名與斷言註冊。
-9. **`/.well-known/api-catalog`**：提供 RFC 9727 `application/linkset+json` 格式之 API 目錄。
-10. **`/.well-known/oauth-protected-resource` / `jwks.json` / WebMCP**：補齊 OAuth PRM、Bot 簽名目錄與前端 `navigator.modelContext.registerTool()`。
-
-### 管線 2：既有網站 Agentic & SEO 全面升級（Retrofit & Modernization）
-1. 跑 `npx is-agentic <url> --json` 取得基線報告與扣分清單。
-2. 補齊 `robots.txt` 放行 AI Bot 與 Content-Signal。
-3. 新增/更新 `llms.txt`，補上 `## When to use this site`。
-4. 消除 Soft-404，配置標準 Agent-Friendly 404。
-5. 配置 CDN `Vary: Accept, Accept-Encoding` 標頭。
-6. 重新掃描 `npx is-agentic <url>` 驗證分數提升至 80+ / 90+。
-
-### 管線 3：內容文章與影音逐字稿轉 AEO 高引用（Content-to-AEO Pipeline）
-```
-[原始文稿 / 影音逐字稿]
-       │
-       ▼
-[AEO 改造] ────> 提取核心問句 H2/H3 + 首句 40-60 字結論直給 + 150-250 字獨立段落 + 數據口徑
-       │
-       ▼
-[stop-slop] ───> 去除 AI 套話廢話，還原作者真實語氣
-       │
-       ▼
-[Schema 封裝] ─> 注入 FAQPage / QAPage / Speakable JSON-LD
-```
-
-### 管線 4：SPA / Client-Side 爬蟲預渲染救援（SPA Crawlability Rescue）
-1. 在 Cloudflare Pages Functions / Next.js Middleware 攔截請求。
-2. 依 `User-Agent` 識別 AI Bot（`ChatGPT-User`, `ClaudeBot`, `ora-agent` 等）。
-3. Bot 請求：由 Edge 端直出預渲染之純 HTML 正文 + JSON-LD（避免空白 App Shell）。
-4. 一般使用者：正常載入 Client-side SPA。
-
-### 管線 5：CI/CD 自動化驗證與長效監控（Verification & Watchdog）
-1. 在 build 後自動執行 `verify-seo.mjs`，未通過直接擋下 build。
-2. 配置週/月 Cron 定期查詢 GSC API 與執行 Is-Agentic 掃描，產出健康指標。
+步驟全文與圖解：`references/modules-and-pipelines.md`。
 
 ---
 
 ## 防錯原則與高壓陷阱指南
 
-1. **全站優先於單頁**：收到 URL 審計需求時，永遠先看全站結構與 Sitemap，不可只看單一 URL。
-2. **語氣優先於模板**：做文章 GEO/AEO 改造時，若結構化會破壞創作者原始風格，以保留特色口吻為優先。
-3. **管線順序不可逆**：內容改造必須先做 AEO 證據與結構重構，再跑 `stop-slop`；反過來會使事實標籤被誤刪。
-4. **嚴禁虛構數據**：缺少統計或來源時僅能標註 `[建議補充數據口徑]`，絕對不可捏造研究機構或數字。
-   - 人工審核不是安全豁免；無來源數字不可進稿，必須退回補證據或終止發布。
-5. **Vary 標頭必不可少**：凡有支援 `Accept: text/markdown` 之站點，回應標頭必須帶 `Vary: Accept, Accept-Encoding`，否則 CDN 會將快取的 HTML 回給 Agent 或反之。
-6. **拒絕 Soft-404**：不存在的路由必須回傳真正的 404/410 HTTP 狀態碼，不可用 200 SPA App Shell 混充。
-7. **程式碼必須可直接落地**：任何審計報告必須附帶可直接複製貼上的 JSON-LD、robots.txt、_headers 或修復代碼。
-8. **警惕 AEO 泡沫與內文過度優化反噬（Anti-Bubble & SAGEO Evidence）**：
-   - 獨立學術批判（arXiv:2607.14035）證實 GEO 宣稱之 ROI 遠超學術實證；C-SEO Bench 54 種戰術僅 3 種正向（Q&A 結構 0 正向）；SAGEO Arena 實測針對內文優化反而使引用頻率**降低 6%–9%**。嚴禁機械式過度結構化或為 AI 扭曲正文。
-   - **模型更新波動與演算法懲罰**：AEO 策略受模型權重更新影響極大（如 Reddit 於 ChatGPT 引用因更新一週暴跌 95%）。Lily Ray 警告：為迎合 GEO 採取的規模化生成、人造新鮮度與 AI 摘要按鈕，往往在 Google 後續演算法更新中遭受斷崖式降權。始終以真實深度內容與站外自然提及（Earned Media）為本。
-9. **首屏物理擠壓與 1% 點擊率的預期管理**：
-   - AIO 平均高度達 ~1200px（超過 900px 標準首屏），即便是 #1 自然排名也已被推至首屏折疊線以下。
-   - Pew 70K 搜尋實測顯示，AIO 出現時傳統結果點擊率自 15% 降至 8%（-47% 相對降幅），且僅 1% 使用者會點擊 AIO 區塊內的來源連結；但 AI 轉介訪客轉換率為傳統自然流量的 4.4 倍（Semrush）。追求高意圖轉換，而非期待 AI 帶回大流量。
+1. **全站優先於單頁**：先看全站結構與 Sitemap，不只看單一 URL。
+2. **語氣優先於模板**：結構化若破壞原始風格，以保留口吻為先。
+3. **管線順序不可逆**：先 AEO 證據與結構重構，再跑 stop-slop。
+4. **嚴禁虛構數據**：缺來源只標 `[建議補充數據口徑]` 或退回補證據；人工審核不是安全豁免。
+5. **Vary 標頭必不可少**：支援 `Accept: text/markdown` 必帶 `Vary: Accept, Accept-Encoding`。
+6. **拒絕 Soft-404**：不存在路由回真實 404/410，不用 200 App Shell 混充。
+7. **程式碼必須可落地**：審計報告附可直接貼上的 JSON-LD、robots.txt、_headers 修復代碼。
+8. **警惕 AEO 泡沫與過度優化反噬**：學術與實測（arXiv:2607.14035、C-SEO Bench、SAGEO Arena）顯示多數戰術無效甚至使引用 −6~9%；規模化生成與人造新鮮度招致降權。以真實深度內容與站外自然提及為本。
+9. **首屏擠壓與 1% 點擊**：AIO ~1200px 把 #1 推到折疊線下；AIO 出現時傳統點擊 15%→8%，僅 1% 點 AIO 來源；但 AI 轉介轉換率為傳統 4.4 倍（Semrush）。追求高意圖轉換，不期待 AI 大流量。
+
+完整論證：`references/pitfalls.md`。
 
 ---
 
+## 台灣在地化環境與法規適配（Taiwan Localization Standards）
+
+`lang="zh-TW"`、`og:locale=zh_TW`、`Asia/Taipei`、`TWD`；統編／PostalAddress／LINE `sameAs` 實體錨定；Threads、Dcard、PTT、104 在地證據；ECPay／NewebPay 金流與消保法 7 日猶豫期；繁中用語標準。完整規範：`references/taiwan-localization.md`。
 
 ---
-
-## 🇹🇼 台灣在地化環境與法規適配規範（Taiwan Localization Standards）
-
-為確保網站在台灣市場、在地搜尋引擎與繁體中文 AI 代理中具備最高可信度與合規性，必須嚴格落實以下在地化規範：
-
-### 1. 語言、時區與幣別標記
-- **HTML 語系**：一律採用 `<html lang="zh-TW">`，嚴禁使用 `zh-CN` 或無地區碼的泛 `zh`。
-- **OpenGraph**：`<meta property="og:locale" content="zh_TW">`，若有英文版搭配 `<meta property="og:locale:alternate" content="en_US">`。
-- **JSON-LD 語系**：在 `@graph` 宣告 `"inLanguage": "zh-TW"`。
-- **時區與時間戳**：排程、活動與發布時間一律標註 `Asia/Taipei`（UTC+08:00，如 `2026-08-24T10:00:00+08:00`）。
-- **幣別標記**：電商與報價 Schema 之 `priceCurrency` 預設為 `"TWD"`，前端顯示慣例為 `NT$ 1,200` 或 `新台幣 1,200 元`。
-
-### 2. 台灣商業實體與組織結構化（Entity Anchoring）
-- **統一編號與稅籍**：在 `Organization` / `LocalBusiness` 中注入 `"taxID": "83xxxxxx"`（台灣 8 碼統編）。
-- **標準台灣地址（PostalAddress）**：
-  ```json
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "忠孝東路四段310號11樓",
-    "addressLocality": "大安區",
-    "addressRegion": "台北市",
-    "postalCode": "106",
-    "addressCountry": "TW"
-  }
-  ```
-- **在地客服與通訊管道**：
-  - 市話格式：`+886-2-xxxx-xxxx`（台北/基隆）、`+886-4-xxxx-xxxx`（台中）、`+886-7-xxxx-xxxx`（高雄）。
-  - 手機/簡訊：`+886-9xx-xxx-xxx` 或 `09xx-xxx-xxx`。
-  - LINE 官方帳號：將 `https://line.me/R/ti/p/@yourbrand` 寫入 `sameAs` 與 `contactPoint`。
-
-### 3. 台灣在地搜尋與社群證據矩陣
-AI 引擎在評估台灣本土品牌與主題權威（Topic Authority）時，高度權重依賴以下在地信任源：
-- **主要搜尋環境**：Google 台灣 (`google.com.tw`)、Yahoo 奇摩搜尋。
-- **高權重社群與論壇證據**：Threads（台灣極高活躍度）、Facebook 粉專/社團、Dcard、PTT（批踢踢實業坊）、Mobile01、YouTube。
-- **在地徵才與企業信用**：104 人力銀行、Yourator 職缺頁面連結。
-
-### 4. 台灣電商、物流與消保法規遵循
-- **金流串接宣告**：支援台灣主流金流（綠界科技 ECPay、藍新金流 NewebPay、LINE Pay、街口支付、台灣 Pay）。
-- **超商與在地物流**：7-ELEVEN / 全家便利商店店到店、黑貓宅急便、郵局快捷。
-- **消保法第 19 條退換貨標記（hasMerchantReturnPolicy）**：
-  - 實體商品：依消保法宣告 7 日猶豫期（鑑賞期）。
-  - 數位內容 / 客製化商品：依《通訊交易解除權合理例外情事適用準則》在 Schema 中明確標註排除條款（如 `merchantReturnDays: 0` 並附說明網址），避免 AI 購物代理誤判。
-
-### 5. 繁體中文技術與商業用語標準
-全站文案、Schema 與 Markdown 一律遵循台灣在地慣用術語：
-- `程式碼 / 程式`（非 代碼）、`資訊 / 訊息`（非 信息）、`專案`（非 項目）
-- `伺服器`（非 服務端）、`介面 / 接口`（非 接口）、`快取`（非 緩存）
-- `預設`（非 默認）、`演算法`（非 算法）、`資料 / 資料庫`（非 數據/數據庫）
-- `套件 / 模組`（非 包/插件）、`使用者`（非 用戶）、`解析度`（非 分辨率）
 
 ## 擴充參考資源索引（Extended References Map）
 
-本 Skill 之詳細代碼範本與實戰手冊已收錄於 `references/` 目錄：
-- **戰略與理論 (`references/strategy/`)**：`modern-seo-strategy-spec.md`, `modern-seo-strategy-ahrefs-geo-strategy-2026.md`, `modern-seo-strategy-ai-search-ecosystem-2026.md`, `modern-seo-strategy-aeo-playbook-2026.md`, `modern-seo-strategy-agentic-commerce-2026.md`, `modern-seo-strategy-darkseoking-strategy.md`, `modern-seo-strategy-seo-geo-deep-research-2026.md`, `modern-seo-strategy-seo-geo-key-data-2026-08.md`, `modern-seo-strategy-tool-ecosystem-2026-08.md`, `ai-gap-analysis-spec.md`, `ai-content-engineering-quality.md`, `client-report-output-contract.md`, `geolook-tw-geolook-methodology.md`, `geolook-tw-spec.md`
-- **全站審計手冊 (`references/audit/`)**：`site-seo-geo-audit-spec.md`, `site-seo-geo-audit-portfolio-ssg-execution.md`
-- **AEO 內容與影音 (`references/aeo-content/`)**：`geo-content-reformatting-spec.md`, `video-transcript-aeo-spec.md`, `geo-content-reformatting-your-demo-implementation.md`
-- **Web 應用與 SSG (`references/web-app-ssg/`)**：`static-site-geo-spec.md`, `webapp-geo-optimization-spec.md`, `agentic-commerce-readiness-spec.md`, `static-site-geo-astro-portfolio-implementation.md`, `static-site-geo-build-output-verification.md`, `static-site-geo-event-landing-page-geo.md`, `static-site-geo-og-image-generation.md`, `static-site-geo-og-image-svg-pipeline.md`, `webapp-geo-optimization-your-marketplace-implementation.md`
-- **Agent 就緒與協定 (`references/agent-readiness/`)**：`cloudflare-agent-readiness-spec.md`, `cloudflare-agent-readiness-guide.md`, `cloudflare-agent-readiness-protocol-specs.md`, `llms-txt-generation-spec.md`, `llms-txt-generation-audit.md`, `llms-txt-generation-build.md`, `llms-txt-generation-guide.md`, `llms-txt-generation-your-app-llms.md`, `llms-txt-generation-llms-txt.md`, `llms-txt-generation-next-js-app-router.md`, `llms-txt-generation-yotron-llms-route.md`, `markdown-twin-aeo-spec.md`, `markdown-twin-aeo-committed-twin-static-cfpages.md`, `markdown-twin-aeo-guide.md`, `markdown-twin-aeo-html-md.md`, `markdown-twin-aeo-pitfalls.md`, `markdown-twin-aeo-production.md`, `markdown-twin-aeo-spec-dualmark-agent-readability.md`, `markdown-twin-aeo-use.md`, `spa-geo-crawlability-spec.md`, `spa-geo-crawlability-adding-public-route-checklist.md`, `spa-geo-crawlability-cf-pages-functions-pattern.md`, `spa-geo-crawlability-deploy-and-production-verification.md`, `spa-geo-crawlability-your-app-cloudflare-implementation.md`, `spa-geo-crawlability-middleware-content-wiring.md`
-- **GSC 數據運維 (`references/gsc-data/`)**：`google-search-console-api-spec.md`, `google-search-console-api-oauth-loopback-flow.md`, `google-search-console-api-gsc-deployment-feedback-timing.md`, `google-search-console-api-gsc-health-check.md`
-- **驗證與監控 (`references/verification/`)**：`static-site-seo-build-verification-spec.md`, `brand-search-monitoring-spec.md`, `brand-search-monitoring-brand-monitor-cron-yotron-2026-08.md`, `static-site-seo-build-verification-aeo-description-extraction-one-filter-rule-for-all-surfaces.md`, `static-site-seo-build-verification-astro-inline-script-pitfalls-empirically-verified-on-astro-6.md`, `static-site-seo-build-verification-content-entry-audit-your-brand.md`, `static-site-seo-build-verification-llms-txt-generate-from-source-never-hand-maintain.md`, `static-site-seo-build-verification-new-content-entry-audit-read-only-acceptance-check.md`, `static-site-seo-build-verification-nextjs-app-router-live-audit.md`, `static-site-seo-build-verification-post-deploy-live-verification-deployed-site-not-just-dist.md`, `static-site-seo-build-verification-scripts.md`, `static-site-seo-build-verification-spa-server-side-seo-audit.md`, `static-site-seo-build-verification-verification-checklist-run-don-t-eyeball.md`
+兩階段索引：先依下表找到子目錄，再讀 `references/INDEX.md` 取得完整檔名。
+
+| 目錄 | 內容 |
+|---|---|
+| `references/strategy/` | 戰略規格、Ahrefs GEO 策略、AI 內容品質層、客戶報告契約、GeoLook TW |
+| `references/audit/` | 全站 SEO/GEO 審計規格與執行手冊 |
+| `references/aeo-content/` | AEO 內容改寫、影音逐字稿、含圖報告實作 |
+| `references/web-app-ssg/` | 靜態站/Web 應用 Geo、Agentic Commerce、OG 管線 |
+| `references/agent-readiness/` | Cloudflare L0–L5、llms.txt、Markdown Twin、SPA 可抓取性 |
+| `references/gsc-data/` | GSC API 規格、OAuth loopback、部署反饋時序 |
+| `references/verification/` | 6 道建置驗證、品牌監控、部署後 Live 驗收 |
+
+運作文件：`references/geoflow-operating-model.md`、`references/modules-and-pipelines.md`、`references/taiwan-localization.md`、`references/pitfalls.md`。
