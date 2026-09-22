@@ -88,6 +88,16 @@ cp -r skills/* ~/.hermes/skills/
 
 ---
 
+## Standalone Skills
+
+Single-purpose skills not belonging to any flagship suite:
+
+| Skill | Description |
+|---|---|
+| [sync-lark-wiki](skills/automation/sync-lark-wiki/SKILL.md) | Safely sync local Markdown to an existing Lark Wiki: per-user OAuth, staged scopes, revision-aware preview, in-place overwrite, read-back, and permission troubleshooting |
+
+---
+
 ## License
 
 Released under the [MIT License](LICENSE).

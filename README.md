@@ -88,6 +88,16 @@ cp -r skills/* ~/.hermes/skills/
 
 ---
 
+## 獨立技能（Standalone Skills）
+
+不屬於任何旗艦工作台的單點技能：
+
+| Skill | 說明 |
+|---|---|
+| [sync-lark-wiki](skills/automation/sync-lark-wiki/SKILL.md) | 安全同步本機 Markdown 到既有 Lark Wiki：per-user OAuth、分階段 scope、revision-aware preview、原地覆寫、read-back 與權限排錯 |
+
+---
+
 ## 授權條款
 
 本專案採用 [MIT License](LICENSE) 授權開源。
